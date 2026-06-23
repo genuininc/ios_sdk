@@ -1,0 +1,22 @@
+{
+  "id": "group_pill_pager_item",
+  "type": "group_pill",
+  "content_key_map": {
+    "name":          "group.name",
+    "is_subscribed": "group.is_subscribed"
+  },
+  "config": {
+    "show_close": false,
+    "show_subscribe": false
+  },
+  "layout": {
+    "spacing": 4,
+    "icon": { "size": { "width": 24, "height": 24 } },
+    "text": { "text_style": "body2semibold" },
+    "subscribe_button": {
+      "size": { "width": 36, "height": 24 },
+      "icon": { "size": { "width": 14, "height": 14 } }
+    },
+    "close_button": { "size": { "width": 16, "height": 16 } }
+  }
+}

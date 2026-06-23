@@ -1,0 +1,1312 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name _FeedCore
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
+import AVFoundation
+import Combine
+import Core
+import CoreGraphics
+import DeveloperToolsSupport
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import _WebKit_SwiftUI
+public struct BGUIFeedListModel : Swift.Decodable {
+  public let placementId: Swift.String?
+  public let styleId: Swift.String?
+  public let embedId: Swift.String?
+  public let uniqueId: Swift.String?
+  public let ssoToken: Swift.String?
+  public let params: [Swift.String : Core.AnyCodable]?
+  public let contextualParams: [Swift.String : Core.AnyCodable]?
+  public init(placementId: Swift.String? = nil, styleId: Swift.String? = nil, embedId: Swift.String? = nil, uniqueId: Swift.String? = nil, ssoToken: Swift.String? = nil, params: [Swift.String : Core.AnyCodable]? = nil, contextualParams: [Swift.String : Core.AnyCodable]? = nil)
+  public init(from decoder: any Swift.Decoder) throws
+}
+public class BGFeedContainerUIRenderer : Core.BGUIRenderer {
+  public init(source: _FeedCore.BGRendererSource? = nil)
+  @objc deinit
+}
+public class BGFeedUIRenderer : Core.BGUIRenderer {
+  public init(fallbackConfig: _FeedCore.BGComponentFallbackConfig? = nil)
+  @objc deinit
+}
+public enum BGFeedSource : Swift.Equatable {
+  case brand(menuItemId: Swift.String, apiUrl: Swift.String, apiType: Swift.Int?)
+  case community(communityId: Swift.String, apiUrl: Swift.String)
+  case group(groupId: Swift.String, apiUrl: Swift.String)
+  public var apiUrl: Swift.String {
+    get
+  }
+  public func globalId(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String = "") -> Swift.String
+  public func globalId(embedId: Swift.String, uniqueId: Swift.String = "") -> Swift.String
+  public static func == (a: _FeedCore.BGFeedSource, b: _FeedCore.BGFeedSource) -> Swift.Bool
+}
+public enum BGFeedTarget : Swift.Equatable {
+  case placement(placementId: Swift.String, styleId: Swift.String)
+  case embed(embedId: Swift.String)
+  public var placementId: Swift.String? {
+    get
+  }
+  public var styleId: Swift.String? {
+    get
+  }
+  public var embedId: Swift.String? {
+    get
+  }
+  public var analyticsRecordScreen: Swift.String {
+    get
+  }
+  public static func == (a: _FeedCore.BGFeedTarget, b: _FeedCore.BGFeedTarget) -> Swift.Bool
+}
+public struct BGResolvedFeedAttributes : Core.BGFeedAttributes {
+  public let target: _FeedCore.BGFeedTarget
+  public let uniqueId: Swift.String?
+  public let ssoToken: Swift.String?
+  public let params: [Swift.String : Any]?
+  public let contextualParams: [Swift.String : Any]?
+  public let containerConfiguration: Core.BGContainerConfiguration
+  public init(target: _FeedCore.BGFeedTarget, uniqueId: Swift.String? = nil, ssoToken: Swift.String? = nil, params: [Swift.String : Any]? = nil, contextualParams: [Swift.String : Any]? = nil, containerConfiguration: Core.BGContainerConfiguration = BGContainerConfiguration())
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgResolvedFeedAttributes: _FeedCore.BGResolvedFeedAttributes? {
+    get
+    set
+  }
+}
+public enum BGFeedComponentType : Swift.String {
+  case feed
+  case likeButton
+  case profile
+  case shareButton
+  case fullscreenButton
+  case muteUnmuteButton
+  case playPauseButton
+  case linkoutCtaButton
+  case linkout
+  case videoPlayer
+  case videoSlider
+  case sectionDetail
+  case videoDetails
+  case socialInteractionStats
+  case profilePill
+  case communityPill
+  case groupPill
+  case fsLikeButton
+  case fsShareButton
+  case fsCommentButton
+  case fsMoreButton
+  case fsRepostButton
+  case videoProgress
+  case videoDetail
+  case repostedBy
+  case fsLinkout
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum IABTagError : Swift.Error {
+  case invalidTagID
+  case networkError(any Swift.Error)
+  case invalidResponse
+  case decodingError(any Swift.Error)
+  case apiError(code: Swift.String, message: Swift.String)
+  case adsManagerUnavailable
+}
+public struct IABReel : Swift.Decodable {
+  public let type: Swift.String
+  public let videoAd: [_FeedCore.IABVideoAd]?
+  public let id: Swift.String?
+  public let community: _FeedCore.IABReelCommunity?
+  public let config: _FeedCore.IABReelConfig?
+  public let cta: _FeedCore.IABReelCTA?
+  public let loop: _FeedCore.IABReelLoop?
+  public let ogDetails: _FeedCore.IABReelOGDetails?
+  public let owner: _FeedCore.IABReelOwner?
+  public let video: _FeedCore.IABReelVideo?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABVideoAd : Swift.Decodable {
+  public let adsURL: Swift.String
+  public let url: Swift.String
+  public let cpm: Swift.Int
+  public let platform: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension _FeedCore.IABReel {
+  public func resolvingAdURLs(_ transform: (Swift.String) -> Swift.String) -> _FeedCore.IABReel
+}
+extension _FeedCore.IABVideoAd {
+  public func resolvingAdsURL(_ transform: (Swift.String) -> Swift.String) -> _FeedCore.IABVideoAd
+}
+public struct IABReelCommunity : Swift.Decodable {
+  public let dp: Swift.String
+  public let handle: Swift.String
+  public let name: Swift.String
+  public let isPrivate: Swift.Bool
+  public let shareString: Swift.String
+  public let slug: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABReelConfig : Swift.Decodable {
+  public let sizeMode: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABReelCTA : Swift.Decodable {
+  public let adCopy: Swift.String?
+  public let hashtags: [Swift.String]?
+  public let link: Swift.String?
+  public let showURLMeta: Swift.Bool?
+  public let text: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABReelLoop : Swift.Decodable {
+  public let description: Swift.String
+  public let name: Swift.String
+  public let previewImage: Swift.String
+  public let isPrivate: Swift.Bool
+  public let shareString: Swift.String
+  public let slug: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABReelOGDetails : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABReelOwner : Swift.Decodable {
+  public let isAvatar: Swift.Bool
+  public let nickname: Swift.String
+  public let profileImage: Swift.String
+  public let shareString: Swift.String
+  public let username: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABReelVideo : Swift.Decodable {
+  public let id: Swift.String
+  public let url: Swift.String
+  public let thumbnail: Swift.String
+  public let description: Swift.String
+  public let link: Swift.String
+  public let slug: Swift.String
+  public let shareString: Swift.String
+  public let metadata: _FeedCore.IABReelVideoMetadata
+  public let noOfComments: Swift.Int
+  public let noOfSparks: Swift.Int
+  public let createdAt: Swift.String
+  public let updatedAt: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABReelVideoMetadata : Swift.Decodable {
+  public let aspectRatio: Swift.String
+  public let duration: Swift.String
+  public let resolution: Swift.String
+  public let size: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct IABAudioCreative : Swift.Sendable {
+  public let audioURL: Foundation.URL
+  public let videoURL: Foundation.URL?
+  public let backgroundColorHex: Swift.String
+  public let brandLogoURL: Foundation.URL?
+  public let brandName: Swift.String
+  public let advertiserDomain: Swift.String
+  public let durationSeconds: Swift.Double
+  public let transcript: [Core.BGCaptionWord]
+  public init(audioURL: Foundation.URL, videoURL: Foundation.URL?, backgroundColorHex: Swift.String, brandLogoURL: Foundation.URL?, brandName: Swift.String, advertiserDomain: Swift.String, durationSeconds: Swift.Double, transcript: [Core.BGCaptionWord])
+}
+public enum IABAdKind {
+  case sponsored
+  case audioAd
+  public static func == (a: _FeedCore.IABAdKind, b: _FeedCore.IABAdKind) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct IABFeedItemPayload {
+  public let kind: _FeedCore.IABAdKind
+  public let mediaItem: _FeedCore.IABReel?
+  public let adURLs: [Swift.String]
+  public let creative: _FeedCore.IABAudioCreative?
+  public init(kind: _FeedCore.IABAdKind, mediaItem: _FeedCore.IABReel? = nil, adURLs: [Swift.String] = [], creative: _FeedCore.IABAudioCreative? = nil)
+}
+public protocol IAdsManager {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func loadAds(tagID: Swift.String, playerSize: CoreFoundation.CGSize) async throws -> [_FeedCore.IABReel]
+  #endif
+  @_Concurrency.MainActor func makeAdPlayer(videoAds: [_FeedCore.IABVideoAd], viewController: UIKit.UIViewController) -> any _FeedCore.IAdsPlayerView
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func loadAudioCreative(adsURL: Swift.String) async throws -> _FeedCore.IABAudioCreative
+  #endif
+}
+@_Concurrency.MainActor public protocol IAdsPlayerView : UIKit.UIView {
+  @_Concurrency.MainActor var onAllAdsFailed: (() -> Swift.Void)? { get set }
+  @_Concurrency.MainActor var onAdStarted: (() -> Swift.Void)? { get set }
+  @_Concurrency.MainActor var onAdCompleted: (() -> Swift.Void)? { get set }
+  @_Concurrency.MainActor func startWaterfall()
+  @_Concurrency.MainActor func pause()
+  @_Concurrency.MainActor func resume()
+  @_Concurrency.MainActor func destroy()
+}
+public enum IABAdFormat {
+  case banner300x100
+  case mediumRectangle300x250
+  case banner300x50
+  case collapsibleBanner
+  public static func == (a: _FeedCore.IABAdFormat, b: _FeedCore.IABAdFormat) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_Concurrency.MainActor @preconcurrency public struct IABAdView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(tagID: Swift.String, format: _FeedCore.IABAdFormat = .banner300x100, delegate: (any _FeedCore.IABAdDelegate)? = nil)
+  @_Concurrency.MainActor @preconcurrency public init(adsURL: Swift.String, format: _FeedCore.IABAdFormat = .banner300x100, delegate: (any _FeedCore.IABAdDelegate)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore9IABAdViewV4bodyQrvp", 0) __
+}
+public struct IABAdUnitInfo {
+  public let unitID: Swift.String
+  public let tagID: Swift.String?
+  public let format: _FeedCore.IABAdFormat
+}
+public struct IABMediaInfo {
+  public let unit: _FeedCore.IABAdUnitInfo
+  public let index: Swift.Int
+  public let mediaCount: Swift.Int
+  public let mediaID: Swift.String
+  public let kind: _FeedCore.IABAdKind
+  public let creative: _FeedCore.IABAudioCreative?
+  public let mediaItem: _FeedCore.IABReel?
+}
+public enum IABCollapseReason {
+  case auto
+  case user
+  public static func == (a: _FeedCore.IABCollapseReason, b: _FeedCore.IABCollapseReason) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol IABAdDelegate : AnyObject {
+  func iabAdUnitDidStartLoading(_ unit: _FeedCore.IABAdUnitInfo)
+  func iabAdUnitDidLoad(_ unit: _FeedCore.IABAdUnitInfo, mediaCount: Swift.Int)
+  func iabAdUnitDidReceiveNoAds(_ unit: _FeedCore.IABAdUnitInfo)
+  func iabAdUnitDidFailToLoad(_ unit: _FeedCore.IABAdUnitInfo, error: _FeedCore.IABTagError)
+  func iabAdMediaDidAppear(_ mediaItem: _FeedCore.IABMediaInfo)
+  func iabAdMediaDidStart(_ mediaItem: _FeedCore.IABMediaInfo)
+  func iabAdMediaDidFailToFill(_ mediaItem: _FeedCore.IABMediaInfo)
+  func iabAdMediaDidComplete(_ mediaItem: _FeedCore.IABMediaInfo)
+  func iabAdMediaDidChange(from previous: _FeedCore.IABMediaInfo?, to current: _FeedCore.IABMediaInfo)
+  func iabAdAllMediaDidComplete(_ unit: _FeedCore.IABAdUnitInfo)
+  func iabAdMuteStateDidChange(_ mediaItem: _FeedCore.IABMediaInfo, isMuted: Swift.Bool)
+  func iabAdWatchTapped(_ mediaItem: _FeedCore.IABMediaInfo)
+  func iabAdCTATapped(_ mediaItem: _FeedCore.IABMediaInfo, url: Foundation.URL)
+  func iabAdDidEnterFullscreen(_ mediaItem: _FeedCore.IABMediaInfo)
+  func iabAdDidExitFullscreen(_ mediaItem: _FeedCore.IABMediaInfo)
+  func iabAdDidCollapse(_ mediaItem: _FeedCore.IABMediaInfo, reason: _FeedCore.IABCollapseReason)
+  func iabAdDidExpand(_ mediaItem: _FeedCore.IABMediaInfo)
+}
+extension _FeedCore.IABAdDelegate {
+  public func iabAdUnitDidStartLoading(_: _FeedCore.IABAdUnitInfo)
+  public func iabAdUnitDidLoad(_: _FeedCore.IABAdUnitInfo, mediaCount _: Swift.Int)
+  public func iabAdUnitDidReceiveNoAds(_: _FeedCore.IABAdUnitInfo)
+  public func iabAdUnitDidFailToLoad(_: _FeedCore.IABAdUnitInfo, error _: _FeedCore.IABTagError)
+  public func iabAdMediaDidAppear(_: _FeedCore.IABMediaInfo)
+  public func iabAdMediaDidStart(_: _FeedCore.IABMediaInfo)
+  public func iabAdMediaDidFailToFill(_: _FeedCore.IABMediaInfo)
+  public func iabAdMediaDidComplete(_: _FeedCore.IABMediaInfo)
+  public func iabAdMediaDidChange(from _: _FeedCore.IABMediaInfo?, to _: _FeedCore.IABMediaInfo)
+  public func iabAdAllMediaDidComplete(_: _FeedCore.IABAdUnitInfo)
+  public func iabAdMuteStateDidChange(_: _FeedCore.IABMediaInfo, isMuted _: Swift.Bool)
+  public func iabAdWatchTapped(_: _FeedCore.IABMediaInfo)
+  public func iabAdCTATapped(_: _FeedCore.IABMediaInfo, url _: Foundation.URL)
+  public func iabAdDidEnterFullscreen(_: _FeedCore.IABMediaInfo)
+  public func iabAdDidExitFullscreen(_: _FeedCore.IABMediaInfo)
+  public func iabAdDidCollapse(_: _FeedCore.IABMediaInfo, reason _: _FeedCore.IABCollapseReason)
+  public func iabAdDidExpand(_: _FeedCore.IABMediaInfo)
+}
+public enum BGLinkoutAnalyticsContext {
+  public static let defaultContentCategory: Swift.String
+}
+public struct BGComponentFallbackConfig {
+  public var videoDetails: _FeedCore.BGVideoDetailsConfig?
+  public var sectionDetails: _FeedCore.BGSectionDetailConfig?
+  public var socialInteractionCounts: _FeedCore.BGSocialInteractionCountsConfig?
+  public var likeButton: _FeedCore.BGLikeButtonConfig?
+  public init(videoDetails: _FeedCore.BGVideoDetailsConfig? = nil, sectionDetails: _FeedCore.BGSectionDetailConfig? = nil, socialInteractionCounts: _FeedCore.BGSocialInteractionCountsConfig? = nil, likeButton: _FeedCore.BGLikeButtonConfig? = nil)
+}
+public enum BGRendererSource {
+  case placement(_FeedCore.BGPlacementConfigureView?)
+  case embed(_FeedCore.BGEmbedModel?)
+}
+public struct BGEmbedModel : Core.BGData {
+  public var id: Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+  public typealias ID = Swift.String
+}
+public struct BGEmbedCustomization : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGFeedModel : Swift.Codable, Core.BGData {
+  public var id: Swift.String {
+    get
+  }
+  public typealias ID = Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGWallMenuOption : Swift.Identifiable {
+  public let id: Swift.String
+  public let title: Swift.String
+  public let icon: Swift.String?
+  public typealias ID = Swift.String
+}
+public enum BGViewTypeLayout : Swift.String, Swift.Codable {
+  case carousel
+  case grid
+  case feed
+  case standardWall
+  case dynamic
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum BGCardLayout : Swift.Int, Swift.Codable {
+  case `default`
+  case ih
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct BGPlacementConfigureView : Swift.Decodable {
+  public var placementCardLayoutId: _FeedCore.BGCardLayout?
+  public var placementCardSectionLayoutId: _FeedCore.BGCardLayout?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGVideo : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGLinkout : Swift.Codable {
+  public let ctaLink: Swift.String?
+  public let ctaText: Swift.String?
+  public let links: [_FeedCore.BGLinkoutLink]?
+  public let style: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGLinkoutLink : Swift.Codable {
+  public let image: Swift.String?
+  public let link: Swift.String?
+  public let position: Swift.Int?
+  public let title: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGLinkoutLinkMeta : Swift.Codable {
+  public let title: Swift.String?
+  public let description: Swift.String?
+  public let favicon: Swift.String?
+  public let thumbnailUrl: Swift.String?
+  public let brandName: Swift.String?
+  public let brandDomainUrl: Swift.String?
+  public let prices: [Swift.Int]?
+  public let ratings: Swift.Double?
+  public let likes: Swift.Int?
+  public let downloads: Swift.Int?
+  public let phoneNumber: Swift.String?
+  public let address: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol IFeedNavigationManager {
+  func openBrandProfile()
+  func navigateToFullscreen(_ request: _FeedCore.BGFullscreenNavigationRequest)
+  func presentLinkout(url: Foundation.URL)
+  func dismiss()
+}
+public struct BGFullscreenNavigationRequest {
+  public var destination: SwiftUICore.AnyView
+  public var sourceFrame: () -> CoreFoundation.CGRect
+  public var heroContent: SwiftUICore.AnyView?
+  public var config: Core.BGHeroTransitionConfig
+  public var onClose: (() -> Swift.Void)?
+  public var onWillClose: (() -> Swift.Void)?
+  public init(destination: SwiftUICore.AnyView, sourceFrame: @escaping () -> CoreFoundation.CGRect, heroContent: SwiftUICore.AnyView? = nil, config: Core.BGHeroTransitionConfig = .init(enableDragToDismiss: true), onClose: (() -> Swift.Void)? = nil, onWillClose: (() -> Swift.Void)? = nil)
+}
+public struct BGLinkoutEntry : Core.BGData {
+  public let id: Swift.String
+  public let linkouts: [_FeedCore.BGLinkout]
+  public let inAppBrowser: Swift.Bool
+  public var metaByURL: [Swift.String : _FeedCore.BGLinkoutLinkMeta]
+  public var metaLoaded: Swift.Bool
+  public typealias ID = Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum BGSparkContentType : Swift.Int {
+  case publicFeed
+  case feed
+  case comment
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_Concurrency.MainActor @preconcurrency public struct BGLikeButton : SwiftUICore.View, Core.BGTrackableButton {
+  @_Concurrency.MainActor @preconcurrency public var trackingName: Swift.String
+  @_Concurrency.MainActor @preconcurrency public var trackingProperties: [Swift.String : Any]? {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public init(isLiked: Swift.Bool = false, count: Swift.Int = 0, likedImageURL: Foundation.URL? = nil, unlikedImageURL: Foundation.URL? = nil, loginData: [Swift.String : Any] = [:], onTap: ((Swift.Bool) -> Swift.Void)? = nil, component: Core.BGComponentModel? = nil, layout: _FeedCore.BGLikeButtonLayout? = nil, config: _FeedCore.BGLikeButtonConfig? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore12BGLikeButtonV4bodyQrvp", 0) __
+}
+public struct BGLikeButtonConfig : Swift.Decodable {
+  public var showTextLabel: Swift.Bool?
+  public init(showTextLabel: Swift.Bool)
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class BGLikeButtonLayout : Core.BGCommonLayout {
+  final public let icon: Core.BGImageLayout?
+  final public let text: Core.BGTextLayout?
+  public init(padding: Core.Padding? = nil, background: Core.BGBackground? = nil, cornerRadius: Core.CornerRadius? = nil, border: Core.Border? = nil, size: Core.Size? = nil, icon: Core.BGImageLayout? = nil, text: Core.BGTextLayout? = nil)
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+@_Concurrency.MainActor @preconcurrency public struct BGLinkoutCTAButton : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(component: Core.BGComponentModel, resolver: Core.ContentResolver)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore18BGLinkoutCTAButtonV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGShareButton : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(data: Core.BGInteractionData? = nil, extras: _FeedCore.BGShareExtras? = nil, component: Core.BGComponentModel? = nil, layout: Core.BGIconButtonLayout? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore13BGShareButtonV4bodyQrvp", 0) __
+}
+public struct BGShareExtras {
+  public let shareURL: Foundation.URL?
+  public init(shareURL: Foundation.URL?)
+}
+extension Core.BGInteractionDataBuilder {
+  public static func share(video: _FeedCore.BGVideo?, isFullscreen: Swift.Bool) -> Core.BGInteractionData
+  public static func share(resolver: Core.ContentResolver, map: _FeedCore.BGShareButtonContentKeyMap, screen: Core.BGScreenName) -> Core.BGInteractionData
+}
+public struct BGShareButtonContentKeyMap : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_Concurrency.MainActor @preconcurrency public struct BGCollapseBannerButton : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(icon: SwiftUICore.Image, component: Core.BGComponentModel? = nil, isWallStyle: Swift.Bool = false, action: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore22BGCollapseBannerButtonV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGCollapsedButton : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(component: Core.BGComponentModel? = nil, isWallStyle: Swift.Bool = false)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore17BGCollapsedButtonV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGFullScreenButton : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(component: Core.BGComponentModel? = nil, isWallStyle: Swift.Bool = false)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore18BGFullScreenButtonV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGMuteUnmuteButton : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(component: Core.BGComponentModel? = nil, isWallStyle: Swift.Bool = false)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore18BGMuteUnmuteButtonV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGPlayPauseButton : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(uniqueId: Swift.String, containerId: Swift.String, component: Core.BGComponentModel? = nil, isWallStyle: Swift.Bool = false)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore17BGPlayPauseButtonV4bodyQrvp", 0) __
+}
+public struct BGCommunityPillConfig : Swift.Decodable {
+  public var showClose: Swift.Bool?
+  public var showJoin: Swift.Bool?
+  public var displayField: _FeedCore.BGCommunityPillField?
+  public var theme: _FeedCore.BGCommunityPillTheme?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum BGCommunityPillField : Swift.String, Swift.Decodable {
+  case name
+  case handle
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum BGCommunityPillTheme : Swift.String, Swift.Decodable {
+  case dark
+  case light
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+final public class BGCommunityPillLayout : Core.BGCommonLayout {
+  final public let spacing: CoreFoundation.CGFloat?
+  final public let image: Core.BGImageLayout?
+  final public let text: Core.BGTextLayout?
+  final public let join: Core.BGTextLayout?
+  final public let closeButton: Core.BGImageLayout?
+  public init(spacing: CoreFoundation.CGFloat? = nil, image: Core.BGImageLayout? = nil, text: Core.BGTextLayout? = nil, join: Core.BGTextLayout? = nil, closeButton: Core.BGImageLayout? = nil, padding: Core.Padding? = nil, background: Core.BGBackground? = nil, cornerRadius: Core.CornerRadius? = nil, border: Core.Border? = nil, size: Core.Size? = nil)
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public struct BGCommunityPillModel : Swift.Identifiable {
+  public let id: Swift.String
+  public let imageUrl: Swift.String?
+  public let name: Swift.String?
+  public let handle: Swift.String?
+  public let colorCode: Swift.String?
+  public let textColorCode: Swift.String?
+  public let isJoined: Swift.Bool
+  public init(id: Swift.String, imageUrl: Swift.String?, name: Swift.String?, handle: Swift.String?, colorCode: Swift.String? = nil, textColorCode: Swift.String? = nil, isJoined: Swift.Bool = false)
+  public typealias ID = Swift.String
+}
+public struct BGGroupPillConfig : Swift.Codable {
+  public var showClose: Swift.Bool?
+  public var showSubscribe: Swift.Bool?
+  public var theme: _FeedCore.BGGroupPillTheme?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum BGGroupPillTheme : Swift.String, Swift.Codable {
+  case dark
+  case light
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+final public class BGGroupPillLayout : Core.BGCommonLayout {
+  final public let spacing: CoreFoundation.CGFloat?
+  final public let icon: Core.BGImageLayout?
+  final public let text: Core.BGTextLayout?
+  final public let subscribeButton: Core.BGIconButtonLayout?
+  final public let closeButton: Core.BGImageLayout?
+  public init(spacing: CoreFoundation.CGFloat? = nil, icon: Core.BGImageLayout? = nil, text: Core.BGTextLayout? = nil, subscribeButton: Core.BGIconButtonLayout? = nil, closeButton: Core.BGImageLayout? = nil, padding: Core.Padding? = nil, background: Swift.String? = nil, cornerRadius: Core.CornerRadius? = nil, border: Core.Border? = nil, size: Core.Size? = nil)
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public struct BGGroupPillModel : Swift.Identifiable {
+  public let id: Swift.String
+  public let name: Swift.String?
+  public let isSubscribed: Swift.Bool
+  public init(id: Swift.String, name: Swift.String?, isSubscribed: Swift.Bool = false)
+  public typealias ID = Swift.String
+}
+public struct BGProfilePillConfig : Swift.Decodable {
+  public var showClose: Swift.Bool?
+  public var theme: _FeedCore.BGProfilePillTheme?
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class BGProfilePillLayout : Core.BGCommonLayout {
+  final public let spacing: CoreFoundation.CGFloat?
+  final public let avatar: Core.BGImageLayout?
+  final public let text: Core.BGTextLayout?
+  final public let badge: Core.BGImageLayout?
+  final public let closeButton: Core.BGImageLayout?
+  public init(spacing: CoreFoundation.CGFloat? = nil, avatar: Core.BGImageLayout? = nil, text: Core.BGTextLayout? = nil, badge: Core.BGImageLayout? = nil, closeButton: Core.BGImageLayout? = nil, padding: Core.Padding? = nil, background: Core.BGBackground? = nil, cornerRadius: Core.CornerRadius? = nil, border: Core.Border? = nil, size: Core.Size? = nil)
+  required public init(from decoder: any Swift.Decoder) throws
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public enum BGProfilePillTheme : Swift.String, Swift.Decodable {
+  case dark
+  case light
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum BGBrandProfileBadgeStatus : Swift.Int, Swift.Decodable {
+  case none
+  case normal
+  case whiteLabeled
+  case contractSigned
+  public static func from(_ raw: Swift.Int?) -> _FeedCore.BGBrandProfileBadgeStatus
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum BGProfilePillKind : Swift.String, Swift.Decodable {
+  case brand
+  case user
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct BGProfilePillModel : Swift.Identifiable {
+  public let id: Swift.String
+  public let kind: _FeedCore.BGProfilePillKind
+  public let avatarUrl: Swift.String?
+  public let title: Swift.String
+  public let badgeStatus: _FeedCore.BGBrandProfileBadgeStatus
+  public init(id: Swift.String, kind: _FeedCore.BGProfilePillKind, avatarUrl: Swift.String?, title: Swift.String, badgeStatus: _FeedCore.BGBrandProfileBadgeStatus = .none)
+  public typealias ID = Swift.String
+}
+public struct BGSectionDetailConfig : Swift.Decodable {
+  public var cover: Swift.Bool?
+  public var subtitle: Swift.Bool?
+  public var thumbnail: Swift.Bool?
+  public var title: Swift.Bool?
+  public var noOfClips: Swift.Bool?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGSectionDetailModel : Swift.Identifiable {
+  public var id: Swift.String?
+  public var description: Swift.String?
+  public var title: Swift.String?
+  public var thumbnailUrl: Swift.String?
+  public var coverUrl: Swift.String?
+  public var noOfClips: Swift.Int?
+  public var subtitle: Swift.String?
+  public init(id: Swift.String? = nil, description: Swift.String? = nil, title: Swift.String? = nil, thumbnailUrl: Swift.String? = nil, coverUrl: Swift.String? = nil, noOfClips: Swift.Int? = nil, subtitle: Swift.String? = nil)
+  public typealias ID = Swift.String?
+}
+public enum BGLayoutPosition : Swift.String, Swift.Decodable {
+  case outside
+  case overlay
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct BGSocialInteractionCountsConfig : Swift.Decodable {
+  public var views: Swift.Bool?
+  public var reactions: Swift.Bool?
+  public var comments: Swift.Bool?
+  public var position: _FeedCore.BGLayoutPosition?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum BGStatItemImageSource {
+  case url(Swift.String, fallback: SwiftUICore.Image? = nil)
+  case icon(Swift.String, fallback: SwiftUICore.Image? = nil)
+}
+public struct BGStatItemModel : Swift.Identifiable {
+  public let id: Swift.String
+  public let imageSource: _FeedCore.BGStatItemImageSource?
+  public let label: Swift.String
+  public init(id: Swift.String, imageSource: _FeedCore.BGStatItemImageSource?, label: Swift.String)
+  public typealias ID = Swift.String
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgDescriptionContainerHeight: CoreFoundation.CGFloat? {
+    get
+    set
+  }
+  public var bgDescriptionScrollBottomBound: CoreFoundation.CGFloat? {
+    get
+    set
+  }
+  public var bgDescriptionCollapseToken: Swift.Int {
+    get
+    set
+  }
+}
+public enum BGVideoDateFormat : Swift.String, Swift.Decodable {
+  case monthDay
+  case monthDayYear
+  case dayMonthYear
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum BGVideoDurationFormat : Swift.String, Swift.Decodable {
+  case short
+  case long
+  case compact
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct BGVideoDetailsConfig : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGAdCuePoint : Swift.Identifiable, Swift.Hashable, Swift.Decodable {
+  public let id: Swift.String
+  public let time: Foundation.TimeInterval
+  public let label: Swift.String?
+  public init(id: Swift.String, time: Foundation.TimeInterval, label: Swift.String? = nil)
+  public static func == (a: _FeedCore.BGAdCuePoint, b: _FeedCore.BGAdCuePoint) -> Swift.Bool
+  public typealias ID = Swift.String
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGSpriteConfig : Swift.Equatable, Swift.Sendable {
+  public let columns: Swift.Int
+  public let rows: Swift.Int
+  public let secondsPerTile: Foundation.TimeInterval
+  public init(columns: Swift.Int, rows: Swift.Int, secondsPerTile: Foundation.TimeInterval)
+  public static let `default`: _FeedCore.BGSpriteConfig
+  public var tileCount: Swift.Int {
+    get
+  }
+  public static func == (a: _FeedCore.BGSpriteConfig, b: _FeedCore.BGSpriteConfig) -> Swift.Bool
+}
+@_Concurrency.MainActor @preconcurrency public struct BGSpriteImage : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(model: Core.BGImageModel, currentTime: Foundation.TimeInterval = 0, displaySize: CoreFoundation.CGSize, config: _FeedCore.BGSpriteConfig? = nil, contentMode: SwiftUICore.ContentMode = .fill)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore13BGSpriteImageV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGVideoSlider : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let currentTime: Foundation.TimeInterval
+  @_Concurrency.MainActor @preconcurrency public init(currentTime: Foundation.TimeInterval, data: _FeedCore.BGVideoSliderModel, config: _FeedCore.BGVideoSliderConfig = .default, layout: _FeedCore.BGVideoSliderLayout? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore13BGVideoSliderV4bodyQrvp", 0) __
+}
+public struct BGVideoSliderConfig {
+  public let showThumbnail: Swift.Bool
+  public let timeFormat: _FeedCore.BGSliderTimeFormat
+  public let showAdCuePoints: Swift.Bool
+  public init(showThumbnail: Swift.Bool = true, timeFormat: _FeedCore.BGSliderTimeFormat = .currentOnly, showAdCuePoints: Swift.Bool = true)
+  public static let `default`: _FeedCore.BGVideoSliderConfig
+}
+public class BGVideoSliderLayout : Core.BGCommonLayout {
+  final public let trackHeight: CoreFoundation.CGFloat?
+  final public let activeTrackHeight: CoreFoundation.CGFloat?
+  final public let activeColor: Swift.String?
+  final public let inactiveColor: Swift.String?
+  final public let thumbDiameter: CoreFoundation.CGFloat?
+  final public let adMarkerColor: Swift.String?
+  final public let adMarkerDiameter: CoreFoundation.CGFloat?
+  final public let thumbnail: Core.BGImageLayout?
+  final public let bubbleSpacing: CoreFoundation.CGFloat?
+  final public let label: Core.BGTextLayout?
+  required public init(from decoder: any Swift.Decoder) throws
+  public init(trackHeight: CoreFoundation.CGFloat? = nil, activeTrackHeight: CoreFoundation.CGFloat? = nil, activeColor: Swift.String? = nil, inactiveColor: Swift.String? = nil, thumbDiameter: CoreFoundation.CGFloat? = nil, adMarkerColor: Swift.String? = nil, adMarkerDiameter: CoreFoundation.CGFloat? = nil, bubbleSpacing: CoreFoundation.CGFloat? = nil, label: Core.BGTextLayout? = nil)
+  @objc deinit
+}
+public enum BGSliderTimeFormat {
+  case currentOnly
+  case currentAndTotal
+  case custom((Foundation.TimeInterval, Foundation.TimeInterval) -> Swift.String)
+}
+public struct BGSliderThumbnail {
+  public let model: Core.BGImageModel
+  public let spriteConfig: _FeedCore.BGSpriteConfig?
+  public init(model: Core.BGImageModel, spriteConfig: _FeedCore.BGSpriteConfig? = nil)
+}
+public struct BGVideoSliderModel : Swift.Identifiable {
+  public let id: Swift.String
+  public let duration: Foundation.TimeInterval
+  public let thumbnail: _FeedCore.BGSliderThumbnail?
+  public let adCuePoints: [_FeedCore.BGAdCuePoint]
+  public let onScrubStart: ((Foundation.TimeInterval) -> Swift.Void)?
+  public let onValueChanged: ((Foundation.TimeInterval) -> Swift.Void)?
+  public let onScrubEnd: ((Foundation.TimeInterval) -> Swift.Void)?
+  public init(id: Swift.String, duration: Foundation.TimeInterval = 0, thumbnail: _FeedCore.BGSliderThumbnail? = nil, adCuePoints: [_FeedCore.BGAdCuePoint] = [], onScrubStart: ((Foundation.TimeInterval) -> Swift.Void)? = nil, onValueChanged: ((Foundation.TimeInterval) -> Swift.Void)? = nil, onScrubEnd: ((Foundation.TimeInterval) -> Swift.Void)? = nil)
+  public typealias ID = Swift.String
+}
+final public class BGVideoSliderTimeObserver : Combine.ObservableObject {
+  @Combine.Published<Foundation.TimeInterval> @_projectedValueProperty($currentTime) final public var currentTime: Foundation.TimeInterval {
+    get
+  }
+  final public var $currentTime: Combine.Published<Foundation.TimeInterval>.Publisher {
+    get
+  }
+  @Combine.Published<Foundation.TimeInterval> @_projectedValueProperty($duration) final public var duration: Foundation.TimeInterval {
+    get
+  }
+  final public var $duration: Combine.Published<Foundation.TimeInterval>.Publisher {
+    get
+  }
+  public init()
+  final public func attach(to player: AVFoundation.AVPlayer?)
+  final public func detach()
+  @objc deinit
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgRequestPlayAgain: (Swift.String) -> Swift.Void {
+    get
+    set
+  }
+  public var bgEnableWatchCard: Swift.Bool {
+    get
+    set
+  }
+}
+@_Concurrency.MainActor final public class BGStandardWallCoordinator {
+  @_Concurrency.MainActor final public var onPagesChanged: (([_FeedCore.BGFeedWallPageContent]) -> Swift.Void)?
+  @_Concurrency.MainActor final public var onMenuItemsChanged: (([_FeedCore.BGWallMenuOption]) -> Swift.Void)?
+  @_Concurrency.MainActor public init(attributes: _FeedCore.BGResolvedFeedAttributes, fspConfig: Core.BGFSPConfig? = nil, cardConfig: Core.BGCardConfig? = nil, videoPresentation: Core.BGVideoPresentation = .default, positionStore: Core.BGWallPositionStore)
+  @_Concurrency.MainActor final public func load() async
+  @_Concurrency.MainActor final public func selectBrandMode(_ menuItemId: Swift.String)
+  @objc deinit
+}
+public struct BGFeedWallPageContent {
+  public let id: Swift.String
+  public let title: Swift.String?
+  public let makeView: () -> SwiftUICore.AnyView
+  public let onWillActivate: () -> Swift.Void
+  public let onActivate: () -> Swift.Void
+  public let onDeactivate: () -> Swift.Void
+  public let onEvict: () -> Swift.Void
+  public let selectMode: ((Swift.String) -> Swift.Void)?
+  public let navBarItem: ((Swift.Bool) -> SwiftUICore.AnyView)?
+  public init(id: Swift.String, title: Swift.String?, makeView: @escaping () -> SwiftUICore.AnyView, onWillActivate: @escaping () -> Swift.Void, onActivate: @escaping () -> Swift.Void, onDeactivate: @escaping () -> Swift.Void, onEvict: @escaping () -> Swift.Void, selectMode: ((Swift.String) -> Swift.Void)? = nil, navBarItem: ((Swift.Bool) -> SwiftUICore.AnyView)? = nil)
+}
+@_Concurrency.MainActor public func bgMakeWallFeedPageContent(config: Core.BGWallFeedPageConfig, positionStore: Core.BGWallPositionStore, navBarItem: ((Swift.Bool) -> SwiftUICore.AnyView)? = nil) -> _FeedCore.BGFeedWallPageContent
+public struct BGExploreBrandItem : Swift.Decodable, Swift.Identifiable {
+  public let brandId: Swift.String
+  public let brandName: Swift.String
+  public let brandLogo: Swift.String
+  public let brandApiKey: Swift.String
+  public var id: Swift.String {
+    get
+  }
+  public func toDictionary() -> [Swift.String : Any]
+  public typealias ID = Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BGExploreData : Core.BGData {
+  public let brands: [_FeedCore.BGExploreBrandItem]
+  public let layout: Core.BGComponentModel
+  public var id: Swift.String {
+    get
+  }
+  public typealias ID = Swift.String
+  public init(from decoder: any Swift.Decoder) throws
+}
+@available(iOS 16, *)
+@_Concurrency.MainActor @preconcurrency public struct ExploreView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init()
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @available(iOS 16, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore11ExploreViewV4bodyQrvp", 0) __
+}
+public struct BGLinkoutDisplayMeta : Swift.Equatable {
+  public var title: Swift.String?
+  public var description: Swift.String?
+  public var faviconURL: Swift.String?
+  public var thumbnailURL: Swift.String?
+  public var brandName: Swift.String?
+  public var brandDomainURL: Swift.String?
+  public var prices: [Swift.String]?
+  public var ratings: Swift.Double?
+  public var likes: Swift.Int?
+  public var downloads: Swift.Int?
+  public var phoneNumber: Swift.String?
+  public var address: Swift.String?
+  public init(title: Swift.String? = nil, description: Swift.String? = nil, faviconURL: Swift.String? = nil, thumbnailURL: Swift.String? = nil, brandName: Swift.String? = nil, brandDomainURL: Swift.String? = nil, prices: [Swift.String]? = nil, ratings: Swift.Double? = nil, likes: Swift.Int? = nil, downloads: Swift.Int? = nil, phoneNumber: Swift.String? = nil, address: Swift.String? = nil)
+  public static func == (a: _FeedCore.BGLinkoutDisplayMeta, b: _FeedCore.BGLinkoutDisplayMeta) -> Swift.Bool
+}
+public struct BGFloatingSheetLinkoutData : Swift.Equatable {
+  public var title: Swift.String
+  public var description: Swift.String
+  public var websiteURL: Swift.String
+  public var thumbnailURL: Swift.String?
+  public var ctaText: Swift.String?
+  public var ctaLink: Swift.String?
+  public var style: Swift.Int?
+  public var meta: _FeedCore.BGLinkoutDisplayMeta?
+  public var useInAppBrowser: Swift.Bool
+  public var contentId: Swift.String?
+  public var linkoutId: Swift.String?
+  public var noOfLinks: Swift.Int
+  public var position: Swift.Int?
+  public var contentCategory: Swift.String
+  public var recordScreen: Swift.String?
+  public init(title: Swift.String = "", description: Swift.String = "", websiteURL: Swift.String = "", thumbnailURL: Swift.String? = nil, ctaText: Swift.String? = nil, ctaLink: Swift.String? = nil, style: Swift.Int? = nil, meta: _FeedCore.BGLinkoutDisplayMeta? = nil, useInAppBrowser: Swift.Bool = false, contentId: Swift.String? = nil, linkoutId: Swift.String? = nil, noOfLinks: Swift.Int = 0, position: Swift.Int? = nil, contentCategory: Swift.String = BGLinkoutAnalyticsContext.defaultContentCategory, recordScreen: Swift.String? = nil)
+  @_Concurrency.MainActor public static func pages(for video: _FeedCore.BGVideo?, recordScreen: Swift.String) -> [_FeedCore.BGFloatingSheetLinkoutData]
+  public static func from(link: _FeedCore.BGLinkoutLink, linkout: _FeedCore.BGLinkout, meta: _FeedCore.BGLinkoutLinkMeta?, inAppBrowser: Swift.Bool, contentId: Swift.String? = nil, linkoutId: Swift.String? = nil, noOfLinks: Swift.Int = 0, recordScreen: Swift.String? = nil) -> _FeedCore.BGFloatingSheetLinkoutData
+  public static func == (a: _FeedCore.BGFloatingSheetLinkoutData, b: _FeedCore.BGFloatingSheetLinkoutData) -> Swift.Bool
+}
+public enum BGFloatingSheetPhase : Swift.Int, Swift.Comparable, Swift.CaseIterable {
+  case xs
+  case sml
+  case `default`
+  case defaultActive
+  case expanded
+  case panel
+  case full
+  public static func < (lhs: _FeedCore.BGFloatingSheetPhase, rhs: _FeedCore.BGFloatingSheetPhase) -> Swift.Bool
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [_FeedCore.BGFloatingSheetPhase]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [_FeedCore.BGFloatingSheetPhase] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension _FeedCore.BGFloatingSheetPhase {
+  public static func initialPhase(parentWidth width: CoreFoundation.CGFloat, parentAspectRatio aspect: CoreFoundation.CGFloat) -> _FeedCore.BGFloatingSheetPhase?
+}
+public struct BGFloatingSheetPlacement : Swift.Equatable, Swift.Decodable {
+  public enum Anchor : Swift.String, Swift.Equatable, Swift.Decodable {
+    case bottom
+    case top
+    case center
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var anchor: _FeedCore.BGFloatingSheetPlacement.Anchor
+  public var insets: SwiftUICore.EdgeInsets
+  public static let `default`: _FeedCore.BGFloatingSheetPlacement
+  public init(anchor: _FeedCore.BGFloatingSheetPlacement.Anchor = .bottom, insets: SwiftUICore.EdgeInsets = EdgeInsets())
+  public init(from decoder: any Swift.Decoder) throws
+  public static func bottom(bottomInset: CoreFoundation.CGFloat = 0, topInset: CoreFoundation.CGFloat = 0, leadingInset: CoreFoundation.CGFloat = 0, trailingInset: CoreFoundation.CGFloat = 0) -> _FeedCore.BGFloatingSheetPlacement
+  public static func top(topInset: CoreFoundation.CGFloat = 0, leadingInset: CoreFoundation.CGFloat = 0, trailingInset: CoreFoundation.CGFloat = 0) -> _FeedCore.BGFloatingSheetPlacement
+  public static func == (a: _FeedCore.BGFloatingSheetPlacement, b: _FeedCore.BGFloatingSheetPlacement) -> Swift.Bool
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgViewportRect: CoreFoundation.CGRect {
+    get
+    set
+  }
+  public var bgFeedCardContext: _FeedCore.BGFeedCardContext? {
+    get
+    set
+  }
+  public var bgTapBehavior: Core.BGTapBehaviorType {
+    get
+    set
+  }
+  public var bgIsPresented: Swift.Bool {
+    get
+    set
+  }
+  public var bgTopSafeAreaInset: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  public var bgTopFloatingSafeAreaTop: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  public var bgFloatingSheetAutoOpenTarget: _FeedCore.BGFloatingSheetPhase? {
+    get
+    set
+  }
+  public var bgFloatingSheetInitialPage: Swift.Int {
+    get
+    set
+  }
+  public var bgSafeAreaInsets: SwiftUICore.EdgeInsets {
+    get
+    set
+  }
+}
+@_Concurrency.MainActor @preconcurrency public struct BGFeedCardFloatingSheet : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(cardId: Swift.String, component: Core.BGComponentModel? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore23BGFeedCardFloatingSheetV4bodyQrvp", 0) __
+}
+public enum BGDirection : Swift.String, Swift.Decodable {
+  case horizontal, vertical
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_Concurrency.MainActor @preconcurrency public struct BGFSFeedCardFloatingSheet : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore25BGFSFeedCardFloatingSheetV4bodyQrvp", 0) __
+}
+@available(macOS 10.15, *)
+@_Concurrency.MainActor @preconcurrency public struct BGFSFeedContainerView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @available(macOS 10.15, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore21BGFSFeedContainerViewV4bodyQrvp", 0) __
+}
+@available(macOS 10.15, *)
+@_Concurrency.MainActor @preconcurrency public struct BGFSFeedItemView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @available(macOS 10.15, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore16BGFSFeedItemViewV4bodyQrvp", 0) __
+}
+public struct BGFSChromeHiddenPreference : SwiftUICore.PreferenceKey {
+  public static let defaultValue: Swift.Bool
+  public static func reduce(value: inout Swift.Bool, nextValue: () -> Swift.Bool)
+  public typealias Value = Swift.Bool
+}
+public struct BGFSFloatingSheetPanelProgressPreference : SwiftUICore.PreferenceKey {
+  public static let defaultValue: CoreFoundation.CGFloat
+  public static func reduce(value: inout CoreFoundation.CGFloat, nextValue: () -> CoreFoundation.CGFloat)
+  public typealias Value = CoreFoundation.CGFloat
+}
+@_Concurrency.MainActor @preconcurrency public struct BGFSLinkoutSlot : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(component: Core.BGComponentModel? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore15BGFSLinkoutSlotV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGPlayerControlsView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(uniqueId: Swift.String, containerId: Swift.String)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore20BGPlayerControlsViewV4bodyQrvp", 0) __
+}
+public struct BGProfileModel {
+  public let title: Swift.String
+  public let subTitle: Swift.String
+  public let image: Swift.String
+  public init(title: Swift.String, subTitle: Swift.String, image: Swift.String)
+}
+@_Concurrency.MainActor @preconcurrency public struct BGProfileView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(component: Core.BGComponentModel, profileModel: _FeedCore.BGProfileModel)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9_FeedCore13BGProfileViewV4bodyQrvp", 0) __
+}
+final public class BGFeedCardContext {
+  final public let feedModel: _FeedCore.BGFeedModel
+  final public let uniqueId: Swift.String
+  final public let index: Swift.Int
+  final public let containerId: Swift.String
+  final public let videoPresentation: Core.BGVideoPresentation
+  public init(feedModel: _FeedCore.BGFeedModel, uniqueId: Swift.String, index: Swift.Int, containerId: Swift.String, videoPresentation: Core.BGVideoPresentation = .default, adPayload: _FeedCore.IABFeedItemPayload? = nil)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class BGVisibilityManager {
+  public static let shared: _FeedCore.BGVisibilityManager
+  final public func updateContainerViewport(containerId: Swift.String, frame: CoreFoundation.CGRect)
+  final public func reportVisibility(containerId: Swift.String, uniqueId: Swift.String, index: Swift.Int, globalFrame: CoreFoundation.CGRect)
+  final public func reportVisibility(containerId: Swift.String, uniqueId: Swift.String, index: Swift.Int = -1, fraction: CoreFoundation.CGFloat, frame: CoreFoundation.CGRect = .zero)
+  final public func pinCard(uniqueId: Swift.String, containerId: Swift.String)
+  @discardableResult
+  final public func prepareForScroll(to nextIndex: Swift.Int, containerId: Swift.String, keepPinIfVisible: Swift.Bool = false) -> Swift.Bool
+  final public func reevaluate(containerId: Swift.String, currentFeedId: Swift.String = "")
+  final public func registerIndexMappings(_ mappings: [(index: Swift.Int, uniqueId: Swift.String)], containerId: Swift.String)
+  final public func clear(containerId: Swift.String)
+  @objc deinit
+}
+public enum BGVisibilityUtils {
+  public static func reportVisibility(globalFrame: CoreFoundation.CGRect, containerId: Swift.String, uniqueId: Swift.String, index: Swift.Int, viewport: CoreFoundation.CGRect, manager: _FeedCore.BGVisibilityManager = BGVisibilityManager.shared)
+  public static func keyWindowViewport() -> CoreFoundation.CGRect
+}
+public enum FeedCoreConfig {
+  nonisolated(unsafe) public static var resourceBundle: Foundation.Bundle
+}
+public enum BGFeedCore {
+  public static var module: any Any.Type {
+    get
+  }
+}
+public protocol IFeedAssetsProvider {
+  func muteIcon() -> SwiftUICore.Image
+  func unmuteIcon() -> SwiftUICore.Image
+  func shareIcon() -> SwiftUICore.Image
+  func playIcon() -> SwiftUICore.Image
+  func pauseIcon() -> SwiftUICore.Image
+  func stopIcon() -> SwiftUICore.Image
+  func fullScreenIcon() -> SwiftUICore.Image
+  func collapseIcon() -> SwiftUICore.Image
+  func groupIcon() -> SwiftUICore.Image
+  func bellIcon() -> SwiftUICore.Image
+  func refreshIcon() -> SwiftUICore.Image
+}
+extension _FeedCore.IFeedAssetsProvider {
+  public func muteIcon() -> SwiftUICore.Image
+  public func unmuteIcon() -> SwiftUICore.Image
+  public func shareIcon() -> SwiftUICore.Image
+  public func playIcon() -> SwiftUICore.Image
+  public func pauseIcon() -> SwiftUICore.Image
+  public func stopIcon() -> SwiftUICore.Image
+  public func fullScreenIcon() -> SwiftUICore.Image
+  public func collapseIcon() -> SwiftUICore.Image
+  public func groupIcon() -> SwiftUICore.Image
+  public func bellIcon() -> SwiftUICore.Image
+  public func refreshIcon() -> SwiftUICore.Image
+}
+public protocol IBGReactionAssetsProvider {
+  func likedReactionURL() -> Foundation.URL?
+  func unlikedReactionURL() -> Foundation.URL?
+  func animateReactionURL() -> Foundation.URL?
+  func commentLikedReactionURL() -> Foundation.URL?
+  func commentUnlikedReactionURL() -> Foundation.URL?
+  func socialCountBlackReactionURL() -> Foundation.URL?
+  func socialCountWhiteReactionURL() -> Foundation.URL?
+  func likedFallbackIcon() -> SwiftUICore.Image
+  func unlikedFallbackIcon() -> SwiftUICore.Image
+  func commentLikedFallbackIcon() -> SwiftUICore.Image
+  func commentUnlikedFallbackIcon() -> SwiftUICore.Image
+  func socialCountBlackFallbackIcon() -> SwiftUICore.Image
+  func socialCountWhiteFallbackIcon() -> SwiftUICore.Image
+}
+extension _FeedCore.IBGReactionAssetsProvider {
+  public func likedReactionURL() -> Foundation.URL?
+  public func unlikedReactionURL() -> Foundation.URL?
+  public func animateReactionURL() -> Foundation.URL?
+  public func commentLikedReactionURL() -> Foundation.URL?
+  public func commentUnlikedReactionURL() -> Foundation.URL?
+  public func socialCountBlackReactionURL() -> Foundation.URL?
+  public func socialCountWhiteReactionURL() -> Foundation.URL?
+  public func likedFallbackIcon() -> SwiftUICore.Image
+  public func unlikedFallbackIcon() -> SwiftUICore.Image
+  public func commentLikedFallbackIcon() -> SwiftUICore.Image
+  public func commentUnlikedFallbackIcon() -> SwiftUICore.Image
+  public func socialCountBlackFallbackIcon() -> SwiftUICore.Image
+  public func socialCountWhiteFallbackIcon() -> SwiftUICore.Image
+}
+public enum BGFeedCoreAssets {
+  public enum Icons {
+    public static let unmute: SwiftUICore.Image
+    public static let mute: SwiftUICore.Image
+    public static let share: SwiftUICore.Image
+    public static let play: SwiftUICore.Image
+    public static let pause: SwiftUICore.Image
+    public static let stop: SwiftUICore.Image
+    public static let fullscreen: SwiftUICore.Image
+    public static let collapse: SwiftUICore.Image
+    public static let link: SwiftUICore.Image
+    public static let group: SwiftUICore.Image
+    public static let bell: SwiftUICore.Image
+    public static let refresh: SwiftUICore.Image
+    public static let rating: SwiftUICore.Image
+    public static let heart: SwiftUICore.Image
+    public static let download: SwiftUICore.Image
+    public static let profilePlaceholder: SwiftUICore.Image
+    public static let rightArrow: SwiftUICore.Image
+  }
+}
+public enum BGFeedCoreBundle {
+  public static func loadComponent(named name: Swift.String) -> Core.BGComponentModel?
+}
+extension _FeedCore.BGFeedComponentType : Swift.Equatable {}
+extension _FeedCore.BGFeedComponentType : Swift.Hashable {}
+extension _FeedCore.BGFeedComponentType : Swift.RawRepresentable {}
+extension _FeedCore.IABAdKind : Swift.Equatable {}
+extension _FeedCore.IABAdKind : Swift.Hashable {}
+extension _FeedCore.IABAdFormat : Swift.Equatable {}
+extension _FeedCore.IABAdFormat : Swift.Hashable {}
+extension _FeedCore.IABAdView : Swift.Sendable {}
+extension _FeedCore.IABCollapseReason : Swift.Equatable {}
+extension _FeedCore.IABCollapseReason : Swift.Hashable {}
+extension _FeedCore.BGViewTypeLayout : Swift.Equatable {}
+extension _FeedCore.BGViewTypeLayout : Swift.Hashable {}
+extension _FeedCore.BGViewTypeLayout : Swift.RawRepresentable {}
+extension _FeedCore.BGCardLayout : Swift.Equatable {}
+extension _FeedCore.BGCardLayout : Swift.Hashable {}
+extension _FeedCore.BGCardLayout : Swift.RawRepresentable {}
+extension _FeedCore.BGSparkContentType : Swift.Equatable {}
+extension _FeedCore.BGSparkContentType : Swift.Hashable {}
+extension _FeedCore.BGSparkContentType : Swift.RawRepresentable {}
+extension _FeedCore.BGLikeButton : Swift.Sendable {}
+extension _FeedCore.BGLinkoutCTAButton : Swift.Sendable {}
+extension _FeedCore.BGShareButton : Swift.Sendable {}
+extension _FeedCore.BGCollapseBannerButton : Swift.Sendable {}
+extension _FeedCore.BGCollapsedButton : Swift.Sendable {}
+extension _FeedCore.BGFullScreenButton : Swift.Sendable {}
+extension _FeedCore.BGMuteUnmuteButton : Swift.Sendable {}
+extension _FeedCore.BGPlayPauseButton : Swift.Sendable {}
+extension _FeedCore.BGCommunityPillField : Swift.Equatable {}
+extension _FeedCore.BGCommunityPillField : Swift.Hashable {}
+extension _FeedCore.BGCommunityPillField : Swift.RawRepresentable {}
+extension _FeedCore.BGCommunityPillTheme : Swift.Equatable {}
+extension _FeedCore.BGCommunityPillTheme : Swift.Hashable {}
+extension _FeedCore.BGCommunityPillTheme : Swift.RawRepresentable {}
+extension _FeedCore.BGGroupPillTheme : Swift.Equatable {}
+extension _FeedCore.BGGroupPillTheme : Swift.Hashable {}
+extension _FeedCore.BGGroupPillTheme : Swift.RawRepresentable {}
+extension _FeedCore.BGProfilePillTheme : Swift.Equatable {}
+extension _FeedCore.BGProfilePillTheme : Swift.Hashable {}
+extension _FeedCore.BGProfilePillTheme : Swift.RawRepresentable {}
+extension _FeedCore.BGBrandProfileBadgeStatus : Swift.Equatable {}
+extension _FeedCore.BGBrandProfileBadgeStatus : Swift.Hashable {}
+extension _FeedCore.BGBrandProfileBadgeStatus : Swift.RawRepresentable {}
+extension _FeedCore.BGProfilePillKind : Swift.Equatable {}
+extension _FeedCore.BGProfilePillKind : Swift.Hashable {}
+extension _FeedCore.BGProfilePillKind : Swift.RawRepresentable {}
+extension _FeedCore.BGLayoutPosition : Swift.Equatable {}
+extension _FeedCore.BGLayoutPosition : Swift.Hashable {}
+extension _FeedCore.BGLayoutPosition : Swift.RawRepresentable {}
+extension _FeedCore.BGVideoDateFormat : Swift.Equatable {}
+extension _FeedCore.BGVideoDateFormat : Swift.Hashable {}
+extension _FeedCore.BGVideoDateFormat : Swift.RawRepresentable {}
+extension _FeedCore.BGVideoDurationFormat : Swift.Equatable {}
+extension _FeedCore.BGVideoDurationFormat : Swift.Hashable {}
+extension _FeedCore.BGVideoDurationFormat : Swift.RawRepresentable {}
+extension _FeedCore.BGSpriteImage : Swift.Sendable {}
+extension _FeedCore.BGVideoSlider : Swift.Sendable {}
+extension _FeedCore.BGStandardWallCoordinator : Swift.Sendable {}
+@available(iOS 16, *)
+extension _FeedCore.ExploreView : Swift.Sendable {}
+extension _FeedCore.BGFloatingSheetPhase : Swift.Hashable {}
+extension _FeedCore.BGFloatingSheetPhase : Swift.RawRepresentable {}
+extension _FeedCore.BGFloatingSheetPlacement.Anchor : Swift.Hashable {}
+extension _FeedCore.BGFloatingSheetPlacement.Anchor : Swift.RawRepresentable {}
+extension _FeedCore.BGFeedCardFloatingSheet : Swift.Sendable {}
+extension _FeedCore.BGDirection : Swift.Equatable {}
+extension _FeedCore.BGDirection : Swift.Hashable {}
+extension _FeedCore.BGDirection : Swift.RawRepresentable {}
+extension _FeedCore.BGFSFeedCardFloatingSheet : Swift.Sendable {}
+@available(macOS 10.15, *)
+extension _FeedCore.BGFSFeedContainerView : Swift.Sendable {}
+@available(macOS 10.15, *)
+extension _FeedCore.BGFSFeedItemView : Swift.Sendable {}
+extension _FeedCore.BGFSLinkoutSlot : Swift.Sendable {}
+extension _FeedCore.BGPlayerControlsView : Swift.Sendable {}
+extension _FeedCore.BGProfileView : Swift.Sendable {}

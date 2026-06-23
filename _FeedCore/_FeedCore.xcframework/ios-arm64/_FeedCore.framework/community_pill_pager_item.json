@@ -1,0 +1,23 @@
+{
+  "id": "community_pill_pager_item",
+  "type": "community_pill",
+  "content_key_map": {
+    "image":          "community.dp_s",
+    "name":           "community.name",
+    "handle":         "community.handle",
+    "color_code":     "community.color_code",
+    "text_color_code": "community.text_color_code"
+  },
+  "config": {
+    "show_close": false,
+    "show_join": false,
+    "display_field": "name"
+  },
+  "layout": {
+    "spacing": 4,
+    "image":        { "size": { "width": 24, "height": 24 } },
+    "text":         { "text_style": "body2semibold" },
+    "join":         { "text_style": "body2semibold" },
+    "close_button": { "size": { "width": 16, "height": 16 } }
+  }
+}

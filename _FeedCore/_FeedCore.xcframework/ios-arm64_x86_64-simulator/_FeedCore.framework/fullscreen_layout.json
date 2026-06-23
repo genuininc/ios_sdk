@@ -1,0 +1,307 @@
+{
+    "id": "full_screen_ui",
+    "type": "zstack",
+    "layout": {
+        "aspect_ratio": "1:1",
+        "background": "#FF000000"
+    },
+    "children": [
+        {
+            "type": "video_player",
+            "id": "video_player",
+            "content_key_map": {
+                "source": "video.media_url_m3u8",
+                "source_mp4": "video.media_url",
+                "thumbnail": "video.thumbnail_url"
+            },
+            "layout": {
+                "gravity": "fill"
+            }
+        },
+        {
+            "id": "vstack",
+            "type": "vstack",
+            "layout": {
+                "spacing": 0,
+                "padding": {
+                    "top": 8,
+                    "bottom": 0,
+                    "leading": 16,
+                    "trailing": 16
+                }
+            },
+            "children": [
+                {
+                    "id": "fs_top_container",
+                    "type": "hstack",
+                    "layout": {
+                        "spacing": 8
+                    },
+                    "children": [
+                        {
+                            "id": "fs_top_spacer",
+                            "type": "spacer"
+                        },
+                        {
+                            "id": "muteunmute_button",
+                            "type": "muteunmute_button",
+                            "layout": {
+                                "style": "layered",
+                                "corner_radius": {
+                                    "top_left": 16,
+                                    "top_right": 16,
+                                    "bottom_left": 16,
+                                    "bottom_right": 16
+                                },
+                                "size": {
+                                    "height": 36,
+                                    "width": 36
+                                },
+                                "background": "#00000066",
+                                "icon": {
+                                    "tint_color": "#FFFFFFFF",
+                                    "size": {
+                                        "height": 18,
+                                        "width": 18
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "id": "playpause_button",
+                            "type": "playpause_button",
+                            "layout": {
+                                "style": "layered",
+                                "corner_radius": {
+                                    "top_left": 22,
+                                    "top_right": 22,
+                                    "bottom_left": 22,
+                                    "bottom_right": 22
+                                },
+                                "size": {
+                                    "height": 36,
+                                    "width": 36
+                                },
+                                "background": "#00000066",
+                                "icon": {
+                                    "tint_color": "#FFFFFFFF",
+                                    "size": {
+                                        "height": 18,
+                                        "width": 18
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "fs_content_spacer",
+                    "type": "spacer"
+                },
+                {
+                    "id": "fs_bottom_container",
+                    "type": "vstack",
+                    "layout": {
+                        "spacing": 0,
+                        "padding": {
+                            "top": 0,
+                            "bottom": 0,
+                            "leading": 0,
+                            "trailing": 0
+                        }
+                    },
+                    "children": [
+                        {
+                            "id": "fs_bottom_content",
+                            "type": "hstack",
+                            "layout": {
+                                "alignment": "bottom",
+                                "spacing": 16
+                            },
+                            "children": [
+                                {
+                                    "id": "fs_details",
+                                    "type": "vstack",
+                                    "layout": {
+                                        "weight": 1,
+                                        "spacing": 8,
+                                        "alignment": "leading"
+                                    },
+                                    "children": [
+                                        {
+                                            "id": "fs_reposted_by",
+                                            "type": "reposted_by",
+                                            "content_key_map": {
+                                                "title": "video.repost.owner.username",
+                                                "brand_user_logo": "video.repost.owner.brand.brand_user_logo"
+                                            }
+                                        },
+                                        {
+                                            "id": "fs_profile",
+                                            "type": "profile_pill",
+                                            "content_key_map": {
+                                                "kind": "video.owner.brand.kind",
+                                                "avatar": "video.owner.profile_image_s",
+                                                "title": "video.owner.username",
+                                                "badge_status": "video.owner.brand.brand_user_logo"
+                                            },
+                                            "config": {
+                                                "show_close": false,
+                                                "theme": "dark"
+                                            },
+                                            "layout": {
+                                                "spacing": 4,
+                                                "avatar": {
+                                                    "size": {
+                                                        "width": 24,
+                                                        "height": 24
+                                                    }
+                                                },
+                                                "text": {
+                                                    "text_style": "body1bold"
+                                                },
+                                                "badge": {
+                                                    "size": {
+                                                        "width": 16,
+                                                        "height": 16
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "fs_linkout",
+                                            "type": "fs_linkout"
+                                        },
+                                        {
+                                            "id": "video_details",
+                                            "type": "video_details",
+                                            "content_key_map": {
+                                                "date": "video.conversation_at",
+                                                "time": "video.meta_data.duration",
+                                                "description": "video.description_text",
+                                                "description_data": "video.description_data"
+                                            },
+                                            "config": {
+                                                "show_date": false,
+                                                "show_duration": false,
+                                                "post_description": true,
+                                                "max_lines": 1,
+                                                "is_expandable": true,
+                                                "expand_text": "...",
+                                                "collapse_text": "",
+                                                "expanded_max_height_ratio": 0.75,
+                                                "expanded_max_lines": 5,
+                                                "special_text": {
+                                                    "tag": {
+                                                        "text_style": "body1bold",
+                                                        "text_color": "#FFFFFF"
+                                                    },
+                                                    "hashtag": {
+                                                        "text_style": "body1bold",
+                                                        "text_color": "#FFFFFF"
+                                                    },
+                                                    "link": {
+                                                        "text_style": "body1bold",
+                                                        "text_color": "#FFFFFF"
+                                                    },
+                                                    "expand": {
+                                                        "text_style": "body1bold",
+                                                        "text_color": "#FFFFFF"
+                                                    },
+                                                    "collapse": {
+                                                        "text_style": "body1bold",
+                                                        "text_color": "#FFFFFF"
+                                                    }
+                                                }
+                                            },
+                                            "layout": {
+                                                "details": {
+                                                    "text_style": "body1medium",
+                                                    "foreground": "#FFFFFF"
+                                                },
+                                                "padding": {
+                                                    "top": 0,
+                                                    "bottom": 0,
+                                                    "leading": 0,
+                                                    "trailing": 0
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "fs_engagement",
+                                    "type": "vstack",
+                                    "layout": {
+                                        "alignment": "center",
+                                        "spacing": 24,
+                                        "size": {
+                                            "width": 48
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "id": "fs_engagement_spacer",
+                                            "type": "spacer"
+                                        },
+                                        {
+                                            "id": "fs_like_button",
+                                            "type": "fs_like_button"
+                                        },
+                                        {
+                                            "id": "fs_share_button",
+                                            "type": "fs_share_button"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "fs_video_progress_spacer",
+                    "type": "vstack",
+                    "layout": {
+                        "size": {
+                            "width": 0,
+                            "height": 44
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": "fs_video_progress_layer",
+            "type": "vstack",
+            "layout": {
+                "spacing": 0
+            },
+            "children": [
+                {
+                    "id": "fs_video_progress_top_spacer",
+                    "type": "spacer"
+                },
+                {
+                    "id": "fs_video_progress",
+                    "type": "video_progress",
+                    "config": {
+                        "show_thumbnail": true,
+                        "time_format": "current_only",
+                        "show_ad_cue_points": true
+                    },
+                    "layout": {
+                        "thumbnail": {
+                            "size": { "width": 90, "height": 160 }
+                        },
+                        "label": {
+                            "text_style": "body0semibold",
+                            "foreground": "#FFFFFF",
+                            "text_alignment": "center",
+                            "apply_line_spacing": true
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
