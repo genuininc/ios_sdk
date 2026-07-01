@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(find /Users/arjav/Development/genuin/ios_sdk_codebase/Example -maxdepth 4 -type f | grep -v \".git\" | head -50)"
-    ]
-  }
-}

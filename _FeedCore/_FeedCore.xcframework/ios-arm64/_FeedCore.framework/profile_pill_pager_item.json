@@ -8,7 +8,8 @@
     "badge_status": "brand.badge_status"
   },
   "config": {
-    "show_close": false
+    "show_close": false,
+    "disable_tap": true
   },
   "layout": {
     "spacing": 4,

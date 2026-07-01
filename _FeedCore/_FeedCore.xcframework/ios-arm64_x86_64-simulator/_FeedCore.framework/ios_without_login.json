@@ -1,0 +1,2913 @@
+{
+  "status": 200,
+  "message": "explore view data loaded!",
+  "data": {
+    "brands": [],
+    "layout": {
+      "id": "feed_sdk",
+      "type": "feed_sdk",
+      "children": [
+        {
+          "id": "lazy_vstack",
+          "type": "lazy_vstack",
+          "layout": {
+            "background": "#FFFFFF",
+            "alignment": "center",
+            "spacing": 12,
+            "is_scrollable": false
+          },
+          "children": [
+            {
+              "id": "feed_1",
+              "type": "feed",
+              "layout": {
+                "size": {
+                  "height": 300,
+                  "width": 0
+                },
+                "is_dynamic": false,
+                "direction": "horizontal",
+                "span": 1,
+                "spacing": 8,
+                "scroll_insets": {
+                  "leading": 16,
+                  "trailing": 16
+                }
+              },
+              "content": {
+                "placement_id": "6a298ea4fa804e909cf6e914",
+                "style_id": "6a298ea4fa804e909cf6e915",
+                "unique_id": "T1",
+                "title": "iHeart",
+                "subtitle": "Listen to your favorite poscasts",
+                "contextual_params": {
+                  "brands_ids": [
+                    1729
+                  ],
+                  "community_ids": [
+                    "29c1fb13-baab-48e0-a579-1a97d9f21e24",
+                    "99ebcc3f-fdcf-4ca5-b39f-692ac02dce2f",
+                    "e792190e-e4db-4826-b1a4-dba350580176",
+                    "a12a44d5-91ab-4f83-8af6-d9af244cbd33",
+                    "c1d7119d-2846-436b-bfd3-0f48f00b446d",
+                    "fea04cf0-2a4a-4475-af98-8e581a662adc",
+                    "546948ba-86a0-408c-baeb-d82be673f782",
+                    "90559c53-e624-45ea-ac29-ac9ad261958b",
+                    "32da01d1-561f-4c23-98e3-c73cb1c0f239",
+                    "d6c27039-1b64-4533-93b2-c0150a8a8230",
+                    "d1015b5d-69eb-4572-a4ff-3a9f15524274",
+                    "0395ad43-f3a4-422e-b235-1013249ae40d",
+                    "a6213b39-1dcf-49b1-99f0-9d4ef09ba55a",
+                    "53d876e6-d614-4bdb-b76d-88973b0c10a6",
+                    "3a163911-e988-4105-961e-8192ba899f45",
+                    "af1bad60-5170-4d91-a127-89952dd4579f",
+                    "76cbcfe8-ab8b-495c-8dc8-dcdf987ddda7",
+                    "f28f9fd8-1e8e-4ed6-8a9b-c88a4ec970da",
+                    "63b00fcc-378c-4aaf-a13a-0840f2264928",
+                    "d880e679-1ec7-418a-9185-6b88444ce76d"
+                  ]
+                }
+              },
+              "config": {
+                "navigation": "fullScreen",
+                "card_player_config": {
+                  "enable_autoplay": true,
+                  "enable_loop_video": false,
+                  "auto_advance_playback": 0,
+                  "scroll_behavior": "free_scroll",
+                  "enable_auto_scroll": true
+                },
+                "fullscreen_player_config": {
+                  "feed_video_play": {
+                    "type": 1,
+                    "repeat_video": 0,
+                    "swipe_after": 0
+                  },
+                  "video_autoplay": {
+                    "type": 1,
+                    "auto_play_after": 0,
+                    "is_start_with_sound": false
+                  },
+                  "resume_playback_from": -1,
+                  "tap_behavior": 1
+                }
+              },
+              "children": [
+                {
+                  "id": "feed_cell_ui",
+                  "type": "zstack",
+                  "layout": {
+                    "aspect_ratio": "1:1",
+                    "corner_radius": {
+                      "top_left": 12,
+                      "top_right": 12,
+                      "bottom_left": 12,
+                      "bottom_right": 12
+                    },
+                    "background": "#FF000000",
+                    "border": {
+                      "color": "#E5E7EB",
+                      "width": 1
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "video_player",
+                      "id": "video_player",
+                      "content_key_map": {
+                        "source": "video.media_url_m3u8",
+                        "source_mp4": "video.media_url",
+                        "thumbnail": "video.thumbnail_url"
+                      },
+                      "layout": {
+                        "gravity": "fill"
+                      }
+                    },
+                    {
+                      "id": "vstack",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0,
+                        "padding": {
+                          "top": 0,
+                          "bottom": 0,
+                          "leading": 0,
+                          "trailing": 0
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "controls_vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000066",
+                                  "#00000000"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "hstack",
+                              "type": "hstack",
+                              "layout": {
+                                "spacing": 8,
+                                "padding": {
+                                  "top": 4,
+                                  "bottom": 0,
+                                  "leading": 0,
+                                  "trailing": 4
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer"
+                                },
+                                {
+                                  "id": "muteunmute_button",
+                                  "type": "muteunmute_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "playpause_button",
+                                  "type": "playpause_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "fullscreen_button",
+                                  "type": "fullscreen_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "spacer",
+                          "type": "spacer"
+                        },
+                        {
+                          "id": "linkout",
+                          "type": "linkout",
+                          "layout": {
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 8,
+                              "trailing": 8
+                            }
+                          }
+                        },
+                        {
+                          "id": "vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "spacing": 8,
+                            "alignment": "leading",
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000000",
+                                  "#00000066"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "section_detail",
+                              "type": "section_detail",
+                              "content_key_map": {
+                                "id": "video.section.id",
+                                "title": "video.section.title",
+                                "sub_title": "video.section.subtitle",
+                                "thumbnail": "video.section.thumbnail_url",
+                                "cover": "video.section.cover_url",
+                                "no_of_clips": "video.section.no_of_clips"
+                              },
+                              "config": {
+                                "title": true,
+                                "subtitle": true,
+                                "thumbnail": true,
+                                "cover": false,
+                                "no_of_clips": true
+                              },
+                              "layout": {
+                                "outer_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 8
+                                },
+                                "inner_stack": {
+                                  "alignment": "center",
+                                  "spacing": 12
+                                },
+                                "text_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 4
+                                },
+                                "image": {
+                                  "size": {
+                                    "width": 48,
+                                    "height": 48
+                                  },
+                                  "corner_radius": {
+                                    "top_left": 8,
+                                    "top_right": 8,
+                                    "bottom_left": 8,
+                                    "bottom_right": 8
+                                  }
+                                },
+                                "heading": {
+                                  "text_style": "body0semibold",
+                                  "foreground": "#FFFFFF",
+                                  "max_lines": 1
+                                },
+                                "sub_heading": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#CCCCCC",
+                                  "max_lines": 2
+                                },
+                                "no_of_clips": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                }
+                              }
+                            },
+                            {
+                              "id": "video_details",
+                              "type": "video_details",
+                              "content_key_map": {
+                                "conversation_at": "video.conversation_at",
+                                "duration": "video.metadata.duration",
+                                "description_text": "video.description_text"
+                              },
+                              "config": {
+                                "post_date": true,
+                                "video_duration": true,
+                                "post_description": true,
+                                "date_format": "MMM_dd_yyyy",
+                                "show_current_year": false,
+                                "show_relative_date": true,
+                                "duration_format": "short"
+                              },
+                              "layout": {
+                                "metadata": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#FFFFFF"
+                                },
+                                "details": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                },
+                                "max_lines": 2,
+                                "padding": {
+                                  "top": 0,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 8
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "full_screen_ui",
+                  "type": "zstack",
+                  "layout": {
+                    "aspect_ratio": "1:1",
+                    "background": "#FF000000"
+                  },
+                  "children": [
+                    {
+                      "type": "video_player",
+                      "id": "video_player",
+                      "content_key_map": {
+                        "source": "video.media_url_m3u8",
+                        "source_mp4": "video.media_url",
+                        "thumbnail": "video.thumbnail_url"
+                      },
+                      "layout": {
+                        "gravity": "fill"
+                      }
+                    },
+                    {
+                      "id": "vstack",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0,
+                        "padding": {
+                          "top": 8,
+                          "bottom": 0,
+                          "leading": 16,
+                          "trailing": 16
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "fs_top_container",
+                          "type": "hstack",
+                          "layout": {
+                            "spacing": 8
+                          },
+                          "children": [
+                            {
+                              "id": "fs_top_spacer",
+                              "type": "spacer"
+                            },
+                            {
+                              "id": "muteunmute_button",
+                              "type": "muteunmute_button",
+                              "layout": {
+                                "style": "layered",
+                                "corner_radius": {
+                                  "top_left": 16,
+                                  "top_right": 16,
+                                  "bottom_left": 16,
+                                  "bottom_right": 16
+                                },
+                                "size": {
+                                  "height": 36,
+                                  "width": 36
+                                },
+                                "background": "#00000066",
+                                "icon": {
+                                  "tint_color": "#FFFFFFFF",
+                                  "size": {
+                                    "height": 18,
+                                    "width": 18
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "id": "playpause_button",
+                              "type": "playpause_button",
+                              "layout": {
+                                "style": "layered",
+                                "corner_radius": {
+                                  "top_left": 22,
+                                  "top_right": 22,
+                                  "bottom_left": 22,
+                                  "bottom_right": 22
+                                },
+                                "size": {
+                                  "height": 36,
+                                  "width": 36
+                                },
+                                "background": "#00000066",
+                                "icon": {
+                                  "tint_color": "#FFFFFFFF",
+                                  "size": {
+                                    "height": 18,
+                                    "width": 18
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "fs_content_spacer",
+                          "type": "spacer"
+                        },
+                        {
+                          "id": "fs_bottom_container",
+                          "type": "vstack",
+                          "layout": {
+                            "spacing": 0,
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 0,
+                              "trailing": 0
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "fs_bottom_content",
+                              "type": "hstack",
+                              "layout": {
+                                "alignment": "bottom",
+                                "spacing": 16
+                              },
+                              "children": [
+                                {
+                                  "id": "fs_details",
+                                  "type": "vstack",
+                                  "layout": {
+                                    "weight": 1,
+                                    "spacing": 8,
+                                    "alignment": "leading"
+                                  },
+                                  "children": [
+                                    {
+                                      "id": "fs_reposted_by",
+                                      "type": "reposted_by",
+                                      "content_key_map": {
+                                        "title": "video.repost.owner.username",
+                                        "brand_user_logo": "video.repost.owner.brand.brand_user_logo"
+                                      }
+                                    },
+                                    {
+                                      "id": "fs_profile",
+                                      "type": "profile_pill",
+                                      "content_key_map": {
+                                        "kind": "video.owner.brand.kind",
+                                        "avatar": "video.owner.profile_image_s",
+                                        "title": "video.owner.username",
+                                        "badge_status": "video.owner.brand.brand_user_logo"
+                                      },
+                                      "config": {
+                                        "show_close": false,
+                                        "theme": "dark"
+                                      },
+                                      "layout": {
+                                        "spacing": 4,
+                                        "avatar": {
+                                          "size": {
+                                            "width": 24,
+                                            "height": 24
+                                          }
+                                        },
+                                        "text": {
+                                          "text_style": "body1bold"
+                                        },
+                                        "badge": {
+                                          "size": {
+                                            "width": 16,
+                                            "height": 16
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "id": "fs_linkout",
+                                      "type": "fs_linkout"
+                                    },
+                                    {
+                                      "id": "video_details",
+                                      "type": "video_details",
+                                      "content_key_map": {
+                                        "date": "video.conversation_at",
+                                        "time": "video.meta_data.duration",
+                                        "description": "video.description_text",
+                                        "description_data": "video.description_data"
+                                      },
+                                      "config": {
+                                        "show_date": false,
+                                        "show_duration": false,
+                                        "post_description": true,
+                                        "max_lines": 1,
+                                        "is_expandable": true,
+                                        "expand_text": "...",
+                                        "collapse_text": "",
+                                        "expanded_max_height_ratio": 0.75,
+                                        "expanded_max_lines": 8,
+                                        "special_text": {
+                                          "tag": {
+                                            "text_style": "body1bold",
+                                            "text_color": "#FFFFFF"
+                                          },
+                                          "hashtag": {
+                                            "text_style": "body1bold",
+                                            "text_color": "#FFFFFF"
+                                          },
+                                          "link": {
+                                            "text_style": "body1bold",
+                                            "text_color": "#FFFFFF"
+                                          },
+                                          "expand": {
+                                            "text_style": "body1bold",
+                                            "text_color": "#FFFFFF"
+                                          },
+                                          "collapse": {
+                                            "text_style": "body1bold",
+                                            "text_color": "#FFFFFF"
+                                          }
+                                        }
+                                      },
+                                      "layout": {
+                                        "details": {
+                                          "text_style": "body1medium",
+                                          "foreground": "#FFFFFF"
+                                        },
+                                        "padding": {
+                                          "top": 0,
+                                          "bottom": 0,
+                                          "leading": 0,
+                                          "trailing": 0
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "fs_engagement",
+                                  "type": "vstack",
+                                  "layout": {
+                                    "alignment": "center",
+                                    "spacing": 24,
+                                    "size": {
+                                      "width": 48
+                                    }
+                                  },
+                                  "children": [
+                                    {
+                                      "id": "fs_engagement_spacer",
+                                      "type": "spacer"
+                                    },
+                                    {
+                                      "id": "fs_like_button",
+                                      "type": "fs_like_button"
+                                    },
+                                    {
+                                      "id": "fs_share_button",
+                                      "type": "fs_share_button"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "fs_video_progress_spacer",
+                          "type": "vstack",
+                          "layout": {
+                            "size": {
+                              "width": 0,
+                              "height": 30
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "fs_video_progress_layer",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0
+                      },
+                      "children": [
+                        {
+                          "id": "fs_video_progress_top_spacer",
+                          "type": "spacer"
+                        },
+                        {
+                          "id": "fs_video_progress",
+                          "type": "video_progress",
+                          "config": {
+                            "show_thumbnail": true,
+                            "time_format": "current_only",
+                            "show_ad_cue_points": true
+                          },
+                          "layout": {
+                            "size": {
+                              "height": 22
+                            },
+                            "alignment": "bottom",
+                            "thumbnail": {
+                              "size": {
+                                "width": 90,
+                                "height": 160
+                              }
+                            },
+                            "label": {
+                              "text_style": "body0semibold",
+                              "foreground": "#FFFFFF",
+                              "text_alignment": "center",
+                              "apply_line_spacing": true
+                            },
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 0,
+                              "trailing": 0
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "feed_2",
+              "type": "feed",
+              "layout": {
+                "size": {
+                  "height": 350,
+                  "width": 0
+                },
+                "is_dynamic": false,
+                "direction": "horizontal",
+                "span": 1,
+                "spacing": 8,
+                "scroll_insets": {
+                  "leading": 16,
+                  "trailing": 16
+                }
+              },
+              "content": {
+                "placement_id": "6a298ea4fa804e909cf6e914",
+                "style_id": "6a298ea4fa804e909cf6e915",
+                "unique_id": "T2",
+                "title": "TED",
+                "subtitle": "Ideas change everything",
+                "contextual_params": {
+                  "brands_ids": [
+                    2357
+                  ],
+                  "community_ids": [
+                    "537e4ad9-bc3b-4bb0-8513-61b0209e0ee9",
+                    "0e56cdf5-b4e3-40b3-87c9-c32bbb0254ec",
+                    "222bb6b3-8c98-4778-aec1-733bb68fd56e",
+                    "059b369e-8cc4-4f38-9c63-67a17bf46de8",
+                    "031a54a6-42d5-43b6-8306-6e2c5ab1d33a",
+                    "644cc360-a2dc-4e19-acfe-87367538dcc6",
+                    "4290e167-746e-4df7-874f-1ec497c258a2",
+                    "80b5af6e-ba16-43ce-a8e1-cf2f89d735cf"
+                  ]
+                }
+              },
+              "config": {
+                "navigation": "withinParent",
+                "card_player_config": {
+                  "enable_autoplay": true,
+                  "enable_loop_video": false,
+                  "auto_advance_playback": 0,
+                  "scroll_behavior": "free_scroll",
+                  "enable_auto_scroll": true
+                },
+                "fullscreen_player_config": {
+                  "feed_video_play": {
+                    "type": 1,
+                    "repeat_video": 0,
+                    "swipe_after": 0
+                  },
+                  "video_autoplay": {
+                    "type": 1,
+                    "auto_play_after": 0,
+                    "is_start_with_sound": false
+                  },
+                  "resume_playback_from": -1,
+                  "tap_behavior": 1
+                }
+              },
+              "children": [
+                {
+                  "id": "zstack",
+                  "type": "zstack",
+                  "layout": {
+                    "aspect_ratio": "9:16",
+                    "corner_radius": {
+                      "top_left": 12,
+                      "top_right": 12,
+                      "bottom_left": 12,
+                      "bottom_right": 12
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "video_player",
+                      "id": "video_player",
+                      "content_key_map": {
+                        "source": "video.media_url_m3u8",
+                        "source_mp4": "video.media_url",
+                        "thumbnail": "video.thumbnail_url"
+                      },
+                      "layout": {
+                        "gravity": "fill"
+                      },
+                      "config": {
+                        "autoplay": true
+                      }
+                    },
+                    {
+                      "id": "vstack",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0,
+                        "padding": {
+                          "top": 0,
+                          "bottom": 0,
+                          "leading": 0,
+                          "trailing": 0
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "controls_vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000066",
+                                  "#00000000"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "hstack",
+                              "type": "hstack",
+                              "layout": {
+                                "spacing": 8,
+                                "padding": {
+                                  "top": 4,
+                                  "bottom": 0,
+                                  "leading": 0,
+                                  "trailing": 4
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer",
+                                  "layout": {
+                                    "weight": 1
+                                  }
+                                },
+                                {
+                                  "id": "muteunmute_button",
+                                  "type": "muteunmute_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "playpause_button",
+                                  "type": "playpause_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "fullscreen_button",
+                                  "type": "fullscreen_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "linkout",
+                          "type": "linkout",
+                          "layout": {
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 8,
+                              "trailing": 8
+                            }
+                          }
+                        },
+                        {
+                          "id": "vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "spacing": 8,
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000000",
+                                  "#00000066"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "section_detail",
+                              "type": "section_detail",
+                              "content_key_map": {
+                                "id": "video.section.id",
+                                "title": "video.section.title",
+                                "sub_title": "video.section.subtitle",
+                                "thumbnail": "video.section.thumbnail_url",
+                                "cover": "video.section.cover_url",
+                                "no_of_clips": "video.section.no_of_clips"
+                              },
+                              "config": {
+                                "title": true,
+                                "subtitle": true,
+                                "thumbnail": true,
+                                "cover": false,
+                                "no_of_clips": true
+                              },
+                              "layout": {
+                                "outer_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 8
+                                },
+                                "inner_stack": {
+                                  "alignment": "center",
+                                  "spacing": 12
+                                },
+                                "text_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 4
+                                },
+                                "image": {
+                                  "size": {
+                                    "width": 48,
+                                    "height": 48
+                                  },
+                                  "corner_radius": {
+                                    "top_left": 8,
+                                    "top_right": 8,
+                                    "bottom_left": 8,
+                                    "bottom_right": 8
+                                  }
+                                },
+                                "heading": {
+                                  "text_style": "body0semibold",
+                                  "foreground": "#FFFFFF",
+                                  "max_lines": 1
+                                },
+                                "sub_heading": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#CCCCCC",
+                                  "max_lines": 2
+                                },
+                                "no_of_clips": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                }
+                              }
+                            },
+                            {
+                              "id": "video_details",
+                              "type": "video_details",
+                              "content_key_map": {
+                                "conversation_at": "video.conversation_at",
+                                "duration": "video.metadata.duration",
+                                "description_text": "video.description_text"
+                              },
+                              "config": {
+                                "post_date": true,
+                                "video_duration": true,
+                                "post_description": true,
+                                "date_format": "MMM_dd_yyyy",
+                                "show_current_year": false,
+                                "show_relative_date": true,
+                                "duration_format": "short"
+                              },
+                              "layout": {
+                                "metadata": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#FFFFFF"
+                                },
+                                "details": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                },
+                                "max_lines": 2,
+                                "padding": {
+                                  "top": 0,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 8
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "feed_3",
+              "type": "feed",
+              "layout": {
+                "size": {
+                  "height": 350,
+                  "width": 0
+                },
+                "is_dynamic": false,
+                "direction": "horizontal",
+                "span": 1,
+                "spacing": 8,
+                "scroll_insets": {
+                  "leading": 16,
+                  "trailing": 16
+                }
+              },
+              "content": {
+                "placement_id": "6a298ea4fa804e909cf6e914",
+                "style_id": "6a298ea4fa804e909cf6e915",
+                "unique_id": "T3",
+                "title": "McClatchy",
+                "subtitle": "Media powered by possibilities",
+                "contextual_params": {
+                  "brands_ids": [
+                    3342
+                  ],
+                  "community_ids": [
+                    "b8f65111-bf22-453e-97a3-a4d541b1450e",
+                    "4a45ec6a-dc8f-4202-8948-720bc205ca57",
+                    "c7eb78e2-b780-400a-b379-a62b6ccaaf06",
+                    "ddb3b8b1-ac7e-48a5-b3ed-5a5c3465e8d7",
+                    "bebdc9c9-e299-48fd-bef6-580180d0029e",
+                    "da2e7a7e-385c-46d8-b1b6-78111df38cc0",
+                    "59f3fa92-3da1-47a9-a62f-d5e1f0da53f4",
+                    "2720c671-3dfe-4127-a0d5-6963909133f9",
+                    "f1a65fbd-ad27-4253-b84b-594cb8a9ab51",
+                    "08740468-3255-418d-bc09-95e90dfe45d1",
+                    "2df606ed-3f0c-4b76-8385-3c8694b3a442",
+                    "66533e86-88e3-40f2-9e03-37ba586f6d64",
+                    "143eb5d2-857b-4584-987a-b51d12a95c4f",
+                    "b92eafc4-a38b-441d-b21e-dda7c1653e48",
+                    "95055e78-0773-4274-8e5e-d45c689c0228",
+                    "7342ddf5-ebbf-475f-853b-7b62278745fd",
+                    "a3ef83eb-f2c0-41e7-9d8f-d600877188f0",
+                    "69fd93e5-88d4-47f6-9e08-6c5c01a728cc",
+                    "18d43889-fdd5-4e0e-a0c0-7d752bf88d31",
+                    "cf3b058c-2395-44f4-8d48-057175e2045e",
+                    "d90bd8be-f860-4b92-9a88-c29bcfa60b52",
+                    "4c587590-ea1a-4fb1-a202-a74b2918624a",
+                    "b2636838-9204-4ac2-8640-98a3dcdb86f7",
+                    "05c78094-b86a-466d-9ae8-f6237a018040",
+                    "99f6a627-8849-43bc-95f6-6b3c7992c323"
+                  ]
+                }
+              },
+              "config": {
+                "navigation": "withinParent",
+                "card_player_config": {
+                  "enable_autoplay": true,
+                  "enable_loop_video": false,
+                  "auto_advance_playback": 0,
+                  "scroll_behavior": "free_scroll",
+                  "enable_auto_scroll": true
+                },
+                "fullscreen_player_config": {
+                  "feed_video_play": {
+                    "type": 1,
+                    "repeat_video": 0,
+                    "swipe_after": 0
+                  },
+                  "video_autoplay": {
+                    "type": 1,
+                    "auto_play_after": 0,
+                    "is_start_with_sound": false
+                  },
+                  "resume_playback_from": -1,
+                  "tap_behavior": 1
+                }
+              },
+              "children": [
+                {
+                  "id": "zstack",
+                  "type": "zstack",
+                  "layout": {
+                    "aspect_ratio": "9:16",
+                    "corner_radius": {
+                      "top_left": 12,
+                      "top_right": 12,
+                      "bottom_left": 12,
+                      "bottom_right": 12
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "video_player",
+                      "id": "video_player",
+                      "content_key_map": {
+                        "source": "video.media_url_m3u8",
+                        "source_mp4": "video.media_url",
+                        "thumbnail": "video.thumbnail_url"
+                      },
+                      "layout": {
+                        "gravity": "fill"
+                      },
+                      "config": {
+                        "autoplay": true
+                      }
+                    },
+                    {
+                      "id": "vstack",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0,
+                        "padding": {
+                          "top": 0,
+                          "bottom": 0,
+                          "leading": 0,
+                          "trailing": 0
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "controls_vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000066",
+                                  "#00000000"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "hstack",
+                              "type": "hstack",
+                              "layout": {
+                                "spacing": 8,
+                                "padding": {
+                                  "top": 4,
+                                  "bottom": 0,
+                                  "leading": 0,
+                                  "trailing": 4
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer",
+                                  "layout": {
+                                    "weight": 1
+                                  }
+                                },
+                                {
+                                  "id": "muteunmute_button",
+                                  "type": "muteunmute_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "playpause_button",
+                                  "type": "playpause_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "fullscreen_button",
+                                  "type": "fullscreen_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "linkout",
+                          "type": "linkout",
+                          "layout": {
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 8,
+                              "trailing": 8
+                            }
+                          }
+                        },
+                        {
+                          "id": "vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "spacing": 8,
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000000",
+                                  "#00000066"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "section_detail",
+                              "type": "section_detail",
+                              "content_key_map": {
+                                "id": "video.section.id",
+                                "title": "video.section.title",
+                                "sub_title": "video.section.subtitle",
+                                "thumbnail": "video.section.thumbnail_url",
+                                "cover": "video.section.cover_url",
+                                "no_of_clips": "video.section.no_of_clips"
+                              },
+                              "config": {
+                                "title": true,
+                                "subtitle": true,
+                                "thumbnail": true,
+                                "cover": false,
+                                "no_of_clips": true
+                              },
+                              "layout": {
+                                "outer_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 8
+                                },
+                                "inner_stack": {
+                                  "alignment": "center",
+                                  "spacing": 12
+                                },
+                                "text_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 4
+                                },
+                                "image": {
+                                  "size": {
+                                    "width": 48,
+                                    "height": 48
+                                  },
+                                  "corner_radius": {
+                                    "top_left": 8,
+                                    "top_right": 8,
+                                    "bottom_left": 8,
+                                    "bottom_right": 8
+                                  }
+                                },
+                                "heading": {
+                                  "text_style": "body0semibold",
+                                  "foreground": "#FFFFFF",
+                                  "max_lines": 1
+                                },
+                                "sub_heading": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#CCCCCC",
+                                  "max_lines": 2
+                                },
+                                "no_of_clips": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                }
+                              }
+                            },
+                            {
+                              "id": "video_details",
+                              "type": "video_details",
+                              "content_key_map": {
+                                "conversation_at": "video.conversation_at",
+                                "duration": "video.metadata.duration",
+                                "description_text": "video.description_text"
+                              },
+                              "config": {
+                                "post_date": true,
+                                "video_duration": true,
+                                "post_description": true,
+                                "date_format": "MMM_dd_yyyy",
+                                "show_current_year": false,
+                                "show_relative_date": true,
+                                "duration_format": "short"
+                              },
+                              "layout": {
+                                "metadata": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#FFFFFF"
+                                },
+                                "details": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                },
+                                "max_lines": 2,
+                                "padding": {
+                                  "top": 0,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 8
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "feed_4",
+              "type": "feed",
+              "layout": {
+                "size": {
+                  "height": 350,
+                  "width": 0
+                },
+                "is_dynamic": false,
+                "direction": "horizontal",
+                "span": 1,
+                "spacing": 8,
+                "scroll_insets": {
+                  "leading": 16,
+                  "trailing": 16
+                }
+              },
+              "content": {
+                "placement_id": "6a298ea4fa804e909cf6e914",
+                "style_id": "6a298ea4fa804e909cf6e915",
+                "unique_id": "T4",
+                "title": "Indian Express",
+                "subtitle": "Journalism of Courage",
+                "contextual_params": {
+                  "brands_ids": [
+                    2793
+                  ],
+                  "community_ids": [
+                    "78f73d6b-5741-42ac-b2cd-514a29d8af22",
+                    "a6773adb-3cc6-4ad7-9b36-be13a25a3f5e",
+                    "898e0fa2-3634-4d1e-9faf-e4ed2222d321",
+                    "b79e51b1-e564-4a21-a49a-88dfd03058bf",
+                    "b620b255-6308-43d7-9f12-fdb4b9d2d3e5",
+                    "8431072c-1ad4-410b-9ca0-bd61a05da76b",
+                    "ab4d022a-e6b7-47bc-92a2-d14be07f7e7d"
+                  ]
+                }
+              },
+              "config": {
+                "navigation": "withinParent",
+                "card_player_config": {
+                  "enable_autoplay": true,
+                  "enable_loop_video": false,
+                  "auto_advance_playback": 0,
+                  "scroll_behavior": "free_scroll",
+                  "enable_auto_scroll": true
+                },
+                "fullscreen_player_config": {
+                  "feed_video_play": {
+                    "type": 1,
+                    "repeat_video": 0,
+                    "swipe_after": 0
+                  },
+                  "video_autoplay": {
+                    "type": 1,
+                    "auto_play_after": 0,
+                    "is_start_with_sound": false
+                  },
+                  "resume_playback_from": -1,
+                  "tap_behavior": 1
+                }
+              },
+              "children": [
+                {
+                  "id": "zstack",
+                  "type": "zstack",
+                  "layout": {
+                    "aspect_ratio": "9:16",
+                    "corner_radius": {
+                      "top_left": 12,
+                      "top_right": 12,
+                      "bottom_left": 12,
+                      "bottom_right": 12
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "video_player",
+                      "id": "video_player",
+                      "content_key_map": {
+                        "source": "video.media_url_m3u8",
+                        "source_mp4": "video.media_url",
+                        "thumbnail": "video.thumbnail_url"
+                      },
+                      "layout": {
+                        "gravity": "fill"
+                      },
+                      "config": {
+                        "autoplay": true
+                      }
+                    },
+                    {
+                      "id": "vstack",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0,
+                        "padding": {
+                          "top": 0,
+                          "bottom": 0,
+                          "leading": 0,
+                          "trailing": 0
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "controls_vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000066",
+                                  "#00000000"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "hstack",
+                              "type": "hstack",
+                              "layout": {
+                                "spacing": 8,
+                                "padding": {
+                                  "top": 4,
+                                  "bottom": 0,
+                                  "leading": 0,
+                                  "trailing": 4
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer",
+                                  "layout": {
+                                    "weight": 1
+                                  }
+                                },
+                                {
+                                  "id": "muteunmute_button",
+                                  "type": "muteunmute_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "playpause_button",
+                                  "type": "playpause_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "fullscreen_button",
+                                  "type": "fullscreen_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "linkout",
+                          "type": "linkout",
+                          "layout": {
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 8,
+                              "trailing": 8
+                            }
+                          }
+                        },
+                        {
+                          "id": "vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "spacing": 8,
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000000",
+                                  "#00000066"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "section_detail",
+                              "type": "section_detail",
+                              "content_key_map": {
+                                "id": "video.section.id",
+                                "title": "video.section.title",
+                                "sub_title": "video.section.subtitle",
+                                "thumbnail": "video.section.thumbnail_url",
+                                "cover": "video.section.cover_url",
+                                "no_of_clips": "video.section.no_of_clips"
+                              },
+                              "config": {
+                                "title": true,
+                                "subtitle": true,
+                                "thumbnail": true,
+                                "cover": false,
+                                "no_of_clips": true
+                              },
+                              "layout": {
+                                "outer_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 8
+                                },
+                                "inner_stack": {
+                                  "alignment": "center",
+                                  "spacing": 12
+                                },
+                                "text_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 4
+                                },
+                                "image": {
+                                  "size": {
+                                    "width": 48,
+                                    "height": 48
+                                  },
+                                  "corner_radius": {
+                                    "top_left": 8,
+                                    "top_right": 8,
+                                    "bottom_left": 8,
+                                    "bottom_right": 8
+                                  }
+                                },
+                                "heading": {
+                                  "text_style": "body0semibold",
+                                  "foreground": "#FFFFFF",
+                                  "max_lines": 1
+                                },
+                                "sub_heading": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#CCCCCC",
+                                  "max_lines": 2
+                                },
+                                "no_of_clips": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                }
+                              }
+                            },
+                            {
+                              "id": "video_details",
+                              "type": "video_details",
+                              "content_key_map": {
+                                "conversation_at": "video.conversation_at",
+                                "duration": "video.metadata.duration",
+                                "description_text": "video.description_text"
+                              },
+                              "config": {
+                                "post_date": true,
+                                "video_duration": true,
+                                "post_description": true,
+                                "date_format": "MMM_dd_yyyy",
+                                "show_current_year": false,
+                                "show_relative_date": true,
+                                "duration_format": "short"
+                              },
+                              "layout": {
+                                "metadata": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#FFFFFF"
+                                },
+                                "details": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                },
+                                "max_lines": 2,
+                                "padding": {
+                                  "top": 0,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 8
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "feed_5",
+              "type": "feed",
+              "layout": {
+                "size": {
+                  "height": 350,
+                  "width": 0
+                },
+                "is_dynamic": false,
+                "direction": "horizontal",
+                "span": 1,
+                "spacing": 8,
+                "scroll_insets": {
+                  "leading": 16,
+                  "trailing": 16
+                }
+              },
+              "content": {
+                "placement_id": "6a298ea4fa804e909cf6e914",
+                "style_id": "6a298ea4fa804e909cf6e915",
+                "unique_id": "T5",
+                "title": "Peacock",
+                "subtitle": "Peacock is Universal",
+                "contextual_params": {
+                  "brands_ids": [
+                    3182
+                  ],
+                  "community_ids": [
+                    "73b63dd9-348b-4ba9-92e0-b134ff229260",
+                    "058f1919-adf0-4996-9319-18d2854eafa8",
+                    "b15f48e8-135a-4754-a34f-9f25d2055cb5",
+                    "249ee084-0188-4d49-b961-672d9ab9a9c1",
+                    "26169e9a-7b4f-4e13-a785-1ab9e7a182a5",
+                    "a7c17ed4-87ab-4759-8782-ff6131d87537",
+                    "ccccd24f-d6e5-4dee-a152-7f11d0a204ea"
+                  ]
+                }
+              },
+              "config": {
+                "navigation": "withinParent",
+                "card_player_config": {
+                  "enable_autoplay": true,
+                  "enable_loop_video": false,
+                  "auto_advance_playback": 0,
+                  "scroll_behavior": "free_scroll",
+                  "enable_auto_scroll": true
+                },
+                "fullscreen_player_config": {
+                  "feed_video_play": {
+                    "type": 1,
+                    "repeat_video": 0,
+                    "swipe_after": 0
+                  },
+                  "video_autoplay": {
+                    "type": 1,
+                    "auto_play_after": 0,
+                    "is_start_with_sound": false
+                  },
+                  "resume_playback_from": -1,
+                  "tap_behavior": 1
+                }
+              },
+              "children": [
+                {
+                  "id": "zstack",
+                  "type": "zstack",
+                  "layout": {
+                    "aspect_ratio": "9:16",
+                    "corner_radius": {
+                      "top_left": 12,
+                      "top_right": 12,
+                      "bottom_left": 12,
+                      "bottom_right": 12
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "video_player",
+                      "id": "video_player",
+                      "content_key_map": {
+                        "source": "video.media_url_m3u8",
+                        "source_mp4": "video.media_url",
+                        "thumbnail": "video.thumbnail_url"
+                      },
+                      "layout": {
+                        "gravity": "fill"
+                      },
+                      "config": {
+                        "autoplay": true
+                      }
+                    },
+                    {
+                      "id": "vstack",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0,
+                        "padding": {
+                          "top": 0,
+                          "bottom": 0,
+                          "leading": 0,
+                          "trailing": 0
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "controls_vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000066",
+                                  "#00000000"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "hstack",
+                              "type": "hstack",
+                              "layout": {
+                                "spacing": 8,
+                                "padding": {
+                                  "top": 4,
+                                  "bottom": 0,
+                                  "leading": 0,
+                                  "trailing": 4
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer",
+                                  "layout": {
+                                    "weight": 1
+                                  }
+                                },
+                                {
+                                  "id": "muteunmute_button",
+                                  "type": "muteunmute_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "playpause_button",
+                                  "type": "playpause_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "fullscreen_button",
+                                  "type": "fullscreen_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "linkout",
+                          "type": "linkout",
+                          "layout": {
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 8,
+                              "trailing": 8
+                            }
+                          }
+                        },
+                        {
+                          "id": "vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "spacing": 8,
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000000",
+                                  "#00000066"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "section_detail",
+                              "type": "section_detail",
+                              "content_key_map": {
+                                "id": "video.section.id",
+                                "title": "video.section.title",
+                                "sub_title": "video.section.subtitle",
+                                "thumbnail": "video.section.thumbnail_url",
+                                "cover": "video.section.cover_url",
+                                "no_of_clips": "video.section.no_of_clips"
+                              },
+                              "config": {
+                                "title": true,
+                                "subtitle": true,
+                                "thumbnail": true,
+                                "cover": false,
+                                "no_of_clips": true
+                              },
+                              "layout": {
+                                "outer_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 8
+                                },
+                                "inner_stack": {
+                                  "alignment": "center",
+                                  "spacing": 12
+                                },
+                                "text_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 4
+                                },
+                                "image": {
+                                  "size": {
+                                    "width": 48,
+                                    "height": 48
+                                  },
+                                  "corner_radius": {
+                                    "top_left": 8,
+                                    "top_right": 8,
+                                    "bottom_left": 8,
+                                    "bottom_right": 8
+                                  }
+                                },
+                                "heading": {
+                                  "text_style": "body0semibold",
+                                  "foreground": "#FFFFFF",
+                                  "max_lines": 1
+                                },
+                                "sub_heading": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#CCCCCC",
+                                  "max_lines": 2
+                                },
+                                "no_of_clips": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                }
+                              }
+                            },
+                            {
+                              "id": "video_details",
+                              "type": "video_details",
+                              "content_key_map": {
+                                "conversation_at": "video.conversation_at",
+                                "duration": "video.metadata.duration",
+                                "description_text": "video.description_text"
+                              },
+                              "config": {
+                                "post_date": true,
+                                "video_duration": true,
+                                "post_description": true,
+                                "date_format": "MMM_dd_yyyy",
+                                "show_current_year": false,
+                                "show_relative_date": true,
+                                "duration_format": "short"
+                              },
+                              "layout": {
+                                "metadata": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#FFFFFF"
+                                },
+                                "details": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                },
+                                "max_lines": 2,
+                                "padding": {
+                                  "top": 0,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 8
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "feed_6",
+              "type": "feed",
+              "layout": {
+                "size": {
+                  "height": 350,
+                  "width": 0
+                },
+                "is_dynamic": false,
+                "direction": "horizontal",
+                "span": 1,
+                "spacing": 8,
+                "scroll_insets": {
+                  "leading": 16,
+                  "trailing": 16
+                }
+              },
+              "content": {
+                "placement_id": "6a298ea4fa804e909cf6e914",
+                "style_id": "6a298ea4fa804e909cf6e915",
+                "unique_id": "T6",
+                "title": "Grubhub",
+                "subtitle": "Grub what you Love",
+                "contextual_params": {
+                  "brands_ids": [
+                    2143
+                  ],
+                  "community_ids": [
+                    "1d636f2c-cc10-47b1-bdf9-1c6c0ffe0404",
+                    "8e869c8c-e260-47de-848a-9939f02e593f",
+                    "3f0bbf5b-6de3-4527-a954-1ec2792a71f4",
+                    "2af268a8-f193-424f-8d4e-2e34255ffe8d",
+                    "8be50938-4d2f-4e8b-b8af-e42989cf4cf8",
+                    "87536aa9-bc8f-43d3-9415-468b8d8ae62b",
+                    "5cf452ad-e898-413c-9d51-4f7f71d191d8",
+                    "a15faaac-02f8-485b-8db3-780f8f68bdb4",
+                    "5b260ec1-c0e5-4604-9316-599e486a7360"
+                  ]
+                }
+              },
+              "config": {
+                "navigation": "withinParent",
+                "card_player_config": {
+                  "enable_autoplay": true,
+                  "enable_loop_video": false,
+                  "auto_advance_playback": 0,
+                  "scroll_behavior": "free_scroll",
+                  "enable_auto_scroll": true
+                },
+                "fullscreen_player_config": {
+                  "feed_video_play": {
+                    "type": 1,
+                    "repeat_video": 0,
+                    "swipe_after": 0
+                  },
+                  "video_autoplay": {
+                    "type": 1,
+                    "auto_play_after": 0,
+                    "is_start_with_sound": false
+                  },
+                  "resume_playback_from": -1,
+                  "tap_behavior": 1
+                }
+              },
+              "children": [
+                {
+                  "id": "zstack",
+                  "type": "zstack",
+                  "layout": {
+                    "aspect_ratio": "9:16",
+                    "corner_radius": {
+                      "top_left": 12,
+                      "top_right": 12,
+                      "bottom_left": 12,
+                      "bottom_right": 12
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "video_player",
+                      "id": "video_player",
+                      "content_key_map": {
+                        "source": "video.media_url_m3u8",
+                        "source_mp4": "video.media_url",
+                        "thumbnail": "video.thumbnail_url"
+                      },
+                      "layout": {
+                        "gravity": "fill"
+                      },
+                      "config": {
+                        "autoplay": true
+                      }
+                    },
+                    {
+                      "id": "vstack",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0,
+                        "padding": {
+                          "top": 0,
+                          "bottom": 0,
+                          "leading": 0,
+                          "trailing": 0
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "controls_vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000066",
+                                  "#00000000"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "hstack",
+                              "type": "hstack",
+                              "layout": {
+                                "spacing": 8,
+                                "padding": {
+                                  "top": 4,
+                                  "bottom": 0,
+                                  "leading": 0,
+                                  "trailing": 4
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer",
+                                  "layout": {
+                                    "weight": 1
+                                  }
+                                },
+                                {
+                                  "id": "muteunmute_button",
+                                  "type": "muteunmute_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "playpause_button",
+                                  "type": "playpause_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "fullscreen_button",
+                                  "type": "fullscreen_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "linkout",
+                          "type": "linkout",
+                          "layout": {
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 8,
+                              "trailing": 8
+                            }
+                          }
+                        },
+                        {
+                          "id": "vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "spacing": 8,
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000000",
+                                  "#00000066"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "section_detail",
+                              "type": "section_detail",
+                              "content_key_map": {
+                                "id": "video.section.id",
+                                "title": "video.section.title",
+                                "sub_title": "video.section.subtitle",
+                                "thumbnail": "video.section.thumbnail_url",
+                                "cover": "video.section.cover_url",
+                                "no_of_clips": "video.section.no_of_clips"
+                              },
+                              "config": {
+                                "title": true,
+                                "subtitle": true,
+                                "thumbnail": true,
+                                "cover": false,
+                                "no_of_clips": true
+                              },
+                              "layout": {
+                                "outer_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 8
+                                },
+                                "inner_stack": {
+                                  "alignment": "center",
+                                  "spacing": 12
+                                },
+                                "text_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 4
+                                },
+                                "image": {
+                                  "size": {
+                                    "width": 48,
+                                    "height": 48
+                                  },
+                                  "corner_radius": {
+                                    "top_left": 8,
+                                    "top_right": 8,
+                                    "bottom_left": 8,
+                                    "bottom_right": 8
+                                  }
+                                },
+                                "heading": {
+                                  "text_style": "body0semibold",
+                                  "foreground": "#FFFFFF",
+                                  "max_lines": 1
+                                },
+                                "sub_heading": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#CCCCCC",
+                                  "max_lines": 2
+                                },
+                                "no_of_clips": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                }
+                              }
+                            },
+                            {
+                              "id": "video_details",
+                              "type": "video_details",
+                              "content_key_map": {
+                                "conversation_at": "video.conversation_at",
+                                "duration": "video.metadata.duration",
+                                "description_text": "video.description_text"
+                              },
+                              "config": {
+                                "post_date": true,
+                                "video_duration": true,
+                                "post_description": true,
+                                "date_format": "MMM_dd_yyyy",
+                                "show_current_year": false,
+                                "show_relative_date": true,
+                                "duration_format": "short"
+                              },
+                              "layout": {
+                                "metadata": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#FFFFFF"
+                                },
+                                "details": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                },
+                                "max_lines": 2,
+                                "padding": {
+                                  "top": 0,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 8
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "feed_8",
+              "type": "feed",
+              "layout": {
+                "size": {
+                  "height": 350,
+                  "width": 0
+                },
+                "is_dynamic": false,
+                "direction": "horizontal",
+                "span": 1,
+                "spacing": 8,
+                "scroll_insets": {
+                  "leading": 16,
+                  "trailing": 16
+                }
+              },
+              "content": {
+                "placement_id": "6a298ea4fa804e909cf6e914",
+                "style_id": "6a298ea4fa804e909cf6e915",
+                "unique_id": "T8",
+                "title": "The Foil",
+                "subtitle": "Watch: The Foil Originals",
+                "contextual_params": {
+                  "brands_ids": [
+                    3313
+                  ],
+                  "community_ids": [
+                    "174ed05a-53ef-4e64-8c42-2b1bc6a5e030",
+                    "fbb7b943-ffb9-4622-9fee-0e43360b108e",
+                    "60bb8937-71a3-4381-815c-6eddec543369",
+                    "bc6c4a64-82bd-4177-8595-82c962c54897",
+                    "0e99176f-b321-4fb0-a4ca-a15fbedf88ff",
+                    "b09b876f-b7bd-4463-bee7-4b43823f91ed",
+                    "a2235422-3027-49c2-8022-3079ce9c11d1"
+                  ]
+                }
+              },
+              "config": {
+                "navigation": "withinParent",
+                "card_player_config": {
+                  "enable_autoplay": true,
+                  "enable_loop_video": false,
+                  "auto_advance_playback": 0,
+                  "scroll_behavior": "free_scroll",
+                  "enable_auto_scroll": true
+                },
+                "fullscreen_player_config": {
+                  "feed_video_play": {
+                    "type": 1,
+                    "repeat_video": 0,
+                    "swipe_after": 0
+                  },
+                  "video_autoplay": {
+                    "type": 1,
+                    "auto_play_after": 0,
+                    "is_start_with_sound": false
+                  },
+                  "resume_playback_from": -1,
+                  "tap_behavior": 1
+                }
+              },
+              "children": [
+                {
+                  "id": "zstack",
+                  "type": "zstack",
+                  "layout": {
+                    "aspect_ratio": "9:16",
+                    "corner_radius": {
+                      "top_left": 12,
+                      "top_right": 12,
+                      "bottom_left": 12,
+                      "bottom_right": 12
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "video_player",
+                      "id": "video_player",
+                      "content_key_map": {
+                        "source": "video.media_url_m3u8",
+                        "source_mp4": "video.media_url",
+                        "thumbnail": "video.thumbnail_url"
+                      },
+                      "layout": {
+                        "gravity": "fill"
+                      },
+                      "config": {
+                        "autoplay": true
+                      }
+                    },
+                    {
+                      "id": "vstack",
+                      "type": "vstack",
+                      "layout": {
+                        "spacing": 0,
+                        "padding": {
+                          "top": 0,
+                          "bottom": 0,
+                          "leading": 0,
+                          "trailing": 0
+                        }
+                      },
+                      "children": [
+                        {
+                          "id": "controls_vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000066",
+                                  "#00000000"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "hstack",
+                              "type": "hstack",
+                              "layout": {
+                                "spacing": 8,
+                                "padding": {
+                                  "top": 4,
+                                  "bottom": 0,
+                                  "leading": 0,
+                                  "trailing": 4
+                                }
+                              },
+                              "children": [
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer",
+                                  "layout": {
+                                    "weight": 1
+                                  }
+                                },
+                                {
+                                  "id": "muteunmute_button",
+                                  "type": "muteunmute_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "playpause_button",
+                                  "type": "playpause_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "fullscreen_button",
+                                  "type": "fullscreen_button",
+                                  "layout": {
+                                    "style": "layered",
+                                    "spacing": 8,
+                                    "corner_radius": {
+                                      "top_left": 22,
+                                      "top_right": 22,
+                                      "bottom_left": 22,
+                                      "bottom_right": 22
+                                    },
+                                    "size": {
+                                      "height": 32,
+                                      "width": 32
+                                    },
+                                    "background": "#00000066",
+                                    "opacity": 0.4,
+                                    "icon": {
+                                      "tint_color": "#FFFFFFFF",
+                                      "size": {
+                                        "height": 16,
+                                        "width": 16
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "spacer",
+                                  "type": "spacer"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "linkout",
+                          "type": "linkout",
+                          "layout": {
+                            "padding": {
+                              "top": 0,
+                              "bottom": 0,
+                              "leading": 8,
+                              "trailing": 8
+                            }
+                          }
+                        },
+                        {
+                          "id": "vstack",
+                          "type": "vstack",
+                          "layout": {
+                            "spacing": 8,
+                            "background": {
+                              "gradient": {
+                                "type": "linear",
+                                "colors": [
+                                  "#00000000",
+                                  "#00000066"
+                                ],
+                                "start_point": "top",
+                                "end_point": "bottom"
+                              }
+                            }
+                          },
+                          "children": [
+                            {
+                              "id": "section_detail",
+                              "type": "section_detail",
+                              "content_key_map": {
+                                "id": "video.section.id",
+                                "title": "video.section.title",
+                                "sub_title": "video.section.subtitle",
+                                "thumbnail": "video.section.thumbnail_url",
+                                "cover": "video.section.cover_url",
+                                "no_of_clips": "video.section.no_of_clips"
+                              },
+                              "config": {
+                                "title": true,
+                                "subtitle": true,
+                                "thumbnail": true,
+                                "cover": false,
+                                "no_of_clips": true
+                              },
+                              "layout": {
+                                "outer_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 8
+                                },
+                                "inner_stack": {
+                                  "alignment": "center",
+                                  "spacing": 12
+                                },
+                                "text_stack": {
+                                  "alignment": "leading",
+                                  "spacing": 4
+                                },
+                                "image": {
+                                  "size": {
+                                    "width": 48,
+                                    "height": 48
+                                  },
+                                  "corner_radius": {
+                                    "top_left": 8,
+                                    "top_right": 8,
+                                    "bottom_left": 8,
+                                    "bottom_right": 8
+                                  }
+                                },
+                                "heading": {
+                                  "text_style": "body0semibold",
+                                  "foreground": "#FFFFFF",
+                                  "max_lines": 1
+                                },
+                                "sub_heading": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#CCCCCC",
+                                  "max_lines": 2
+                                },
+                                "no_of_clips": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                }
+                              }
+                            },
+                            {
+                              "id": "video_details",
+                              "type": "video_details",
+                              "content_key_map": {
+                                "conversation_at": "video.conversation_at",
+                                "duration": "video.metadata.duration",
+                                "description_text": "video.description_text"
+                              },
+                              "config": {
+                                "post_date": true,
+                                "video_duration": true,
+                                "post_description": true,
+                                "date_format": "MMM_dd_yyyy",
+                                "show_current_year": false,
+                                "show_relative_date": true,
+                                "duration_format": "short"
+                              },
+                              "layout": {
+                                "metadata": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#FFFFFF"
+                                },
+                                "details": {
+                                  "text_style": "body2regular",
+                                  "foreground": "#AAAAAA"
+                                },
+                                "max_lines": 2,
+                                "padding": {
+                                  "top": 0,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 8
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

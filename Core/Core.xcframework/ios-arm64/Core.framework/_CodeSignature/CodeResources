@@ -6,23 +6,23 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		NvcRMZhAWVessWitKKuPJes++tk=
+		9AQVfVijBoZ1yS6apzvRjsHPqPY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		w7LoKP+N3H8EgfMvaOX+246Nhgk=
+		xiDa90wNNS/O34d0u7mFWTdrCWA=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		ig1TymhlsY4kcAFqhbf98VrsVOM=
+		DWAHgB/JtHHH5yNntOtPaMi3SSg=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		YLxYavibIt4pp2dANrHjPe17wwM=
+		kogK3WZ5WtfPnINkgskeaCucOd0=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		ig1TymhlsY4kcAFqhbf98VrsVOM=
+		DWAHgB/JtHHH5yNntOtPaMi3SSg=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -33,10 +33,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>xcschememanagement.plist</key>
-		<data>
-		s08EhrlKP3zWH+e1+0/8PuadRDA=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -44,28 +40,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Oognw+WCbK9rnw2r5LMI8bue5GlkS6Vw6CXI450/ap4=
+			NIZThnLCEBFiWtHGurmdLPXEnsVDGDgn67EQRDBMewM=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GrHVDM9dUmb9L95vLbCe58mDxArsDG4gI6lDovsa9JI=
+			zxxbsne7DxiBJlZ6PD/VPEBL/tGzY319ms9s8ntTiGM=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WHnUoNLfTJPdSvk8b6KRyVNxHJ5zciHN+OZn9DQTsNI=
+			Frzk5yFlDNONUGhxJ2Jh1Tk9s+oheQ7LD6Dk73BToeQ=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GrHVDM9dUmb9L95vLbCe58mDxArsDG4gI6lDovsa9JI=
+			zxxbsne7DxiBJlZ6PD/VPEBL/tGzY319ms9s8ntTiGM=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
@@ -76,13 +72,6 @@
 			</data>
 			<key>optional</key>
 			<true/>
-		</dict>
-		<key>xcschememanagement.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			2nPZcMJto7Z20lipYDASER6tTEiuOEJIkUfPe+ZFmu8=
-			</data>
 		</dict>
 	</dict>
 	<key>rules</key>

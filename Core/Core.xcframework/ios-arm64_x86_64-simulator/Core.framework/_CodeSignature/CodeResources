@@ -6,35 +6,35 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		NvcRMZhAWVessWitKKuPJes++tk=
+		9AQVfVijBoZ1yS6apzvRjsHPqPY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PrCaAsAS7PDAbZ1cspcigWo5H2g=
+		l3kb+ciBFrgxS7S0B+GdpOCTC0w=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ExBNlDdnXIwC/gkUF1icj325H98=
+		2cBoW375KLhnnDQLRVGfhw5kXeM=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		zqgOQb2tAUyf38tl3N/C15KWO6Q=
+		QTDJGXOpIW6fPF9SfThFK9woWzY=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ExBNlDdnXIwC/gkUF1icj325H98=
+		2cBoW375KLhnnDQLRVGfhw5kXeM=
 		</data>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		aVsBDZQ0X1Cz4ZF+0wSp2U84zZM=
+		27FMZi/gh4UMyuxoxrGScaZOykw=
 		</data>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		yFErnEdjaCaX8r8O6YKcxcJhDYU=
+		SWGUwP/++bm0mnPx45n+DnZkATk=
 		</data>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		aVsBDZQ0X1Cz4ZF+0wSp2U84zZM=
+		27FMZi/gh4UMyuxoxrGScaZOykw=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -45,10 +45,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>xcschememanagement.plist</key>
-		<data>
-		s08EhrlKP3zWH+e1+0/8PuadRDA=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -56,49 +52,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Oognw+WCbK9rnw2r5LMI8bue5GlkS6Vw6CXI450/ap4=
+			NIZThnLCEBFiWtHGurmdLPXEnsVDGDgn67EQRDBMewM=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vVZgZjCKZCWetn3fRV9MoBbaMNEptmfZMTWLhHy0NVI=
+			chql652G4PiKylasvOFgZZObNBr+zGWHCSVJdzq4mJU=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/MIdSGz649XjHxuCzBbQ69xEUQhpRmQ+uYYywBLoUiA=
+			CBAur0ZP94S32olx+L3goyiDug2hbZmslRxCi/Ae+MU=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vVZgZjCKZCWetn3fRV9MoBbaMNEptmfZMTWLhHy0NVI=
+			chql652G4PiKylasvOFgZZObNBr+zGWHCSVJdzq4mJU=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KIWZABQY5QAsMgBegETYGf+SZDks5Ank9OfKNTwgNKo=
+			lLqsno3dANEitz8wb2IVKcv+EMSU5WvT6Rgt5BiLr68=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NEtmlk5BWDNejo21O+VdlzZtfF3gMkdqEUjQdDXQlTQ=
+			Hmdrt7pd5d/JP+iza5WtuOk155XcgqGTYQGNfQ5mH1c=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KIWZABQY5QAsMgBegETYGf+SZDks5Ank9OfKNTwgNKo=
+			lLqsno3dANEitz8wb2IVKcv+EMSU5WvT6Rgt5BiLr68=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
@@ -109,13 +105,6 @@
 			</data>
 			<key>optional</key>
 			<true/>
-		</dict>
-		<key>xcschememanagement.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			2nPZcMJto7Z20lipYDASER6tTEiuOEJIkUfPe+ZFmu8=
-			</data>
 		</dict>
 	</dict>
 	<key>rules</key>

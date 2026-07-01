@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-compiler-version: Apple Swift version 6.3 effective-5.10 (swiftlang-6.3.0.123.5 clang-2100.0.123.102)
 // swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Core
-// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3
 import AVFoundation
 import AdSupport
 import AppTrackingTransparency
@@ -29,6 +29,7 @@ public struct BGBrand : Swift.Codable, Core.BGData {
   public let name: Swift.String?
   public let status: Swift.Int?
   public let logo: Swift.String?
+  public let brandUserLogo: Swift.Int?
   public let mobileConfigs: Core.BGConfigs?
   public typealias ID = Swift.String
   public func encode(to encoder: any Swift.Encoder) throws
@@ -81,6 +82,7 @@ public struct BGConfigs : Swift.Codable {
 @frozen public enum BGTapBehaviorType : Swift.Int, Swift.Codable {
   case muteUnmute
   case playPause
+  case other
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -147,12 +149,14 @@ public struct BGVideoAutoplay : Swift.Codable {
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BGBrandRepository : Core.BGDataRepository<Core.BGBrand, Core.BGBrand> {
   public static let shared: Core.BGBrandRepository
-  final public var brand: Core.BGBrand? {
+  final public var currentBrand: Core.BGBrand? {
     get
   }
+  final public func getBrandId() -> Swift.Int?
   final public var reactionURLsInvalidated: Swift.Bool
   final public var apiKey: Swift.String?
   override final public func map(_ response: Core.BGBrand) throws -> Core.BGBrand
+  final public func selectBrand(apiKey: Swift.String) -> Core.BGBrand?
   @objc deinit
 }
 final public class BGLRUCache<Key, Value> : @unchecked Swift.Sendable where Key : Swift.Hashable, Key : Swift.Sendable {
@@ -389,6 +393,17 @@ final public class BGKingfisherImageLoaderService : Core.IBGImageLoaderService {
   final public func cancelPrefetch(urls: [Foundation.URL])
   @objc deinit
 }
+public enum BGSDKTokenService {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public static func saveAccessToken(_ token: Swift.String) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public static func saveRefreshToken(_ token: Swift.String) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public static func clearTokens() async throws
+  #endif
+}
 @_hasMissingDesignatedInitializers public actor BGAuthStates {
   public static let shared: Core.BGAuthStates
   public func isAuthenticated() async -> Swift.Bool
@@ -526,6 +541,17 @@ public struct BGDestination : Swift.Hashable, Swift.Identifiable {
     get
   }
 }
+@available(iOS 16, *)
+final public class BGFeedNavigator {
+  public init()
+  @_Concurrency.MainActor final public func push(_ viewController: UIKit.UIViewController)
+  @objc deinit
+}
+@available(iOS 16, *)
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgHeroDragToDismiss(isEnabled: Swift.Bool, onDismiss: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+}
 public struct BGHeroTransitionConfig {
   public var cornerRadius: CoreFoundation.CGFloat
   public var expandDuration: Swift.Double
@@ -563,11 +589,10 @@ extension SwiftUICore.EnvironmentValues {
     get
     set
   }
-}
-@available(iOS 16, *)
-extension SwiftUICore.View {
-  @_Concurrency.MainActor @preconcurrency public func bgHeroDragToDismiss(isEnabled: Swift.Bool, onDismiss: @escaping () -> Swift.Void) -> some SwiftUICore.View
-  
+  public var bgIsHeroPresented: Swift.Bool {
+    get
+    set
+  }
 }
 @available(iOS 16, *)
 @_Concurrency.MainActor @preconcurrency public struct BGNavigationRoot<Content> : SwiftUICore.View where Content : SwiftUICore.View {
@@ -596,9 +621,22 @@ public struct BGPlacementConfig : Swift.Decodable, Swift.Equatable {
   public static func == (a: Core.BGPlacementConfig, b: Core.BGPlacementConfig) -> Swift.Bool
   public init(from decoder: any Swift.Decoder) throws
 }
+public enum BGSDKEnvironment {
+  case prod
+  case qa
+  public var baseURL: Swift.String {
+    get
+  }
+  public static func == (a: Core.BGSDKEnvironment, b: Core.BGSDKEnvironment) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 public struct BGSDKConfig {
   public var navigationStyle: Core.BGNavigationBarConfig.Style
-  public init(navigationStyle: Core.BGNavigationBarConfig.Style = .system)
+  public var environment: Core.BGSDKEnvironment
+  public init(navigationStyle: Core.BGNavigationBarConfig.Style = .system, environment: Core.BGSDKEnvironment = .prod)
   public static let `default`: Core.BGSDKConfig
 }
 @available(iOS 16, *)
@@ -911,6 +949,18 @@ public struct BGPlayerStatus : Swift.Equatable {
     @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
     set
   }
+  @Combine.Published<Swift.String?> @_projectedValueProperty($activePlayerUniqueId) public var activePlayerUniqueId: Swift.String? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  public var $activePlayerUniqueId: Combine.Published<Swift.String?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
@@ -928,6 +978,34 @@ extension SwiftUICore.EnvironmentValues {
   }
 }
 
+final public class BGScopedPlayerStatus : Combine.ObservableObject {
+  @Combine.Published<Core.BGPlayerStatus?> @_projectedValueProperty($cardStatus) final public var cardStatus: Core.BGPlayerStatus? {
+    get
+  }
+  final public var $cardStatus: Combine.Published<Core.BGPlayerStatus?>.Publisher {
+    get
+  }
+  @Combine.Published<Swift.Bool> @_projectedValueProperty($isMuted) final public var isMuted: Swift.Bool {
+    get
+  }
+  final public var $isMuted: Combine.Published<Swift.Bool>.Publisher {
+    get
+  }
+  @Combine.Published<Swift.Bool> @_projectedValueProperty($isActivePlayer) final public var isActivePlayer: Swift.Bool {
+    get
+  }
+  final public var $isActivePlayer: Combine.Published<Swift.Bool>.Publisher {
+    get
+  }
+  public init(containerId: Swift.String, uniqueId: Swift.String, source: Core.BGPlayerStatusObservable = .shared)
+  public init(globalMuteFrom source: Core.BGPlayerStatusObservable = .shared)
+  public init(activePlayerFor uniqueId: Swift.String, source: Core.BGPlayerStatusObservable = .shared)
+  final public var isPlaying: Swift.Bool {
+    get
+  }
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
 public enum BGScrollBehavior : Swift.String, Swift.Codable {
   case freeScroll
   case paging
@@ -944,6 +1022,11 @@ public struct BGVideoPresentation : Swift.Equatable {
   public static let `default`: Core.BGVideoPresentation
   public static func == (a: Core.BGVideoPresentation, b: Core.BGVideoPresentation) -> Swift.Bool
 }
+public struct BGPlayingCard {
+  public let uniqueId: Swift.String
+  public let containerId: Swift.String
+  public init(uniqueId: Swift.String, containerId: Swift.String)
+}
 public protocol IBGPlayerManager : AnyObject {
   func setURL(_ uniqueId: Swift.String, url: Foundation.URL, containerId: Swift.String)
   func play(uniqueId: Swift.String, containerId: Swift.String, reason: Core.BGPlayReason)
@@ -956,6 +1039,8 @@ public protocol IBGPlayerManager : AnyObject {
   func feedState(for globalId: Swift.String) -> Core.BGFeedState?
   func currentlyPlayingId(containerId: Swift.String) -> Swift.String?
   func pauseForFullscreenEntry(tappedUniqueId: Swift.String, containerId: Swift.String)
+  @discardableResult
+  func pauseAllPlaying(reason: Core.BGPauseReason) -> [Core.BGPlayingCard]
   var hasAnyFocusedPlacement: Swift.Bool { get }
   func setExclusiveFocus(globalId: Swift.String)
   func setFullscreen(_ isFullscreen: Swift.Bool, for globalId: Swift.String)
@@ -1261,6 +1346,7 @@ public struct BGThemeColor : Swift.Codable {
   public let primary600: SwiftUICore.Color
   public let primary700: SwiftUICore.Color
   public let secondary: SwiftUICore.Color
+  public let secondary50: SwiftUICore.Color
   public let secondary100: SwiftUICore.Color
   public let secondary150: SwiftUICore.Color
   public let secondary200: SwiftUICore.Color
@@ -1284,7 +1370,7 @@ public struct BGThemeColor : Swift.Codable {
   }
   public static let light: Core.BGThemeColor
   public static let dark: Core.BGThemeColor
-  public init(primary: SwiftUICore.Color = .blue, primary100: SwiftUICore.Color = .blue.opacity(0.9), primary200: SwiftUICore.Color = .blue.opacity(0.8), primary300: SwiftUICore.Color = .blue.opacity(0.7), primary400: SwiftUICore.Color = .blue.opacity(0.6), primary600: SwiftUICore.Color = .blue.opacity(0.4), primary700: SwiftUICore.Color = .blue.opacity(0.3), secondary: SwiftUICore.Color = .teal, secondary100: SwiftUICore.Color = Color(hex: "#E9EBEC"), secondary150: SwiftUICore.Color = Color(hex: "#DFE1E3"), secondary200: SwiftUICore.Color = Color(hex: "#D4D7D9"), secondary300: SwiftUICore.Color = .teal.opacity(0.7), secondary400: SwiftUICore.Color = .teal.opacity(0.6), secondary500: SwiftUICore.Color = Color(hex: "#939AA1"), secondary600: SwiftUICore.Color = .teal.opacity(0.4), tertiary: SwiftUICore.Color = .gray, tertiary100: SwiftUICore.Color = .gray.opacity(0.95), tertiary200: SwiftUICore.Color = .gray.opacity(0.85), tertiary300: SwiftUICore.Color = .gray.opacity(0.7), tertiary400: SwiftUICore.Color = .gray.opacity(0.55), error: SwiftUICore.Color = Color(hex: "#F35421"), black: SwiftUICore.Color = Color(hex: "#131415"), white: SwiftUICore.Color = Color(hex: "#FFFFFF"))
+  public init(primary: SwiftUICore.Color = Color(hex: "#0645FF"), primary100: SwiftUICore.Color = Color(hex: "#E6ECFF"), primary200: SwiftUICore.Color = Color(hex: "#CDDAFF"), primary300: SwiftUICore.Color = Color(hex: "#83A2FF"), primary400: SwiftUICore.Color = Color(hex: "#507CFF"), primary600: SwiftUICore.Color = Color(hex: "#0430B3"), primary700: SwiftUICore.Color = Color(hex: "#03227F"), secondary: SwiftUICore.Color = Color(hex: "#939AA1"), secondary50: SwiftUICore.Color = Color(hex: "#F4F5F6"), secondary100: SwiftUICore.Color = Color(hex: "#E9EBEC"), secondary150: SwiftUICore.Color = Color(hex: "#DFE1E3"), secondary200: SwiftUICore.Color = Color(hex: "#D4D7D9"), secondary300: SwiftUICore.Color = Color(hex: "#BEC2C7"), secondary400: SwiftUICore.Color = Color(hex: "#A9AEB4"), secondary500: SwiftUICore.Color = Color(hex: "#939AA1"), secondary600: SwiftUICore.Color = Color(hex: "#767B81"), tertiary: SwiftUICore.Color = Color(hex: "#F4F5F6"), tertiary100: SwiftUICore.Color = Color(hex: "#E9EBEC"), tertiary200: SwiftUICore.Color = Color(hex: "#D4D7D9"), tertiary300: SwiftUICore.Color = Color(hex: "#BEC2C7"), tertiary400: SwiftUICore.Color = Color(hex: "#A9AEB4"), error: SwiftUICore.Color = Color(hex: "#F35421"), black: SwiftUICore.Color = Color(hex: "#131415"), white: SwiftUICore.Color = Color(hex: "#FFFFFF"))
   public init(brandColors: Core.BGBrandColors, colorScheme: SwiftUICore.ColorScheme = .light)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -1643,8 +1729,22 @@ public struct Padding : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct BGScrollInsets : Swift.Codable, Swift.Sendable {
+  public let top: CoreFoundation.CGFloat
+  public let bottom: CoreFoundation.CGFloat
+  public let leading: CoreFoundation.CGFloat
+  public let trailing: CoreFoundation.CGFloat
+  public init(top: CoreFoundation.CGFloat = 0, bottom: CoreFoundation.CGFloat = 0, leading: CoreFoundation.CGFloat = 0, trailing: CoreFoundation.CGFloat = 0)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public var edgeInsets: SwiftUICore.EdgeInsets {
+    get
+  }
+}
 extension SwiftUICore.View {
   @_Concurrency.MainActor @preconcurrency public func applyCommonLayout(_ layout: Core.AnyCodable?, overrideHeight: CoreFoundation.CGFloat? = nil, overrideWidth: CoreFoundation.CGFloat? = nil, decorate: Swift.Bool = true) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func applyCommonLayout(_ layout: Core.BGCommonLayout?, overrideHeight: CoreFoundation.CGFloat? = nil, overrideWidth: CoreFoundation.CGFloat? = nil, decorate: Swift.Bool = true) -> some SwiftUICore.View
   
 }
 @_Concurrency.MainActor @preconcurrency public struct BGCommonLayoutModifier : SwiftUICore.ViewModifier {
@@ -1669,6 +1769,10 @@ public struct BGImageLayout : Swift.Codable {
   public init(size: Core.Size? = nil, tintColor: Swift.String? = nil, opacity: Swift.Double? = nil, border: Core.Border? = nil, cornerRadius: Core.CornerRadius? = nil, contentMode: SwiftUICore.ContentMode? = nil)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgLockHorizontalScrollAxis(claiming wallCoordinator: Core.BGWallGestureCoordinator? = nil) -> some SwiftUICore.View
+  
 }
 public struct BGTextAttributes : Swift.Codable {
   public var foreground: Swift.String?
@@ -2072,6 +2176,8 @@ public struct BGPagerItem : Swift.Identifiable {
   @_Concurrency.MainActor final public func updateMainPages(_ newPages: [Core.BGPagerItem])
   @_Concurrency.MainActor final public func updateLeftOverlayPages(_ newPages: [Core.BGPagerItem])
   @_Concurrency.MainActor final public func updateRightOverlayPages(_ newPages: [Core.BGPagerItem])
+  @_Concurrency.MainActor final public func reactivateCurrentMainPage()
+  @_Concurrency.MainActor final public func deactivateCurrentMainPage()
   @_Concurrency.MainActor final public var activeNavIndex: Swift.Int {
     get
   }
@@ -2205,6 +2311,7 @@ extension Core.AnyCodable {
   public init?(_ value: (some Encodable)?)
 }
 final public class BGComponentRegistry {
+  final public var componentDecorator: ((SwiftUICore.AnyView, Core.BGComponentModel) -> SwiftUICore.AnyView)?
   public init()
   final public func register(_ type: Swift.String, _ builder: @escaping (Core.BGComponentModel, Core.ContentResolver) -> SwiftUICore.AnyView)
   final public func view(component: Core.BGComponentModel, resolver: Core.ContentResolver) -> SwiftUICore.AnyView
@@ -2452,13 +2559,22 @@ extension Core.BGTrackable {
 }
 public enum BGSharedUserDefaultsKeys {
   public static let isFreshInstall: Core.BGUserDefaultsKey<Swift.Bool>
+  public static let userId: Core.BGUserDefaultsKey<Swift.String>
 }
 public enum SDKConstants {
   public static let sdkVersion: Swift.String
   public static let appBundleId: Swift.String?
 }
 public enum APPURL {
-  public static let baseURL: Swift.String
+  public static var baseURL: Swift.String {
+    get
+  }
+  public static var goBaseURL: Swift.String {
+    get
+  }
+  public static var v3BaseURL: Swift.String {
+    get
+  }
 }
 public protocol BGAuthDelegate : AnyObject {
   func onLogin(data: [Swift.String : Any])
@@ -2472,6 +2588,9 @@ extension SwiftUICore.EnvironmentValues {
 extension SwiftUICore.View {
   @_Concurrency.MainActor @preconcurrency public func bgAuthDelegate(_ delegate: (any Core.BGAuthDelegate)?) -> some SwiftUICore.View
   
+}
+extension Foundation.NSNotification.Name {
+  public static let bgUserForceLoggedOut: Foundation.Notification.Name
 }
 public enum BGDescriptionLinkAction : Swift.Equatable {
   case member(Swift.String)
@@ -2565,6 +2684,7 @@ public enum BGInteractionOnView : Swift.String {
   case follow
   case library
   case playAgain
+  case profilePill
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -2590,6 +2710,10 @@ public enum BGInteractionInfo : Swift.String {
   case eventAttributes
   case parentTitle
   case parentSubtitle
+  case userId
+  case brandId
+  case isBrandUser
+  case navigator
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -2653,6 +2777,24 @@ public struct BGUserDefaultsKey<Value> where Value : Swift.Decodable, Value : Sw
   public let scope: Core.BGUserDefaultsScope
   public init(_ name: Swift.String, namespace: Core.BGUserDefaultsNamespace, default defaultValue: Value, scope: Core.BGUserDefaultsScope)
 }
+public struct BGGeoInfo {
+  public let ip: Swift.String?
+  public let city: Swift.String?
+  public let region: Swift.String?
+  public let country: Swift.String?
+  public let postal: Swift.String?
+  public let latitude: Swift.Double?
+  public let longitude: Swift.Double?
+}
+@_hasMissingDesignatedInitializers public actor BGGeoProvider {
+  public static let shared: Core.BGGeoProvider
+  public func current() async -> Core.BGGeoInfo?
+  @objc deinit
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  @_semantics("defaultActor") nonisolated final public var unownedExecutor: _Concurrency.UnownedSerialExecutor {
+    get
+  }
+}
 public enum BGHaptics {
   public static func impact(_: UIKit.UIImpactFeedbackGenerator.FeedbackStyle = .light)
 }
@@ -2666,7 +2808,10 @@ extension Swift.BinaryInteger {
 }
 public enum BGCore {
   public static var apiKey: Swift.String?
-  public static var config: Core.BGSDKConfig
+  public static var config: Core.BGSDKConfig {
+    get
+    set
+  }
   public static var module: any Any.Type {
     get
   }
@@ -2713,6 +2858,8 @@ extension Core.BGNavigationRoot : Swift.Sendable {}
 extension Core.BGNavigationScope : Swift.Equatable {}
 extension Core.BGNavigationScope : Swift.Hashable {}
 extension Core.BGNavigationScope : Swift.RawRepresentable {}
+extension Core.BGSDKEnvironment : Swift.Equatable {}
+extension Core.BGSDKEnvironment : Swift.Hashable {}
 extension Core.BGHTTPMethod : Swift.Equatable {}
 extension Core.BGHTTPMethod : Swift.Hashable {}
 extension Core.BGHTTPMethod : Swift.RawRepresentable {}

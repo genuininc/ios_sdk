@@ -91,6 +91,34 @@
                                     }
                                 }
                             }
+                        },
+                        {
+                            "id": "fullscreen_button",
+                            "type": "fullscreen_button",
+                            "config": {
+                                "selected": true
+                            },
+                            "layout": {
+                                "style": "layered",
+                                "corner_radius": {
+                                    "top_left": 18,
+                                    "top_right": 18,
+                                    "bottom_left": 18,
+                                    "bottom_right": 18
+                                },
+                                "size": {
+                                    "height": 36,
+                                    "width": 36
+                                },
+                                "background": "#00000066",
+                                "icon": {
+                                    "tint_color": "#FFFFFFFF",
+                                    "size": {
+                                        "height": 18,
+                                        "width": 18
+                                    }
+                                }
+                            }
                         }
                     ]
                 },
@@ -190,7 +218,7 @@
                                                 "expand_text": "...",
                                                 "collapse_text": "",
                                                 "expanded_max_height_ratio": 0.75,
-                                                "expanded_max_lines": 5,
+                                                "expanded_max_lines": 8,
                                                 "special_text": {
                                                     "tag": {
                                                         "text_style": "body1bold",
@@ -264,7 +292,7 @@
                     "layout": {
                         "size": {
                             "width": 0,
-                            "height": 44
+                            "height": 30
                         }
                     }
                 }
@@ -290,6 +318,10 @@
                         "show_ad_cue_points": true
                     },
                     "layout": {
+                        "size": {
+                            "height": 22
+                        },
+                        "alignment": "bottom",
                         "thumbnail": {
                             "size": { "width": 90, "height": 160 }
                         },

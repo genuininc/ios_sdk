@@ -1,0 +1,15 @@
+{
+  "id": "context_pill_pager_item",
+  "type": "context_pill",
+  "content_key_map": {
+    "title": "context.page_context"
+  },
+  "config": {
+    "show_close": false
+  },
+  "layout": {
+    "spacing": 4,
+    "text":         { "text_style": "body2semibold" },
+    "close_button": { "size": { "width": 16, "height": 16 } }
+  }
+}
