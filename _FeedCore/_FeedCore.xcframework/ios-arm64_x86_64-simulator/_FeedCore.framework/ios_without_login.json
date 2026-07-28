@@ -139,6 +139,9 @@
                         {
                           "id": "controls_vstack",
                           "type": "vstack",
+                          "config": {
+                            "visibility_state": "active_player_only"
+                          },
                           "layout": {
                             "background": {
                               "gradient": {
@@ -269,6 +272,9 @@
                               "leading": 8,
                               "trailing": 8
                             }
+                          },
+                          "config": {
+                            "visibility_state": "active_player_only"
                           }
                         },
                         {
@@ -294,32 +300,33 @@
                               "id": "section_detail",
                               "type": "section_detail",
                               "content_key_map": {
-                                "id": "video.section.id",
-                                "title": "video.section.title",
-                                "sub_title": "video.section.subtitle",
-                                "thumbnail": "video.section.thumbnail_url",
-                                "cover": "video.section.cover_url",
-                                "no_of_clips": "video.section.no_of_clips"
+                                "id": "section.id",
+                                "title": "section.title",
+                                "sub_title": "section.sub_title",
+                                "thumbnail": "section.thumbnail_url",
+                                "cover": "section.cover_url",
+                                "no_of_clips": "section.no_of_clips"
                               },
                               "config": {
                                 "title": true,
                                 "subtitle": true,
                                 "thumbnail": true,
-                                "cover": false,
-                                "no_of_clips": true
+                                "cover": true,
+                                "no_of_clips": true,
+                                "visibility_state": "on_inactive_player"
                               },
                               "layout": {
                                 "outer_stack": {
                                   "alignment": "leading",
-                                  "spacing": 8
+                                  "spacing": 4
                                 },
                                 "inner_stack": {
                                   "alignment": "center",
-                                  "spacing": 12
+                                  "spacing": 8
                                 },
                                 "text_stack": {
                                   "alignment": "leading",
-                                  "spacing": 4
+                                  "spacing": 2
                                 },
                                 "image": {
                                   "size": {
@@ -346,6 +353,12 @@
                                 "no_of_clips": {
                                   "text_style": "body2regular",
                                   "foreground": "#AAAAAA"
+                                },
+                                "padding": {
+                                  "top": 8,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 0
                                 }
                               }
                             },
@@ -469,6 +482,34 @@
                                   "top_right": 22,
                                   "bottom_left": 22,
                                   "bottom_right": 22
+                                },
+                                "size": {
+                                  "height": 36,
+                                  "width": 36
+                                },
+                                "background": "#00000066",
+                                "icon": {
+                                  "tint_color": "#FFFFFFFF",
+                                  "size": {
+                                    "height": 18,
+                                    "width": 18
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "id": "fullscreen_button",
+                              "type": "fullscreen_button",
+                              "config": {
+                                "selected": true
+                              },
+                              "layout": {
+                                "style": "layered",
+                                "corner_radius": {
+                                  "top_left": 18,
+                                  "top_right": 18,
+                                  "bottom_left": 18,
+                                  "bottom_right": 18
                                 },
                                 "size": {
                                   "height": 36,
@@ -641,6 +682,10 @@
                                       "type": "fs_like_button"
                                     },
                                     {
+                                      "id": "fs_comment_button",
+                                      "type": "fs_comment_button"
+                                    },
+                                    {
                                       "id": "fs_share_button",
                                       "type": "fs_share_button"
                                     }
@@ -656,7 +701,7 @@
                           "layout": {
                             "size": {
                               "width": 0,
-                              "height": 30
+                              "height": 25
                             }
                           }
                         }
@@ -679,17 +724,22 @@
                           "config": {
                             "show_thumbnail": true,
                             "time_format": "current_only",
-                            "show_ad_cue_points": true
+                            "show_ad_cue_points": true,
+                            "expand_track_on_scrub": true,
+                            "show_thumb": false
                           },
                           "layout": {
                             "size": {
-                              "height": 22
+                              "height": 17
                             },
                             "alignment": "bottom",
                             "thumbnail": {
                               "size": {
                                 "width": 90,
                                 "height": 160
+                              },
+                              "border": {
+                                  "width": 1
                               }
                             },
                             "label": {
@@ -700,10 +750,17 @@
                             },
                             "padding": {
                               "top": 0,
-                              "bottom": 0,
+                              "bottom": 8,
                               "leading": 0,
                               "trailing": 0
-                            }
+                            },
+                            "track_height": 3,
+                            "active_track_height": 9,
+                            "active_color": "#FFFFFF",
+                            "inactive_color": "#F4F5F666",
+                            "thumb_diameter": 9,
+                            "thumb_color": "#FFFFFF",
+                            "bubble_spacing": 0,
                           }
                         }
                       ]
@@ -820,6 +877,7 @@
                         {
                           "id": "controls_vstack",
                           "type": "vstack",
+                          "config":{"visibility_state":"active_player_only"},
                           "layout": {
                             "background": {
                               "gradient": {
@@ -953,6 +1011,9 @@
                               "leading": 8,
                               "trailing": 8
                             }
+                          },
+                          "config": {
+                            "visibility_state": "active_player_only"
                           }
                         },
                         {
@@ -977,32 +1038,33 @@
                               "id": "section_detail",
                               "type": "section_detail",
                               "content_key_map": {
-                                "id": "video.section.id",
-                                "title": "video.section.title",
-                                "sub_title": "video.section.subtitle",
-                                "thumbnail": "video.section.thumbnail_url",
-                                "cover": "video.section.cover_url",
-                                "no_of_clips": "video.section.no_of_clips"
+                                "id": "section.id",
+                                "title": "section.title",
+                                "sub_title": "section.sub_title",
+                                "thumbnail": "section.thumbnail_url",
+                                "cover": "section.cover_url",
+                                "no_of_clips": "section.no_of_clips"
                               },
                               "config": {
                                 "title": true,
                                 "subtitle": true,
                                 "thumbnail": true,
-                                "cover": false,
-                                "no_of_clips": true
+                                "cover": true,
+                                "no_of_clips": true,
+                                "visibility_state": "on_inactive_player"
                               },
                               "layout": {
                                 "outer_stack": {
                                   "alignment": "leading",
-                                  "spacing": 8
+                                  "spacing": 4
                                 },
                                 "inner_stack": {
                                   "alignment": "center",
-                                  "spacing": 12
+                                  "spacing": 8
                                 },
                                 "text_stack": {
                                   "alignment": "leading",
-                                  "spacing": 4
+                                  "spacing": 2
                                 },
                                 "image": {
                                   "size": {
@@ -1029,6 +1091,12 @@
                                 "no_of_clips": {
                                   "text_style": "body2regular",
                                   "foreground": "#AAAAAA"
+                                },
+                                "padding": {
+                                  "top": 8,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 0
                                 }
                               }
                             },
@@ -1200,6 +1268,7 @@
                         {
                           "id": "controls_vstack",
                           "type": "vstack",
+                          "config":{"visibility_state":"active_player_only"},
                           "layout": {
                             "background": {
                               "gradient": {
@@ -1333,6 +1402,9 @@
                               "leading": 8,
                               "trailing": 8
                             }
+                          },
+                          "config": {
+                            "visibility_state": "active_player_only"
                           }
                         },
                         {
@@ -1357,32 +1429,33 @@
                               "id": "section_detail",
                               "type": "section_detail",
                               "content_key_map": {
-                                "id": "video.section.id",
-                                "title": "video.section.title",
-                                "sub_title": "video.section.subtitle",
-                                "thumbnail": "video.section.thumbnail_url",
-                                "cover": "video.section.cover_url",
-                                "no_of_clips": "video.section.no_of_clips"
+                                "id": "section.id",
+                                "title": "section.title",
+                                "sub_title": "section.sub_title",
+                                "thumbnail": "section.thumbnail_url",
+                                "cover": "section.cover_url",
+                                "no_of_clips": "section.no_of_clips"
                               },
                               "config": {
                                 "title": true,
                                 "subtitle": true,
                                 "thumbnail": true,
-                                "cover": false,
-                                "no_of_clips": true
+                                "cover": true,
+                                "no_of_clips": true,
+                                "visibility_state": "on_inactive_player"
                               },
                               "layout": {
                                 "outer_stack": {
                                   "alignment": "leading",
-                                  "spacing": 8
+                                  "spacing": 4
                                 },
                                 "inner_stack": {
                                   "alignment": "center",
-                                  "spacing": 12
+                                  "spacing": 8
                                 },
                                 "text_stack": {
                                   "alignment": "leading",
-                                  "spacing": 4
+                                  "spacing": 2
                                 },
                                 "image": {
                                   "size": {
@@ -1409,6 +1482,12 @@
                                 "no_of_clips": {
                                   "text_style": "body2regular",
                                   "foreground": "#AAAAAA"
+                                },
+                                "padding": {
+                                  "top": 8,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 0
                                 }
                               }
                             },
@@ -1562,6 +1641,7 @@
                         {
                           "id": "controls_vstack",
                           "type": "vstack",
+                          "config":{"visibility_state":"active_player_only"},
                           "layout": {
                             "background": {
                               "gradient": {
@@ -1695,6 +1775,9 @@
                               "leading": 8,
                               "trailing": 8
                             }
+                          },
+                          "config": {
+                            "visibility_state": "active_player_only"
                           }
                         },
                         {
@@ -1719,32 +1802,33 @@
                               "id": "section_detail",
                               "type": "section_detail",
                               "content_key_map": {
-                                "id": "video.section.id",
-                                "title": "video.section.title",
-                                "sub_title": "video.section.subtitle",
-                                "thumbnail": "video.section.thumbnail_url",
-                                "cover": "video.section.cover_url",
-                                "no_of_clips": "video.section.no_of_clips"
+                                "id": "section.id",
+                                "title": "section.title",
+                                "sub_title": "section.sub_title",
+                                "thumbnail": "section.thumbnail_url",
+                                "cover": "section.cover_url",
+                                "no_of_clips": "section.no_of_clips"
                               },
                               "config": {
                                 "title": true,
                                 "subtitle": true,
                                 "thumbnail": true,
-                                "cover": false,
-                                "no_of_clips": true
+                                "cover": true,
+                                "no_of_clips": true,
+                                "visibility_state": "on_inactive_player"
                               },
                               "layout": {
                                 "outer_stack": {
                                   "alignment": "leading",
-                                  "spacing": 8
+                                  "spacing": 4
                                 },
                                 "inner_stack": {
                                   "alignment": "center",
-                                  "spacing": 12
+                                  "spacing": 8
                                 },
                                 "text_stack": {
                                   "alignment": "leading",
-                                  "spacing": 4
+                                  "spacing": 2
                                 },
                                 "image": {
                                   "size": {
@@ -1771,6 +1855,12 @@
                                 "no_of_clips": {
                                   "text_style": "body2regular",
                                   "foreground": "#AAAAAA"
+                                },
+                                "padding": {
+                                  "top": 8,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 0
                                 }
                               }
                             },
@@ -1924,6 +2014,7 @@
                         {
                           "id": "controls_vstack",
                           "type": "vstack",
+                          "config":{"visibility_state":"active_player_only"},
                           "layout": {
                             "background": {
                               "gradient": {
@@ -2057,6 +2148,9 @@
                               "leading": 8,
                               "trailing": 8
                             }
+                          },
+                          "config": {
+                            "visibility_state": "active_player_only"
                           }
                         },
                         {
@@ -2081,32 +2175,33 @@
                               "id": "section_detail",
                               "type": "section_detail",
                               "content_key_map": {
-                                "id": "video.section.id",
-                                "title": "video.section.title",
-                                "sub_title": "video.section.subtitle",
-                                "thumbnail": "video.section.thumbnail_url",
-                                "cover": "video.section.cover_url",
-                                "no_of_clips": "video.section.no_of_clips"
+                                "id": "section.id",
+                                "title": "section.title",
+                                "sub_title": "section.sub_title",
+                                "thumbnail": "section.thumbnail_url",
+                                "cover": "section.cover_url",
+                                "no_of_clips": "section.no_of_clips"
                               },
                               "config": {
                                 "title": true,
                                 "subtitle": true,
                                 "thumbnail": true,
-                                "cover": false,
-                                "no_of_clips": true
+                                "cover": true,
+                                "no_of_clips": true,
+                                "visibility_state": "on_inactive_player"
                               },
                               "layout": {
                                 "outer_stack": {
                                   "alignment": "leading",
-                                  "spacing": 8
+                                  "spacing": 4
                                 },
                                 "inner_stack": {
                                   "alignment": "center",
-                                  "spacing": 12
+                                  "spacing": 8
                                 },
                                 "text_stack": {
                                   "alignment": "leading",
-                                  "spacing": 4
+                                  "spacing": 2
                                 },
                                 "image": {
                                   "size": {
@@ -2133,6 +2228,12 @@
                                 "no_of_clips": {
                                   "text_style": "body2regular",
                                   "foreground": "#AAAAAA"
+                                },
+                                "padding": {
+                                  "top": 8,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 0
                                 }
                               }
                             },
@@ -2288,6 +2389,7 @@
                         {
                           "id": "controls_vstack",
                           "type": "vstack",
+                          "config":{"visibility_state":"active_player_only"},
                           "layout": {
                             "background": {
                               "gradient": {
@@ -2421,6 +2523,9 @@
                               "leading": 8,
                               "trailing": 8
                             }
+                          },
+                          "config": {
+                            "visibility_state": "active_player_only"
                           }
                         },
                         {
@@ -2445,32 +2550,33 @@
                               "id": "section_detail",
                               "type": "section_detail",
                               "content_key_map": {
-                                "id": "video.section.id",
-                                "title": "video.section.title",
-                                "sub_title": "video.section.subtitle",
-                                "thumbnail": "video.section.thumbnail_url",
-                                "cover": "video.section.cover_url",
-                                "no_of_clips": "video.section.no_of_clips"
+                                "id": "section.id",
+                                "title": "section.title",
+                                "sub_title": "section.sub_title",
+                                "thumbnail": "section.thumbnail_url",
+                                "cover": "section.cover_url",
+                                "no_of_clips": "section.no_of_clips"
                               },
                               "config": {
                                 "title": true,
                                 "subtitle": true,
                                 "thumbnail": true,
-                                "cover": false,
-                                "no_of_clips": true
+                                "cover": true,
+                                "no_of_clips": true,
+                                "visibility_state": "on_inactive_player"
                               },
                               "layout": {
                                 "outer_stack": {
                                   "alignment": "leading",
-                                  "spacing": 8
+                                  "spacing": 4
                                 },
                                 "inner_stack": {
                                   "alignment": "center",
-                                  "spacing": 12
+                                  "spacing": 8
                                 },
                                 "text_stack": {
                                   "alignment": "leading",
-                                  "spacing": 4
+                                  "spacing": 2
                                 },
                                 "image": {
                                   "size": {
@@ -2497,6 +2603,12 @@
                                 "no_of_clips": {
                                   "text_style": "body2regular",
                                   "foreground": "#AAAAAA"
+                                },
+                                "padding": {
+                                  "top": 8,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 0
                                 }
                               }
                             },
@@ -2650,6 +2762,7 @@
                         {
                           "id": "controls_vstack",
                           "type": "vstack",
+                          "config":{"visibility_state":"active_player_only"},
                           "layout": {
                             "background": {
                               "gradient": {
@@ -2783,6 +2896,9 @@
                               "leading": 8,
                               "trailing": 8
                             }
+                          },
+                          "config": {
+                            "visibility_state": "active_player_only"
                           }
                         },
                         {
@@ -2807,32 +2923,33 @@
                               "id": "section_detail",
                               "type": "section_detail",
                               "content_key_map": {
-                                "id": "video.section.id",
-                                "title": "video.section.title",
-                                "sub_title": "video.section.subtitle",
-                                "thumbnail": "video.section.thumbnail_url",
-                                "cover": "video.section.cover_url",
-                                "no_of_clips": "video.section.no_of_clips"
+                                "id": "section.id",
+                                "title": "section.title",
+                                "sub_title": "section.sub_title",
+                                "thumbnail": "section.thumbnail_url",
+                                "cover": "section.cover_url",
+                                "no_of_clips": "section.no_of_clips"
                               },
                               "config": {
                                 "title": true,
                                 "subtitle": true,
                                 "thumbnail": true,
-                                "cover": false,
-                                "no_of_clips": true
+                                "cover": true,
+                                "no_of_clips": true,
+                                "visibility_state": "on_inactive_player"
                               },
                               "layout": {
                                 "outer_stack": {
                                   "alignment": "leading",
-                                  "spacing": 8
+                                  "spacing": 4
                                 },
                                 "inner_stack": {
                                   "alignment": "center",
-                                  "spacing": 12
+                                  "spacing": 8
                                 },
                                 "text_stack": {
                                   "alignment": "leading",
-                                  "spacing": 4
+                                  "spacing": 2
                                 },
                                 "image": {
                                   "size": {
@@ -2859,6 +2976,12 @@
                                 "no_of_clips": {
                                   "text_style": "body2regular",
                                   "foreground": "#AAAAAA"
+                                },
+                                "padding": {
+                                  "top": 8,
+                                  "bottom": 8,
+                                  "leading": 8,
+                                  "trailing": 0
                                 }
                               }
                             },

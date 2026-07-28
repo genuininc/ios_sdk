@@ -1,11 +1,12 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3 effective-5.10 (swiftlang-6.3.0.123.5 clang-2100.0.123.102)
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
 // swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Core
-// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
 import AVFoundation
 import AdSupport
 import AppTrackingTransparency
 import Combine
+import CommonCrypto
 import CoreFoundation
 import CoreGraphics
 import DeveloperToolsSupport
@@ -26,6 +27,7 @@ public struct BGBrand : Swift.Codable, Core.BGData {
   public var id: Swift.String {
     get
   }
+  public let brandId: Swift.Int?
   public let name: Swift.String?
   public let status: Swift.Int?
   public let logo: Swift.String?
@@ -201,6 +203,9 @@ extension Core.BGLRUCache {
   final public func removeValue(forKey key: Key) -> Value?
   final public func removeAll()
 }
+public enum BGCrypto {
+  public static func generateString(string: Swift.String) -> Swift.String
+}
 public protocol BGData : Swift.Decodable, Swift.Identifiable {
   var id: Swift.String { get }
 }
@@ -248,7 +253,7 @@ open class BGListRepository<ListResponseT, DataT> : Core.BGBaseRepository where 
   public var dataPublisher: Combine.AnyPublisher<(Swift.String, [Swift.String]), Swift.Never> {
     get
   }
-  public init(dataRepository: Core.BGDataRepository<DataT, DataT>)
+  public init(dataRepository: Core.BGDataRepository<DataT, DataT>, clearsOnMemoryPressure: Swift.Bool = true)
   public func upsertData(id: Swift.String, newValue: [DataT])
   open func map(_: ListResponseT) throws -> [DataT]
   public func findById(_ id: Swift.String) -> [Swift.String]?
@@ -287,6 +292,12 @@ open class BGDataManager<T> : Combine.ObservableObject where T : Swift.Decodable
   @_Concurrency.MainActor @preconcurrency public func body(content: Core.AnyModifier.Content) -> some SwiftUICore.View
   
   public typealias Body = @_opaqueReturnTypeOf("$s4Core11AnyModifierV4body7contentQr7SwiftUI05_ViewC8_ContentVyACG_tF", 0) __
+}
+@_hasMissingDesignatedInitializers final public class BGDeviceManager {
+  public static let shared: Core.BGDeviceManager
+  final public func getDeviceId() -> Swift.String
+  final public func encryptedDeviceToken() -> Swift.String
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers final public class DIRegistry : @unchecked Swift.Sendable {
   public static let shared: Core.DIRegistry
@@ -477,6 +488,24 @@ public enum BGStringAttribute {
 extension Core.BGLocalizedEntry {
   public func resolve(_ attributes: [Core.BGStringAttribute]) -> Core.BGLocalizedEntry
 }
+public enum AccessibilityString {
+  public static let pauseVideo: Core.BGLocalizedEntry
+  public static let playVideo: Core.BGLocalizedEntry
+  public static let muteVideo: Core.BGLocalizedEntry
+  public static let unmuteVideo: Core.BGLocalizedEntry
+  public static let fullScreen: Core.BGLocalizedEntry
+  public static let collapseScreen: Core.BGLocalizedEntry
+  public static let like: Core.BGLocalizedEntry
+  public static let dislike: Core.BGLocalizedEntry
+  public static let share: Core.BGLocalizedEntry
+  public static let tapfullScreenHint: Core.BGLocalizedEntry
+  public static let videoInFeedCard: Core.BGLocalizedEntry
+  public static let linkout: Core.BGLocalizedEntry
+  public static let linkoutPagerHint: Core.BGLocalizedEntry
+  public static let nextLinkout: Core.BGLocalizedEntry
+  public static let previousLinkout: Core.BGLocalizedEntry
+  public static func linkoutPagePosition(_ page: Swift.Int, of total: Swift.Int) -> Swift.String
+}
 public protocol BGStringKey : Swift.Sendable {
   var rawValue: Swift.String { get }
 }
@@ -549,7 +578,7 @@ final public class BGFeedNavigator {
 }
 @available(iOS 16, *)
 extension SwiftUICore.View {
-  @_Concurrency.MainActor @preconcurrency public func bgHeroDragToDismiss(isEnabled: Swift.Bool, onDismiss: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  @_Concurrency.MainActor @preconcurrency public func bgHeroDragToDismiss(isEnabled: Swift.Bool, cornerRadius: CoreFoundation.CGFloat = 16, onDismiss: @escaping () -> Swift.Void) -> some SwiftUICore.View
   
 }
 public struct BGHeroTransitionConfig {
@@ -772,6 +801,9 @@ public protocol IBGNetworkManager {
   @discardableResult
   func execute<ResponseT>(_ request: Core.BGNetworkRequest, asType: ResponseT.Type) -> Core.BGNetworkTask<ResponseT> where ResponseT : Swift.Decodable
   func cancel(_ task: Core.BGNetworkTask<some Any>)
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func upload(fileURL: Foundation.URL, to presignedURL: Foundation.URL, contentType: Swift.String) async throws
+  #endif
 }
 public struct BGCardConfig {
   public var enableAutoScroll: Swift.Bool
@@ -832,6 +864,9 @@ final public class BGFeedState : Combine.ObservableObject {
   final public var isFullscreen: Swift.Bool
   final public var isFloatingSheetCovering: Swift.Bool
   final public var playCountByUniqueId: [Swift.String : Swift.Int]
+  final public var inStreamPostrollUniqueId: Swift.String?
+  final public var deferredPostrollIndex: [Swift.String : Swift.Int]
+  final public var requestInStreamContentComplete: ((Swift.String) -> Swift.Void)?
   weak final public var delegate: (any Core.IBGFeedStateDelegate)?
   public init()
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
@@ -976,6 +1011,10 @@ extension SwiftUICore.EnvironmentValues {
     get
     set
   }
+  public var bgShowsPausedFrame: Swift.Bool {
+    get
+    set
+  }
 }
 
 final public class BGScopedPlayerStatus : Combine.ObservableObject {
@@ -1032,7 +1071,9 @@ public protocol IBGPlayerManager : AnyObject {
   func play(uniqueId: Swift.String, containerId: Swift.String, reason: Core.BGPlayReason)
   func pause(uniqueId: Swift.String, containerId: Swift.String, reason: Core.BGPauseReason)
   func getPlayer(uniqueId: Swift.String, containerId: Swift.String) -> AVFoundation.AVPlayer?
+  func adoptPlayer(fromUniqueId: Swift.String, fromContainerId: Swift.String, toUniqueId: Swift.String, toContainerId: Swift.String)
   func retainPlayers(_ playerIds: [Swift.String], containerId: Swift.String)
+  func restorePosition(uniqueId: Swift.String, containerId: Swift.String, toSeconds seconds: Swift.Double, exact: Swift.Bool)
   func resetPlayCount(uniqueId: Swift.String, containerId: Swift.String)
   func registerFeedContainer(globalId: Swift.String, fspConfig: Core.BGFSPConfig, cardConfig: Core.BGCardConfig, delegate: any Core.IBGFeedStateDelegate, isFullscreen: Swift.Bool)
   func unregisterPlacement(globalId: Swift.String)
@@ -1046,9 +1087,15 @@ public protocol IBGPlayerManager : AnyObject {
   func setFullscreen(_ isFullscreen: Swift.Bool, for globalId: Swift.String)
   func onAutoAdvanceThreshold(uniqueId: Swift.String, index: Swift.Int, containerId: Swift.String)
   func onVideoEnd(uniqueId: Swift.String, index: Swift.Int, containerId: Swift.String)
+  func inStreamPostrollDidComplete(uniqueId: Swift.String, containerId: Swift.String)
+}
+extension Core.IBGPlayerManager {
+  public func restorePosition(uniqueId: Swift.String, containerId: Swift.String, toSeconds seconds: Swift.Double)
+  public func inStreamPostrollDidComplete(uniqueId _: Swift.String, containerId _: Swift.String)
 }
 public enum BGGlobalID {
   public static func make(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String = "") -> Swift.String
+  public static func makeSection(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String = "", sectionId: Swift.String) -> Swift.String
   public static func makeEmbed(embedId: Swift.String, uniqueId: Swift.String = "") -> Swift.String
   public static func makeBrandMode(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String = "", menuItemId: Swift.String) -> Swift.String
   public static func makeEmbedBrandMode(embedId: Swift.String, uniqueId: Swift.String = "", menuItemId: Swift.String) -> Swift.String
@@ -1198,7 +1245,8 @@ public struct BGImageModel : Swift.Identifiable {
   public let url: Foundation.URL?
   public let scale: Core.BGImageScale?
   public let placeholder: SwiftUICore.Image?
-  public init(id: Swift.String, image: SwiftUICore.Image? = nil, url: Foundation.URL? = nil, placeholder: SwiftUICore.Image? = nil, scale: Core.BGImageScale? = nil)
+  public let errorImage: SwiftUICore.Image?
+  public init(id: Swift.String, image: SwiftUICore.Image? = nil, url: Foundation.URL? = nil, placeholder: SwiftUICore.Image? = nil, errorImage: SwiftUICore.Image? = nil, scale: Core.BGImageScale? = nil)
   public typealias ID = Swift.String
 }
 public enum BGImageScale {
@@ -1354,12 +1402,16 @@ public struct BGThemeColor : Swift.Codable {
   public let secondary400: SwiftUICore.Color
   public let secondary500: SwiftUICore.Color
   public let secondary600: SwiftUICore.Color
+  public let secondary700: SwiftUICore.Color
+  public let secondary900: SwiftUICore.Color
   public let tertiary: SwiftUICore.Color
   public let tertiary100: SwiftUICore.Color
   public let tertiary200: SwiftUICore.Color
   public let tertiary300: SwiftUICore.Color
   public let tertiary400: SwiftUICore.Color
   public let error: SwiftUICore.Color
+  public let success: SwiftUICore.Color
+  public let red: SwiftUICore.Color
   public let black: SwiftUICore.Color
   public let white: SwiftUICore.Color
   public var darkOverlay: Core.BGDarkOverlay {
@@ -1370,7 +1422,7 @@ public struct BGThemeColor : Swift.Codable {
   }
   public static let light: Core.BGThemeColor
   public static let dark: Core.BGThemeColor
-  public init(primary: SwiftUICore.Color = Color(hex: "#0645FF"), primary100: SwiftUICore.Color = Color(hex: "#E6ECFF"), primary200: SwiftUICore.Color = Color(hex: "#CDDAFF"), primary300: SwiftUICore.Color = Color(hex: "#83A2FF"), primary400: SwiftUICore.Color = Color(hex: "#507CFF"), primary600: SwiftUICore.Color = Color(hex: "#0430B3"), primary700: SwiftUICore.Color = Color(hex: "#03227F"), secondary: SwiftUICore.Color = Color(hex: "#939AA1"), secondary50: SwiftUICore.Color = Color(hex: "#F4F5F6"), secondary100: SwiftUICore.Color = Color(hex: "#E9EBEC"), secondary150: SwiftUICore.Color = Color(hex: "#DFE1E3"), secondary200: SwiftUICore.Color = Color(hex: "#D4D7D9"), secondary300: SwiftUICore.Color = Color(hex: "#BEC2C7"), secondary400: SwiftUICore.Color = Color(hex: "#A9AEB4"), secondary500: SwiftUICore.Color = Color(hex: "#939AA1"), secondary600: SwiftUICore.Color = Color(hex: "#767B81"), tertiary: SwiftUICore.Color = Color(hex: "#F4F5F6"), tertiary100: SwiftUICore.Color = Color(hex: "#E9EBEC"), tertiary200: SwiftUICore.Color = Color(hex: "#D4D7D9"), tertiary300: SwiftUICore.Color = Color(hex: "#BEC2C7"), tertiary400: SwiftUICore.Color = Color(hex: "#A9AEB4"), error: SwiftUICore.Color = Color(hex: "#F35421"), black: SwiftUICore.Color = Color(hex: "#131415"), white: SwiftUICore.Color = Color(hex: "#FFFFFF"))
+  public init(primary: SwiftUICore.Color = Color(hex: "#0645FF"), primary100: SwiftUICore.Color = Color(hex: "#E6ECFF"), primary200: SwiftUICore.Color = Color(hex: "#CDDAFF"), primary300: SwiftUICore.Color = Color(hex: "#83A2FF"), primary400: SwiftUICore.Color = Color(hex: "#507CFF"), primary600: SwiftUICore.Color = Color(hex: "#0430B3"), primary700: SwiftUICore.Color = Color(hex: "#03227F"), secondary: SwiftUICore.Color = Color(hex: "#939AA1"), secondary50: SwiftUICore.Color = Color(hex: "#F4F5F6"), secondary100: SwiftUICore.Color = Color(hex: "#E9EBEC"), secondary150: SwiftUICore.Color = Color(hex: "#DFE1E3"), secondary200: SwiftUICore.Color = Color(hex: "#D4D7D9"), secondary300: SwiftUICore.Color = Color(hex: "#BEC2C7"), secondary400: SwiftUICore.Color = Color(hex: "#A9AEB4"), secondary500: SwiftUICore.Color = Color(hex: "#939AA1"), secondary600: SwiftUICore.Color = Color(hex: "#767B81"), secondary700: SwiftUICore.Color = Color(hex: "#6C757D"), secondary900: SwiftUICore.Color = Color(hex: "#1D1F20"), tertiary: SwiftUICore.Color = Color(hex: "#F4F5F6"), tertiary100: SwiftUICore.Color = Color(hex: "#E9EBEC"), tertiary200: SwiftUICore.Color = Color(hex: "#D4D7D9"), tertiary300: SwiftUICore.Color = Color(hex: "#BEC2C7"), tertiary400: SwiftUICore.Color = Color(hex: "#A9AEB4"), error: SwiftUICore.Color = Color(hex: "#F35421"), success: SwiftUICore.Color = Color(hex: "#77CE1A"), red: SwiftUICore.Color = Color(hex: "#D91E18"), black: SwiftUICore.Color = Color(hex: "#131415"), white: SwiftUICore.Color = Color(hex: "#FFFFFF"))
   public init(brandColors: Core.BGBrandColors, colorScheme: SwiftUICore.ColorScheme = .light)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -1427,10 +1479,10 @@ public struct BGTypography : Swift.Codable {
     case headline2bold, headline2semibold
     case headline3bold, headline3semibold, headline3
     case headline4bold, headline4semibold, headline4medium
-    case body0semibold
+    case body0semibold, body0medium
     case body, bodysemibold
     case body1bold, body1semibold, body1medium, body1
-    case body2bold, body2semibold, body2medium, body2regular, body2, body3
+    case body2bold, body2semibold, body2medium, body2regular, body2, body3, body3semibold
     public var components: (Core.BGTypography.BGTextStyleScale, SwiftUICore.Font.Weight) {
       get
     }
@@ -1464,6 +1516,8 @@ public struct BGTypography : Swift.Codable {
   public init(fontSource: Core.BGTypography.FontSource = .system, offset: CoreFoundation.CGFloat = 0)
   public func font(for scale: Core.BGTypography.BGTextStyleScale, weight: SwiftUICore.Font.Weight = .regular) -> SwiftUICore.Font
   public func font(for size: CoreFoundation.CGFloat, weight: SwiftUICore.Font.Weight = .regular) -> SwiftUICore.Font
+  public func uiFont(for scale: Core.BGTypography.BGTextStyleScale, weight: SwiftUICore.Font.Weight = .regular) -> UIKit.UIFont
+  public func uiFont(for size: CoreFoundation.CGFloat, weight: SwiftUICore.Font.Weight = .regular) -> UIKit.UIFont
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -1484,8 +1538,9 @@ extension SwiftUICore.Color {
 final public class BGCaptionLayout : Core.BGCommonLayout {
   final public let spokenColor: Swift.String?
   final public let upcomingColor: Swift.String?
-  final public let font: SwiftUICore.Font?
-  public init(spokenColor: Swift.String? = nil, upcomingColor: Swift.String? = nil, font: SwiftUICore.Font? = nil, padding: Core.Padding? = nil, background: Core.BGBackground? = nil, cornerRadius: Core.CornerRadius? = nil, size: Core.Size? = nil)
+  final public let textStyle: Core.BGTypography.BGTextStyle?
+  final public let maxLines: Swift.Int?
+  public init(spokenColor: Swift.String? = nil, upcomingColor: Swift.String? = nil, textStyle: Core.BGTypography.BGTextStyle? = nil, maxLines: Swift.Int? = nil, padding: Core.Padding? = nil, background: Core.BGBackground? = nil, cornerRadius: Core.CornerRadius? = nil, size: Core.Size? = nil)
   required public init(from decoder: any Swift.Decoder) throws
   @objc deinit
 }
@@ -1757,6 +1812,10 @@ extension SwiftUICore.View {
   @_Concurrency.MainActor @preconcurrency public func bgScrollDisabled(_ disabled: Swift.Bool) -> some SwiftUICore.View
   
 }
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgOnGeometryChange<T>(for type: T.Type, of transform: @escaping (SwiftUICore.GeometryProxy) -> T, action: @escaping (T) -> Swift.Void) -> some SwiftUICore.View where T : Swift.Equatable
+  
+}
 public struct BGImageLayout : Swift.Codable {
   public var size: Core.Size?
   public var tintColor: Swift.String?
@@ -1960,6 +2019,178 @@ public enum FullScreenMode {
   public var hashValue: Swift.Int {
     get
   }
+}
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgAnchoredMenuSource(active: Swift.Bool = true) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAnchoredMenu(isPresented: SwiftUICore.Binding<Swift.Bool>, gap: CoreFoundation.CGFloat = 12, @SwiftUICore.ViewBuilder content: @escaping () -> some View) -> some SwiftUICore.View
+  
+}
+@_Concurrency.MainActor @preconcurrency public struct BGFloatingSheet<Content, TopBarTitle> : SwiftUICore.View where Content : SwiftUICore.View, TopBarTitle : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(width: CoreFoundation.CGFloat, parentWidth: CoreFoundation.CGFloat, parentAspectRatio: CoreFoundation.CGFloat, placement: Core.BGFloatingSheetPlacement = .default, topInset: CoreFoundation.CGFloat = 0, hidesTopBar: Swift.Bool = false, crossfadesPhaseContent: Swift.Bool = true, topDragRegionHeight: CoreFoundation.CGFloat = 0, autoExpandAfter: Foundation.TimeInterval = 2, isActivePlayer: Swift.Bool = true, publishesLayoutSync: Swift.Bool = true, releasesHorizontalDrag: Swift.Bool = false, collapseStyle: Core.BGFloatingSheetCollapseStyle = .toFloor, allowedPhases: Swift.Set<Core.BGFloatingSheetPhase> = Set(BGFloatingSheetPhase.allCases), pageCount: Swift.Int = 1, contentHeightOverrides: Core.BGFloatingSheetContentHeights = .zero, reservedSiblingHeight: CoreFoundation.CGFloat = 0, onDragPastTop: ((Swift.Int) -> Swift.Void)? = nil, onOpenLinkoutFull: ((Swift.Int) -> Swift.Void)? = nil, onPageShown: ((Swift.Int) -> Swift.Void)? = nil, onPhaseChange: ((Core.BGFloatingSheetPhase) -> Swift.Void)? = nil, onDismiss: (() -> Swift.Void)? = nil, dismissBelowPhase: Core.BGFloatingSheetPhase? = nil, autoOpenTarget: Core.BGFloatingSheetPhase? = nil, autoOpenImmediately: Swift.Bool = false, initialPage: Swift.Int = 0, pageAccessibility: Core.BGFloatingSheetPagerAccessibility? = nil, @SwiftUICore.ViewBuilder content: @escaping (Core.BGFloatingSheetPhase, CoreFoundation.CGFloat) -> Content, @SwiftUICore.ViewBuilder topBarTitle: @escaping (Core.BGFloatingSheetPhase) -> TopBarTitle)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s4Core15BGFloatingSheetV4bodyQrvp", 0) __<Content, TopBarTitle>
+}
+extension Core.BGFloatingSheet {
+  @_Concurrency.MainActor @preconcurrency public var lookedUpInitialPhase: Core.BGFloatingSheetPhase? {
+    get
+  }
+}
+@_Concurrency.MainActor @preconcurrency public struct BGFloatingSheetPageIndicator : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(pageCount: Swift.Int, currentPage: Swift.Int, isLight: Swift.Bool = false, pageProgress: CoreFoundation.CGFloat? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s4Core28BGFloatingSheetPageIndicatorV4bodyQrvp", 0) __
+}
+public enum BGFloatingSheetMetrics {
+  public static var pageIndicatorOutsideBlockHeight: CoreFoundation.CGFloat {
+    get
+  }
+  public static let panelTopInset: CoreFoundation.CGFloat
+  public static func settle(initialVelocity: CoreFoundation.CGFloat = 0) -> SwiftUICore.Animation
+}
+public struct BGFloatingSheetPagerAccessibility {
+  public init(label: Swift.String? = nil, hint: Swift.String? = nil, nextActionLabel: Swift.String? = nil, previousActionLabel: Swift.String? = nil, sortPriority: Swift.Double? = nil, onActivate: ((Swift.Int) -> Swift.Void)? = nil, value: @escaping (Swift.Int) -> Swift.String)
+}
+public enum BGFloatingSheetPhase : Swift.Int, Swift.Comparable, Swift.CaseIterable {
+  case xs
+  case sml
+  case `default`
+  case defaultActive
+  case expanded
+  case panel
+  case full
+  public static func < (lhs: Core.BGFloatingSheetPhase, rhs: Core.BGFloatingSheetPhase) -> Swift.Bool
+  public var isPanelOrFull: Swift.Bool {
+    get
+  }
+  public var showsTopBar: Swift.Bool {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [Core.BGFloatingSheetPhase]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [Core.BGFloatingSheetPhase] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum BGFloatingSheetCollapseStyle {
+  case toFloor
+  case stepwise
+  public static func == (a: Core.BGFloatingSheetCollapseStyle, b: Core.BGFloatingSheetCollapseStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Core.BGFloatingSheetPhase {
+  public static func initialPhase(parentWidth width: CoreFoundation.CGFloat, parentAspectRatio aspect: CoreFoundation.CGFloat) -> Core.BGFloatingSheetPhase?
+}
+public struct BGFloatingSheetPlacement : Swift.Equatable, Swift.Decodable {
+  public enum Anchor : Swift.String, Swift.Equatable, Swift.Decodable {
+    case bottom
+    case top
+    case center
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var anchor: Core.BGFloatingSheetPlacement.Anchor
+  public var insets: SwiftUICore.EdgeInsets
+  public static let `default`: Core.BGFloatingSheetPlacement
+  public init(anchor: Core.BGFloatingSheetPlacement.Anchor = .bottom, insets: SwiftUICore.EdgeInsets = EdgeInsets())
+  public init(from decoder: any Swift.Decoder) throws
+  public static func bottom(bottomInset: CoreFoundation.CGFloat = 0, topInset: CoreFoundation.CGFloat = 0, leadingInset: CoreFoundation.CGFloat = 0, trailingInset: CoreFoundation.CGFloat = 0) -> Core.BGFloatingSheetPlacement
+  public static func top(topInset: CoreFoundation.CGFloat = 0, leadingInset: CoreFoundation.CGFloat = 0, trailingInset: CoreFoundation.CGFloat = 0) -> Core.BGFloatingSheetPlacement
+  public static func == (a: Core.BGFloatingSheetPlacement, b: Core.BGFloatingSheetPlacement) -> Swift.Bool
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgFloatingSheetPageIndex: Swift.Int {
+    get
+    set
+  }
+  public var bgFloatingSheetIsCurrentPage: Swift.Bool {
+    get
+    set
+  }
+  public var bgFloatingSheetSheetDragActive: Swift.Bool {
+    get
+    set
+  }
+  public var bgFloatingSheetPagerDragActive: Swift.Bool {
+    get
+    set
+  }
+  public var bgFloatingSheetCollapseRequest: Swift.Int {
+    get
+    set
+  }
+  public var bgFloatingSheetOpenFull: () -> Swift.Void {
+    get
+    set
+  }
+  public var bgTopFloatingSafeAreaTop: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  public var bgSafeAreaInsets: SwiftUICore.EdgeInsets {
+    get
+    set
+  }
+}
+public struct BGFloatingSheetPagerDotAnchor : SwiftUICore.PreferenceKey {
+  public static let defaultValue: SwiftUICore.Anchor<CoreFoundation.CGRect>?
+  public static func reduce(value: inout SwiftUICore.Anchor<CoreFoundation.CGRect>?, nextValue: () -> SwiftUICore.Anchor<CoreFoundation.CGRect>?)
+  public typealias Value = SwiftUICore.Anchor<CoreFoundation.CGRect>?
+}
+public struct BGFloatingSheetContentHeights : Swift.Equatable {
+  public init(_ heights: [Core.BGFloatingSheetPhase : CoreFoundation.CGFloat] = [:])
+  public static let zero: Core.BGFloatingSheetContentHeights
+  public subscript(phase: Core.BGFloatingSheetPhase) -> CoreFoundation.CGFloat {
+    get
+    set
+  }
+  public static func == (a: Core.BGFloatingSheetContentHeights, b: Core.BGFloatingSheetContentHeights) -> Swift.Bool
+}
+public struct BGFloatingSheetScrollState : Swift.Equatable {
+  public var scrolls: Swift.Bool
+  public var atTop: Swift.Bool
+  public init(scrolls: Swift.Bool = false, atTop: Swift.Bool = true)
+  public static func == (a: Core.BGFloatingSheetScrollState, b: Core.BGFloatingSheetScrollState) -> Swift.Bool
+}
+public struct BGFloatingSheetContentScrollsPreference : SwiftUICore.PreferenceKey {
+  public static let defaultValue: Core.BGFloatingSheetScrollState
+  public static func reduce(value: inout Core.BGFloatingSheetScrollState, nextValue: () -> Core.BGFloatingSheetScrollState)
+  public typealias Value = Core.BGFloatingSheetScrollState
+}
+public struct BGFloatingSheetLayoutSync : Swift.Equatable {
+  public var phase: Core.BGFloatingSheetPhase?
+  public var initialPhase: Core.BGFloatingSheetPhase?
+  public var dragOffset: CoreFoundation.CGFloat
+  public var releaseVelocity: CoreFoundation.CGFloat
+  public var panelProgress: CoreFoundation.CGFloat
+  public var fullCoverProgress: CoreFoundation.CGFloat
+  public var contentHeights: Core.BGFloatingSheetContentHeights
+  public var topBarHeight: CoreFoundation.CGFloat
+  public var liveContentHeight: CoreFoundation.CGFloat
+  public var liveTotalHeight: CoreFoundation.CGFloat
+  public var pageCount: Swift.Int
+  public var pausesFeedPaging: Swift.Bool
+  public static let zero: Core.BGFloatingSheetLayoutSync
+  public static func == (a: Core.BGFloatingSheetLayoutSync, b: Core.BGFloatingSheetLayoutSync) -> Swift.Bool
+}
+public struct BGFloatingSheetLayoutSyncPreference : SwiftUICore.PreferenceKey {
+  public static let defaultValue: Core.BGFloatingSheetLayoutSync?
+  public static func reduce(value: inout Core.BGFloatingSheetLayoutSync?, nextValue: () -> Core.BGFloatingSheetLayoutSync?)
+  public typealias Value = Core.BGFloatingSheetLayoutSync?
 }
 @_Concurrency.MainActor @preconcurrency public struct BGHorizontalOverlayPager : SwiftUICore.View {
   public enum Side {
@@ -2177,6 +2408,8 @@ public struct BGPagerItem : Swift.Identifiable {
   @_Concurrency.MainActor final public func updateLeftOverlayPages(_ newPages: [Core.BGPagerItem])
   @_Concurrency.MainActor final public func updateRightOverlayPages(_ newPages: [Core.BGPagerItem])
   @_Concurrency.MainActor final public func reactivateCurrentMainPage()
+  @_Concurrency.MainActor final public func selectMainPageKeepingOverlay(at index: Swift.Int)
+  @_Concurrency.MainActor final public func willActivateCurrentMainPage()
   @_Concurrency.MainActor final public func deactivateCurrentMainPage()
   @_Concurrency.MainActor final public var activeNavIndex: Swift.Int {
     get
@@ -2200,7 +2433,8 @@ public struct BGWallFeedPageConfig {
   public let cardConfig: Core.BGCardConfig?
   public let videoPresentation: Core.BGVideoPresentation
   public let embedId: Swift.String?
-  public init(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String = "", title: Swift.String? = nil, fspConfig: Core.BGFSPConfig? = nil, cardConfig: Core.BGCardConfig? = nil, videoPresentation: Core.BGVideoPresentation = .default, embedId: Swift.String? = nil)
+  public let sectionId: Swift.String?
+  public init(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String = "", title: Swift.String? = nil, fspConfig: Core.BGFSPConfig? = nil, cardConfig: Core.BGCardConfig? = nil, videoPresentation: Core.BGVideoPresentation = .default, embedId: Swift.String? = nil, sectionId: Swift.String? = nil)
 }
 final public class BGNavInteractionModel : Combine.ObservableObject {
   @Combine.Published<CoreFoundation.CGFloat> @_projectedValueProperty($mainDragFraction) final public var mainDragFraction: CoreFoundation.CGFloat {
@@ -2273,12 +2507,13 @@ public struct BGWallNavBarStyle {
   }
   public var background: Core.BGWallNavBarStyle.Background
   public var onSearch: (() -> Swift.Void)?
-  public init(background: Core.BGWallNavBarStyle.Background = .blur, onSearch: (() -> Swift.Void)? = nil)
+  public init(background: Core.BGWallNavBarStyle.Background = .dimmed(0.2), onSearch: (() -> Swift.Void)? = nil)
 }
 public struct BGWallPagePositionState {
-  public var scrollToPlayerId: Swift.String?
+  public var currentActivePlayerUniqueId: Swift.String?
+  public var currentActiveFeedId: Swift.String?
   public var pausedSeconds: Swift.Double?
-  public init(scrollToPlayerId: Swift.String? = nil, pausedSeconds: Swift.Double? = nil)
+  public init(currentActivePlayerUniqueId: Swift.String? = nil, currentActiveFeedId: Swift.String? = nil, pausedSeconds: Swift.Double? = nil)
 }
 @_Concurrency.MainActor final public class BGWallPositionStore {
   @_Concurrency.MainActor public init()
@@ -2372,11 +2607,135 @@ public protocol IBGFormActionProvider {
   nonisolated(nonsending) func handle(action: Swift.String, formData: [Swift.String : Swift.String]) async -> Core.BGFormActionResult
   #endif
 }
+public protocol ICommentSheetProvider {
+  func makeCommentSheet(conversationId: Swift.String, isPresented: SwiftUICore.Binding<Swift.Bool>, countText: Swift.String) -> SwiftUICore.AnyView
+}
 public protocol IFeedContainerProvider {
   func getContainer(component: Core.BGComponentModel) -> SwiftUICore.AnyView
 }
 public protocol IAuthContainerProvider {
   func getContainer(component: Core.BGComponentModel) -> SwiftUICore.AnyView
+}
+public enum BGAccessibilityAnnouncement {
+  public static var isVoiceOverRunning: Swift.Bool {
+    get
+  }
+  public static func post(_ message: Swift.String?)
+  public static func post(_ entry: Core.BGLocalizedEntry?)
+  public static func post(_ key: (any Core.BGStringKey)?)
+  public static func screenChanged(focus target: Any? = nil)
+  public static func layoutChanged(focus target: Any? = nil)
+}
+public struct BGAccessibilityDescriptor {
+  public var label: Swift.String?
+  public var hint: Swift.String?
+  public var value: Swift.String?
+  public var identifier: Swift.String?
+  public var traits: SwiftUICore.AccessibilityTraits
+  public var removedTraits: SwiftUICore.AccessibilityTraits
+  public var isHidden: Swift.Bool
+  public var sortPriority: Swift.Double?
+  public var children: SwiftUI.AccessibilityChildBehavior?
+  public init(label: Swift.String? = nil, hint: Swift.String? = nil, value: Swift.String? = nil, identifier: Swift.String? = nil, traits: SwiftUICore.AccessibilityTraits = [], removedTraits: SwiftUICore.AccessibilityTraits = [], isHidden: Swift.Bool = false, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil)
+  public init(label: Core.BGLocalizedEntry? = nil, hint: Core.BGLocalizedEntry? = nil, value: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, traits: SwiftUICore.AccessibilityTraits = [], removedTraits: SwiftUICore.AccessibilityTraits = [], isHidden: Swift.Bool = false, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil)
+  public init(label: (any Core.BGStringKey)? = nil, hint: (any Core.BGStringKey)? = nil, value: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, traits: SwiftUICore.AccessibilityTraits = [], removedTraits: SwiftUICore.AccessibilityTraits = [], isHidden: Swift.Bool = false, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil)
+  public static func button(label: Swift.String?, hint: Swift.String? = nil, value: Swift.String? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = .combine) -> Core.BGAccessibilityDescriptor
+  public static func button(label: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, value: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = .combine) -> Core.BGAccessibilityDescriptor
+  public static func button(label: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, value: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = .combine) -> Core.BGAccessibilityDescriptor
+  public static func image(label: Swift.String?, hint: Swift.String? = nil, identifier: Swift.String? = nil, isDecorative: Swift.Bool = false) -> Core.BGAccessibilityDescriptor
+  public static func image(label: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, isDecorative: Swift.Bool = false) -> Core.BGAccessibilityDescriptor
+  public static func image(label: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, isDecorative: Swift.Bool = false) -> Core.BGAccessibilityDescriptor
+  public static func header(label: Swift.String?, hint: Swift.String? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = .combine) -> Core.BGAccessibilityDescriptor
+  public static func header(label: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = .combine) -> Core.BGAccessibilityDescriptor
+  public static func header(label: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = .combine) -> Core.BGAccessibilityDescriptor
+  public static func staticText(label: Swift.String?, hint: Swift.String? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil) -> Core.BGAccessibilityDescriptor
+  public static func staticText(label: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil) -> Core.BGAccessibilityDescriptor
+  public static func staticText(label: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil) -> Core.BGAccessibilityDescriptor
+}
+public enum BGAccessibilityIdentifier {
+  public static let videoPlay: Swift.String
+  public static let videoPause: Swift.String
+  public static let videoFullScreen: Swift.String
+  public static let videoCollapseScreen: Swift.String
+  public static let videoSoundUnmuted: Swift.String
+  public static let videoSoundMuted: Swift.String
+  public static let videoLike: Swift.String
+  public static let videoDislike: Swift.String
+  public static let shareVideo: Swift.String
+  public static let linkout: Swift.String
+  public static let linkoutTopBar: Swift.String
+  public static func make(_ parts: Swift.String?...) -> Swift.String?
+}
+public enum BGAccessibilityText {
+  public static func normalized(_ value: Swift.String?) -> Swift.String?
+  public static func firstNonEmpty(_ values: Swift.String?...) -> Swift.String?
+  public static func joined(_ values: [Swift.String?], separator: Swift.String = ", ") -> Swift.String?
+  public static func localized(_ entry: Core.BGLocalizedEntry?) -> Swift.String?
+  public static func localizedKey(_ key: (any Core.BGStringKey)?) -> Swift.String?
+}
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibility(_ descriptor: Core.BGAccessibilityDescriptor) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibility(label: Swift.String? = nil, hint: Swift.String? = nil, value: Swift.String? = nil, identifier: Swift.String? = nil, traits: SwiftUICore.AccessibilityTraits = [], removedTraits: SwiftUICore.AccessibilityTraits = [], isHidden: Swift.Bool = false, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibility(label: Core.BGLocalizedEntry? = nil, hint: Core.BGLocalizedEntry? = nil, value: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, traits: SwiftUICore.AccessibilityTraits = [], removedTraits: SwiftUICore.AccessibilityTraits = [], isHidden: Swift.Bool = false, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibility(label: (any Core.BGStringKey)? = nil, hint: (any Core.BGStringKey)? = nil, value: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, traits: SwiftUICore.AccessibilityTraits = [], removedTraits: SwiftUICore.AccessibilityTraits = [], isHidden: Swift.Bool = false, sortPriority: Swift.Double? = nil, children: SwiftUI.AccessibilityChildBehavior? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityButton(label: Swift.String?, hint: Swift.String? = nil, value: Swift.String? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityButton(label: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, value: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityButton(label: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, value: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityImage(label: Swift.String?, hint: Swift.String? = nil, identifier: Swift.String? = nil, isDecorative: Swift.Bool = false) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityImage(label: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, isDecorative: Swift.Bool = false) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityImage(label: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, isDecorative: Swift.Bool = false) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityHeader(label: Swift.String?, hint: Swift.String? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityHeader(label: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityHeader(label: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityAdjustable(label: Swift.String?, value: Swift.String?, hint: Swift.String? = nil, identifier: Swift.String? = nil, onIncrement: @escaping () -> Swift.Void, onDecrement: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityAdjustable(label: Core.BGLocalizedEntry?, value: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, onIncrement: @escaping () -> Swift.Void, onDecrement: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityAdjustable(label: (any Core.BGStringKey)?, value: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, onIncrement: @escaping () -> Swift.Void, onDecrement: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityAction(named name: Swift.String, action: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityAction(named entry: Core.BGLocalizedEntry, action: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityAction(named key: any Core.BGStringKey, action: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityAction(_ action: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityText(label: Swift.String?, hint: Swift.String? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityText(label: Core.BGLocalizedEntry?, hint: Core.BGLocalizedEntry? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityText(label: (any Core.BGStringKey)?, hint: (any Core.BGStringKey)? = nil, identifier: Swift.String? = nil, sortPriority: Swift.Double? = nil) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityElement(children: SwiftUI.AccessibilityChildBehavior?) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityLabel(_ label: Swift.String?) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityHint(_ hint: Swift.String?) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityValue(_ value: Swift.String?) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityIdentifier(_ identifier: Swift.String?) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilitySortPriority(_ priority: Swift.Double?) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityClip(_ shape: some Shape) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func bgAccessibilityClip() -> some SwiftUICore.View
+  
 }
 public enum BGComponentAction : Swift.String {
   case tapped
@@ -2560,6 +2919,8 @@ extension Core.BGTrackable {
 public enum BGSharedUserDefaultsKeys {
   public static let isFreshInstall: Core.BGUserDefaultsKey<Swift.Bool>
   public static let userId: Core.BGUserDefaultsKey<Swift.String>
+  public static let user: Core.BGUserDefaultsKey<Core.BGProfile?>
+  public static let deviceId: Core.BGUserDefaultsKey<Swift.String>
 }
 public enum SDKConstants {
   public static let sdkVersion: Swift.String
@@ -2735,6 +3096,16 @@ public class GenuinInteractionModel {
   public func toDictionary() -> [Swift.String : Any]
   @objc deinit
 }
+public struct BGProfile : Swift.Codable, Swift.Equatable, Swift.Sendable {
+  public let userId: Swift.String
+  public let profilePictureUrl: Swift.String?
+  public let name: Swift.String?
+  public let nickname: Swift.String?
+  public init(userId: Swift.String, profilePictureUrl: Swift.String? = nil, name: Swift.String? = nil, nickname: Swift.String? = nil)
+  public static func == (a: Core.BGProfile, b: Core.BGProfile) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public enum BGUserDefaultsNamespace : Swift.String {
   case shared
   case auth
@@ -2798,6 +3169,10 @@ public struct BGGeoInfo {
 public enum BGHaptics {
   public static func impact(_: UIKit.UIImpactFeedbackGenerator.FeedbackStyle = .light)
 }
+public enum BGRelativeTimeUtils {
+  public static func timeAgo(_ timestamp: Foundation.TimeInterval, now: Foundation.Date = Date()) -> Swift.String
+  public static func timeAgo(fromString raw: Swift.String?) -> Swift.String
+}
 extension SwiftUICore.Image {
   public static func from(_ string: Swift.String?) -> SwiftUICore.Image?
 }
@@ -2822,6 +3197,11 @@ public enum BGCoreAssets {
     public static let edit: SwiftUICore.Image
     public static let close: SwiftUICore.Image
     public static let icClose24: SwiftUICore.Image
+    public static let closeLight: SwiftUICore.Image
+    public static let closeDark: SwiftUICore.Image
+  }
+  public enum Placeholders {
+    public static let errorImage: SwiftUICore.Image
   }
 }
 extension Core.BGTapBehaviorType : Swift.Equatable {}
@@ -2909,6 +3289,14 @@ extension Core.BGTextAlignment : Swift.RawRepresentable {}
 extension Core.BGTextView : Swift.Sendable {}
 extension Core.FullScreenMode : Swift.Equatable {}
 extension Core.FullScreenMode : Swift.Hashable {}
+extension Core.BGFloatingSheet : Swift.Sendable {}
+extension Core.BGFloatingSheetPageIndicator : Swift.Sendable {}
+extension Core.BGFloatingSheetPhase : Swift.Hashable {}
+extension Core.BGFloatingSheetPhase : Swift.RawRepresentable {}
+extension Core.BGFloatingSheetCollapseStyle : Swift.Equatable {}
+extension Core.BGFloatingSheetCollapseStyle : Swift.Hashable {}
+extension Core.BGFloatingSheetPlacement.Anchor : Swift.Hashable {}
+extension Core.BGFloatingSheetPlacement.Anchor : Swift.RawRepresentable {}
 extension Core.BGHorizontalOverlayPager : Swift.Sendable {}
 extension Core.BGHorizontalOverlayPager.Side : Swift.Equatable {}
 extension Core.BGHorizontalOverlayPager.Side : Swift.Hashable {}

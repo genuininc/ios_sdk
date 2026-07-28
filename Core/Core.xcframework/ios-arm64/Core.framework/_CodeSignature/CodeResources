@@ -6,33 +6,41 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		9AQVfVijBoZ1yS6apzvRjsHPqPY=
+		000f4+MmFcXyPoEHGZGnMXohjW8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		xiDa90wNNS/O34d0u7mFWTdrCWA=
+		6qs6Zh5ttZB03ojZayiu+m1zOIQ=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		DWAHgB/JtHHH5yNntOtPaMi3SSg=
+		MBrkaFBHcW8VzKPwVQ8qFluq0cY=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		kogK3WZ5WtfPnINkgskeaCucOd0=
+		E/xcaPrZP3yfiIkyvD+d5AoKgWw=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		DWAHgB/JtHHH5yNntOtPaMi3SSg=
+		MBrkaFBHcW8VzKPwVQ8qFluq0cY=
+		</data>
+		<key>Package.resolved</key>
+		<data>
+		jXdi1mRB/oLNYT1Z6k7C11K/j1A=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aR6gbcFL9dQ3MOx0hnlQfKgA66k=
+			9nDE+RqHAnLgwdTCTyHgesUIaqI=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>xcschememanagement.plist</key>
+		<data>
+		oNnNyF/tj79oa1zRPVYxKFXeW7w=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -40,38 +48,52 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NIZThnLCEBFiWtHGurmdLPXEnsVDGDgn67EQRDBMewM=
+			8IZafocR2imrQC+hHJgDzf3BVBsDgYTs/FS8VjOoNyM=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zxxbsne7DxiBJlZ6PD/VPEBL/tGzY319ms9s8ntTiGM=
+			CNJEPhl3TWLGahbcO/Kg2YQUqV3qTB2uHcZyok2ciqM=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Frzk5yFlDNONUGhxJ2Jh1Tk9s+oheQ7LD6Dk73BToeQ=
+			AK8IfYCaBBQCEaORHe6Tm9rcDYUVBL0FcaDLt4n6la8=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zxxbsne7DxiBJlZ6PD/VPEBL/tGzY319ms9s8ntTiGM=
+			CNJEPhl3TWLGahbcO/Kg2YQUqV3qTB2uHcZyok2ciqM=
+			</data>
+		</dict>
+		<key>Package.resolved</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			pDxPGJcmOSaWyRSDn9rIThQhsPgDI2QxZCTxF4iruCY=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qFAhAHJtvfykbrDrpMN6KdQX1yJRQcLjXjf7NOe/7VM=
+			C9WsiPZNp5VZEsJWEcQDbnZxqy5f7uAP0sMNo5akNsM=
 			</data>
 			<key>optional</key>
 			<true/>
+		</dict>
+		<key>xcschememanagement.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Bl7UfiwnYxc4ULY0IqTbdMMOuyjeL+qTPGQkw3bEBcU=
+			</data>
 		</dict>
 	</dict>
 	<key>rules</key>

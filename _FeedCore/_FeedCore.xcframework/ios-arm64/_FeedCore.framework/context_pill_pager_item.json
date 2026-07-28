@@ -9,6 +9,13 @@
   },
   "layout": {
     "spacing": 4,
+    "padding": {
+      "top": 0,
+      "bottom": 0,
+      "leading": 4,
+      "trailing": 4
+    },
+    "size":         { "height": 24 },
     "text":         { "text_style": "body2semibold" },
     "close_button": { "size": { "width": 16, "height": 16 } }
   }

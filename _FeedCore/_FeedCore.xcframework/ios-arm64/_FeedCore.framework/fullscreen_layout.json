@@ -292,7 +292,7 @@
                     "layout": {
                         "size": {
                             "width": 0,
-                            "height": 30
+                            "height": 25
                         }
                     }
                 }
@@ -315,22 +315,43 @@
                     "config": {
                         "show_thumbnail": true,
                         "time_format": "current_only",
-                        "show_ad_cue_points": true
+                        "show_ad_cue_points": true,
+                        "expand_track_on_scrub": true,
+                        "show_thumb": false
                     },
                     "layout": {
                         "size": {
-                            "height": 22
+                            "height": 17
                         },
                         "alignment": "bottom",
                         "thumbnail": {
-                            "size": { "width": 90, "height": 160 }
+                            "size": {
+                                "width": 90,
+                                "height": 160
+                            },
+                            "border": {
+                                "width": 1
+                            }
                         },
                         "label": {
                             "text_style": "body0semibold",
                             "foreground": "#FFFFFF",
                             "text_alignment": "center",
                             "apply_line_spacing": true
-                        }
+                        },
+                        "padding": {
+                            "top": 0,
+                            "bottom": 8,
+                            "leading": 0,
+                            "trailing": 0
+                        },
+                        "track_height": 3,
+                        "active_track_height": 9,
+                        "active_color": "#FFFFFF",
+                        "inactive_color": "#F4F5F666",
+                        "thumb_diameter": 9,
+                        "thumb_color": "#FFFFFF",
+                        "bubble_spacing": 0,
                     }
                 }
             ]

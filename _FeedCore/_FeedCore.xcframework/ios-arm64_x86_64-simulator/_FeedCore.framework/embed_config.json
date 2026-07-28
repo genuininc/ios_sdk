@@ -230,31 +230,66 @@
                                     "id": "section_detail",
                                     "type": "section_detail",
                                     "content_key_map": {
-                                        "id": "video.section.id",
-                                        "title": "video.section.title",
-                                        "sub_title": "video.section.subtitle",
-                                        "thumbnail": "video.section.thumbnail_url",
-                                        "cover": "video.section.cover_url",
-                                        "no_of_clips": "video.section.no_of_clips"
+                                        "id": "section.id",
+                                        "title": "section.title",
+                                        "sub_title": "section.sub_title",
+                                        "thumbnail": "section.thumbnail_url",
+                                        "cover": "section.cover_url",
+                                        "no_of_clips": "section.no_of_clips"
                                     },
                                     "config": {
                                         "title": true,
                                         "subtitle": true,
                                         "thumbnail": true,
-                                        "cover": false,
-                                        "no_of_clips": true
+                                        "cover": true,
+                                        "no_of_clips": true,
+                                        "visibility_state": "on_inactive_player"
                                     },
                                     "layout": {
-                                        "outer_stack": { "alignment": "leading", "spacing": 8 },
-                                        "inner_stack": { "alignment": "center", "spacing": 12 },
-                                        "text_stack": { "alignment": "leading", "spacing": 4 },
-                                        "image": {
-                                            "size": { "width": 48, "height": 48 },
-                                            "corner_radius": { "top_left": 8, "top_right": 8, "bottom_left": 8, "bottom_right": 8 }
+                                        "outer_stack": {
+                                            "alignment": "leading",
+                                            "spacing": 4
                                         },
-                                        "heading": { "text_style": "body0semibold", "foreground": "#FFFFFF", "max_lines": 1 },
-                                        "sub_heading": { "text_style": "body2regular", "foreground": "#CCCCCC", "max_lines": 2 },
-                                        "no_of_clips": { "text_style": "body2regular", "foreground": "#AAAAAA" }
+                                        "inner_stack": {
+                                            "alignment": "center",
+                                            "spacing": 8
+                                        },
+                                        "text_stack": {
+                                            "alignment": "leading",
+                                            "spacing": 2
+                                        },
+                                        "image": {
+                                            "size": {
+                                                "width": 48,
+                                                "height": 48
+                                            },
+                                            "corner_radius": {
+                                                "top_left": 8,
+                                                "top_right": 8,
+                                                "bottom_left": 8,
+                                                "bottom_right": 8
+                                            }
+                                        },
+                                        "heading": {
+                                            "text_style": "body0semibold",
+                                            "foreground": "#FFFFFF",
+                                            "max_lines": 1
+                                        },
+                                        "sub_heading": {
+                                            "text_style": "body2regular",
+                                            "foreground": "#CCCCCC",
+                                            "max_lines": 2
+                                        },
+                                        "no_of_clips": {
+                                            "text_style": "body2regular",
+                                            "foreground": "#AAAAAA"
+                                        },
+                                        "padding": {
+                                            "top": 8,
+                                            "bottom": 8,
+                                            "leading": 8,
+                                            "trailing": 0
+                                        }
                                     }
                                 },
                                 {
