@@ -14,15 +14,15 @@
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		Fsb1tSy0kQ+CJK/YL2PwGXkwPQ8=
+		vEWc/NrC5vW1b2g57F779OQ1s0o=
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		NPsdVAsbICwl9IBnvmBnxkoM2ok=
+		jOnIyyzVoqnm3MQUvq9FsETKdUA=
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Fsb1tSy0kQ+CJK/YL2PwGXkwPQ8=
+		vEWc/NrC5vW1b2g57F779OQ1s0o=
 		</data>
 		<key>Package.resolved</key>
 		<data>
@@ -87,7 +87,7 @@
 		</data>
 		<key>xcschememanagement.plist</key>
 		<data>
-		JHATMqFeVqRaISlGwzExpmEaiiQ=
+		8iXckrCwG3SxpKNwon7rTz+G5EU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -103,21 +103,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			o0D0EIbk6/TF/AvKTNt/XWrtXO9C/J52ScKZUyIRNO0=
+			kpQOo9YNjXIL2P3DGa5h1FvgeAkIkn6wrmPflLYhe4Q=
 			</data>
 		</dict>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rOqsxXFWlVcEPYK6ZKu5YHw5B5Bv9FqMwAudPzitKK8=
+			JiA3JfO966yQrHQu30BrClrK44Um8DSU/OckFXj2Ztc=
 			</data>
 		</dict>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			o0D0EIbk6/TF/AvKTNt/XWrtXO9C/J52ScKZUyIRNO0=
+			kpQOo9YNjXIL2P3DGa5h1FvgeAkIkn6wrmPflLYhe4Q=
 			</data>
 		</dict>
 		<key>Package.resolved</key>
@@ -224,7 +224,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kk8S20iizvPRBZIrqwyNTutG02ck4vv5tGXkXbbqzsM=
+			hk59P4JWZaIz0s0Sx9rpcY4VxH7wWExOXROV0Fr7e24=
 			</data>
 		</dict>
 	</dict>

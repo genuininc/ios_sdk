@@ -244,6 +244,7 @@ public struct BGAdInfo {
   @_Concurrency.MainActor func bgAdsManagerAdCompleted(_ manager: any _FeedCore.IBGAdsManager, info: _FeedCore.BGAdInfo)
   @_Concurrency.MainActor func bgAdsManagerAdSkipped(_ manager: any _FeedCore.IBGAdsManager, info: _FeedCore.BGAdInfo)
   @_Concurrency.MainActor func bgAdsManagerAdTapped(_ manager: any _FeedCore.IBGAdsManager, info: _FeedCore.BGAdInfo)
+  @_Concurrency.MainActor func bgAdsManagerAdBreakFetchError(_ manager: any _FeedCore.IBGAdsManager)
   @_Concurrency.MainActor func bgAdsManagerDidDetectPostroll(_ manager: any _FeedCore.IBGAdsManager)
   @_Concurrency.MainActor func bgAdsManagerPostrollDidStart(_ manager: any _FeedCore.IBGAdsManager)
   @_Concurrency.MainActor func bgAdsManagerDidFinishAllAds(_ manager: any _FeedCore.IBGAdsManager)
@@ -265,6 +266,7 @@ extension _FeedCore.BGAdsManagerDelegate {
   @_Concurrency.MainActor public func bgAdsManagerAdCompleted(_: any _FeedCore.IBGAdsManager, info _: _FeedCore.BGAdInfo)
   @_Concurrency.MainActor public func bgAdsManagerAdSkipped(_: any _FeedCore.IBGAdsManager, info _: _FeedCore.BGAdInfo)
   @_Concurrency.MainActor public func bgAdsManagerAdTapped(_: any _FeedCore.IBGAdsManager, info _: _FeedCore.BGAdInfo)
+  @_Concurrency.MainActor public func bgAdsManagerAdBreakFetchError(_: any _FeedCore.IBGAdsManager)
   @_Concurrency.MainActor public func bgAdsManagerDidDetectPostroll(_: any _FeedCore.IBGAdsManager)
   @_Concurrency.MainActor public func bgAdsManagerPostrollDidStart(_: any _FeedCore.IBGAdsManager)
   @_Concurrency.MainActor public func bgAdsManagerDidFinishAllAds(_: any _FeedCore.IBGAdsManager)
@@ -329,6 +331,8 @@ public enum BGAdFormat {
   case mediumRectangle300x250
   case banner300x50
   case collapsibleBanner
+  case portrait320x480
+  case halfPage300x600
   public static func == (a: _FeedCore.BGAdFormat, b: _FeedCore.BGAdFormat) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {

@@ -37,6 +37,11 @@ public struct BGBrand : Swift.Codable, Core.BGData {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+extension Core.BGBrand {
+  public var isInVideoStreamEnabled: Swift.Bool {
+    get
+  }
+}
 public struct BGBrandColors : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -867,6 +872,7 @@ final public class BGFeedState : Combine.ObservableObject {
   final public var inStreamPostrollUniqueId: Swift.String?
   final public var deferredPostrollIndex: [Swift.String : Swift.Int]
   final public var requestInStreamContentComplete: ((Swift.String) -> Swift.Void)?
+  final public var requestInStreamReplay: ((Swift.String) -> Swift.Void)?
   weak final public var delegate: (any Core.IBGFeedStateDelegate)?
   public init()
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher

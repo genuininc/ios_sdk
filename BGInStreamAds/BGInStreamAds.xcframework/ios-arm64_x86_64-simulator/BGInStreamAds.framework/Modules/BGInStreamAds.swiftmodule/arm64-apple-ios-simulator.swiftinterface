@@ -50,7 +50,23 @@ public enum InStreamAds {
   }
   public typealias Body = @_opaqueReturnTypeOf("$s13BGInStreamAds19BGCollapsibleAdViewV4bodyQrvp", 0) __
 }
+@_Concurrency.MainActor @preconcurrency public struct BG320x480AdView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(tagID: Swift.String, delegate: (any _FeedCore.BGAdDelegate)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13BGInStreamAds15BG320x480AdViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BG300x600AdView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(tagID: Swift.String, delegate: (any _FeedCore.BGAdDelegate)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s13BGInStreamAds15BG300x600AdViewV4bodyQrvp", 0) __
+}
 extension BGInStreamAds.BG320x100AdView : Swift.Sendable {}
 extension BGInStreamAds.BG300x250AdView : Swift.Sendable {}
 extension BGInStreamAds.BG320x50AdView : Swift.Sendable {}
 extension BGInStreamAds.BGCollapsibleAdView : Swift.Sendable {}
+extension BGInStreamAds.BG320x480AdView : Swift.Sendable {}
+extension BGInStreamAds.BG300x600AdView : Swift.Sendable {}
