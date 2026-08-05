@@ -6,75 +6,86 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		bbmNqKU3pLOakBQC31ZvCrPpml4=
+		YzNmKVfbk6yy8tVBIxNkTihwjOE=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		Pr/NVk5jM4jVyDTp+8+eAzrWTkA=
+		zKfKAPxiR3S7ccyr0vYo6eSVLAA=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		cSDXF0fSq5eqZFDdSJQ+JCEhTq4=
+		1vIgoJYkaLmzJXaVbT3wQwMqPtU=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Pr/NVk5jM4jVyDTp+8+eAzrWTkA=
+		zKfKAPxiR3S7ccyr0vYo6eSVLAA=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		vM5kFwRlo1t2k8eUT0NHOn8Pwfk=
+		Hl5pqXEH1drJjniVJvqppN92CX4=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		x5HlcoHXAY1XcX+cwjVjrmQNdPs=
+		DC2S1wE8ysV3UBTGnz8mGRQg4eM=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		vM5kFwRlo1t2k8eUT0NHOn8Pwfk=
+		Hl5pqXEH1drJjniVJvqppN92CX4=
+		</data>
+		<key>xcschememanagement.plist</key>
+		<data>
+		I75YeG7qM2eEvZTU+GHuoDOs3so=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GFuaoRs4IAn/Y4rJicFKnARh7x8LNBbjve/dsO1gR2I=
+			SR+lTesPW8cKBVAPE/YZZVRLBOmoC/g+DbVc1NvSv9M=
 			</data>
 		</dict>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9vi7ZYe0eH+a1qDMcJFGE7kk1DaFqYwm56rtUrYnfH8=
+			OuOkiLZQtlM4rdfwnCKFJKOB7lVRG3JwiGwGJGTPASA=
 			</data>
 		</dict>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GFuaoRs4IAn/Y4rJicFKnARh7x8LNBbjve/dsO1gR2I=
+			SR+lTesPW8cKBVAPE/YZZVRLBOmoC/g+DbVc1NvSv9M=
 			</data>
 		</dict>
-		<key>Modules/BGInStreamAds.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zV55kwxFFWTm1DLQRgT8ZQQdCIRsREV8YQGbhqoRcMY=
+			UffxjOoV5nzirsW6gxzjCjxpuzh9sQitpbhQonlv/h0=
 			</data>
 		</dict>
-		<key>Modules/BGInStreamAds.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ya8TCvcGBN4o6OMC4I36dNBzBDazS253HH9VIF0pzus=
+			CqwN5kr1e8YdDsgavFVJbsBy9j5aaEJwwiRS11XibtM=
 			</data>
 		</dict>
-		<key>Modules/BGInStreamAds.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zV55kwxFFWTm1DLQRgT8ZQQdCIRsREV8YQGbhqoRcMY=
+			UffxjOoV5nzirsW6gxzjCjxpuzh9sQitpbhQonlv/h0=
+			</data>
+		</dict>
+		<key>xcschememanagement.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GTb5Qk64SspGdHjUMunBsZxrYyopJj0tjLpJcVenbUg=
 			</data>
 		</dict>
 	</dict>

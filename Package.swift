@@ -4,11 +4,11 @@
 // Package.swift
 import PackageDescription
 
-/// IAB Distribution — umbrella package bundling the BGInStreamAds module and its
+/// IAB Distribution — umbrella package bundling the GenuinInStreamAds module and its
 /// dependency closure as binary XCFrameworks.
 ///
 /// Dependency closure (all DYNAMIC frameworks):
-///   BGInStreamAds    -> Core, _Core, _FeedCore
+///   GenuinInStreamAds    -> Core, _Core, _FeedCore
 ///   GenuinSDK -> Core, _Core
 ///   _FeedCore -> Core, _Core
 ///   Core      -> _Core
@@ -17,8 +17,8 @@ import PackageDescription
 /// Binary targets cannot declare dependencies on one another, so each product
 /// below lists *every* xcframework it transitively needs.
 ///
-/// NOTE: iOS-only — the Google IMA SDK used by BGInStreamAds does not support macOS.
-/// NOTE: A binaryTarget cannot declare SPM dependencies. BGInStreamAds links the Google
+/// NOTE: iOS-only — the Google IMA SDK used by GenuinInStreamAds does not support macOS.
+/// NOTE: A binaryTarget cannot declare SPM dependencies. GenuinInStreamAds links the Google
 ///       IMA SDK (and nothing else from Google — GoogleMobileAds is NOT required),
 ///       so the consuming app must add it itself, e.g.:
 ///         .package(url: "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios", branch:
@@ -35,8 +35,8 @@ let package = Package(
             targets: ["GenuinSDK", "Core", "_Core"]
         ),
         .library(
-            name: "BGInStreamAds",
-            targets: ["BGInStreamAds", "_FeedCore", "Core", "_Core"]
+            name: "GenuinInStreamAds",
+            targets: ["GenuinInStreamAds", "_FeedCore", "Core", "_Core"]
         )
     ],
     targets: [
@@ -55,8 +55,8 @@ let package = Package(
             path: "_FeedCore/_FeedCore.xcframework"
         ),
         .binaryTarget(
-            name: "BGInStreamAds",
-            path: "BGInStreamAds/BGInStreamAds.xcframework"
+            name: "GenuinInStreamAds",
+            path: "GenuinInStreamAds/GenuinInStreamAds.xcframework"
         ),
         .binaryTarget(
             name: "GenuinSDK",

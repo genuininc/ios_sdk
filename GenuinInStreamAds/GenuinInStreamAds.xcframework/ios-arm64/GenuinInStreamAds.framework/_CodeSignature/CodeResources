@@ -6,42 +6,53 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		733RSZzYKBub3NRYlmlEcLyKwIw=
+		G+1dLwRdMoZMq0wZAhyuAQtbjpQ=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		3et40Je95s2a0kSSNwZfH5Zw/FI=
+		4xGaAfmpiO5yAr32Xrp9A5+0rrg=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		gJHqJmTPHSwGOuU+XcoYGg5R/7s=
+		B9CKqRRZvfpiWICa6EUrLIlrgy8=
 		</data>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		3et40Je95s2a0kSSNwZfH5Zw/FI=
+		4xGaAfmpiO5yAr32Xrp9A5+0rrg=
+		</data>
+		<key>xcschememanagement.plist</key>
+		<data>
+		I75YeG7qM2eEvZTU+GHuoDOs3so=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FQFiA6b94OYJdu5SKdY4nS+hihus/MMpoIOaMOKpVu0=
+			s+yC24DoenOSQMn73nU7ZDF8vQJWe0sXeCGAHZJTFd4=
 			</data>
 		</dict>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XNcPlMzK68oC50FA+AeawS7R5Gh6Mu+x4Sy9GSfvhmM=
+			qfnmF0zpsb//Z50/aXCINPuHyEdKEYczJizPtfdesWs=
 			</data>
 		</dict>
-		<key>Modules/BGInStreamAds.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FQFiA6b94OYJdu5SKdY4nS+hihus/MMpoIOaMOKpVu0=
+			s+yC24DoenOSQMn73nU7ZDF8vQJWe0sXeCGAHZJTFd4=
+			</data>
+		</dict>
+		<key>xcschememanagement.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GTb5Qk64SspGdHjUMunBsZxrYyopJj0tjLpJcVenbUg=
 			</data>
 		</dict>
 	</dict>

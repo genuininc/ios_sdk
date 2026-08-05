@@ -1240,6 +1240,11 @@ public struct BGFSChromeHiddenPreference : SwiftUICore.PreferenceKey {
   public static func reduce(value: inout Swift.Bool, nextValue: () -> Swift.Bool)
   public typealias Value = Swift.Bool
 }
+public struct BGInStreamAdActivePreference : SwiftUICore.PreferenceKey {
+  public static let defaultValue: Swift.Bool
+  public static func reduce(value: inout Swift.Bool, nextValue: () -> Swift.Bool)
+  public typealias Value = Swift.Bool
+}
 public struct BGFSFloatingSheetPanelProgressPreference : SwiftUICore.PreferenceKey {
   public static let defaultValue: CoreFoundation.CGFloat
   public static func reduce(value: inout CoreFoundation.CGFloat, nextValue: () -> CoreFoundation.CGFloat)
