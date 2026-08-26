@@ -20,7 +20,15 @@ import _SwiftConcurrencyShims
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   final nonisolated(nonsending) public func clearTokens() async throws
   #endif
-  final public func saveUser(_ user: Core.BGProfile)
+  final public func saveUser(_ user: Core.BGUserProfile)
   final public func clearUser()
   @objc deinit
+}
+extension GenuinSDK.Genuin {
+  final public func setConsent(asVendorEnabled: Swift.Bool, purposes: Swift.Set<Core.BGTCFPurpose>, consentString: Swift.String? = nil)
+  final public func setVPPAConsent(vppaConsented: Swift.Bool = false)
+  final public func clearConsent()
+  final public func getVendorConsent() -> Swift.Bool
+  final public func getVppaConsent() -> Swift.Bool
+  final public func getMaxConsentLayer() -> Swift.Int
 }

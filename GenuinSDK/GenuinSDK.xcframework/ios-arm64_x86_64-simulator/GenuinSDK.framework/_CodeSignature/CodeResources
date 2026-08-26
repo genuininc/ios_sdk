@@ -10,31 +10,35 @@
 		</data>
 		<key>Modules/GenuinSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ldEneRoFMHKwZnTV4Lj+kHRl6hA=
+		h6WP8q6aHcr40vHk8pBhm41lLi4=
 		</data>
 		<key>Modules/GenuinSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		QI6WJwlH/WgdI7KacrQLhI94wIU=
+		pduWiamH1xLWZ5nxJ0BX/bJ/2Z4=
 		</data>
 		<key>Modules/GenuinSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ldEneRoFMHKwZnTV4Lj+kHRl6hA=
+		h6WP8q6aHcr40vHk8pBhm41lLi4=
 		</data>
 		<key>Modules/GenuinSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		0qIl+F5R46bGqZfjeNVIrOS2p/M=
+		hca9GfSrbgKvB8anhsu8a2LfJ4I=
 		</data>
 		<key>Modules/GenuinSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		KR9qKxC4c7FN/jZ1muZsvrpYkpU=
+		WfZCS8UirNC5BNGW+lNyzOM4uPY=
 		</data>
 		<key>Modules/GenuinSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		0qIl+F5R46bGqZfjeNVIrOS2p/M=
+		hca9GfSrbgKvB8anhsu8a2LfJ4I=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		3twJc3y3QbWjHSEZ6BIXWunDC6M=
 		</data>
 		<key>xcschememanagement.plist</key>
 		<data>
-		whAgoypwV1zrngBj0zzUxsrVJ2M=
+		qj5xLL9Ez9D6tnmCzaXtj+WH//Y=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -43,49 +47,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+asqpZlHKvC0lAyX/W1tLiSpNr1M6GHKE0Zmoz2x2cc=
+			G3y+0lluUoYx77PnSR04SQowjm50JA1KCR/Ejpun/CQ=
 			</data>
 		</dict>
 		<key>Modules/GenuinSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KNsBEWJ1Hu13EKl+wYsliWKJ/jeDm/07ze3eRoz42h4=
+			rsUeceyyzKqTsA9n8hpod8BeJv84gBMkslmKD67MVdo=
 			</data>
 		</dict>
 		<key>Modules/GenuinSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+asqpZlHKvC0lAyX/W1tLiSpNr1M6GHKE0Zmoz2x2cc=
+			G3y+0lluUoYx77PnSR04SQowjm50JA1KCR/Ejpun/CQ=
 			</data>
 		</dict>
 		<key>Modules/GenuinSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2ohF/5ZabRaf8OPkOuR+2FWGb9yZ5yEF3fbGC7cN5Gs=
+			jxdpTU1glNB9i868OxwET6PbFeO6sOxzbSfPjmSvSL8=
 			</data>
 		</dict>
 		<key>Modules/GenuinSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KNGBrrW26/klRtSJzS+7tUbyG9cUTdgnIDPBAX58JT8=
+			t7EZBQz0/dGZGEL5tcCZgWejCfk32R4AKXRKxiIW540=
 			</data>
 		</dict>
 		<key>Modules/GenuinSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2ohF/5ZabRaf8OPkOuR+2FWGb9yZ5yEF3fbGC7cN5Gs=
+			jxdpTU1glNB9i868OxwET6PbFeO6sOxzbSfPjmSvSL8=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dq++UdSnpMrn/G67rYTojkO5FzcqaHLXwGubKst5siY=
 			</data>
 		</dict>
 		<key>xcschememanagement.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b9QsdZGBjpWYv3qSeSdCTBpPGQnu/zvu8z5Hk9R0dFw=
+			RYDTDIBods2kjiktuquvezMa/tJYXVYx27TQGSBUqU8=
 			</data>
 		</dict>
 	</dict>

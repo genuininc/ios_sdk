@@ -9,7 +9,7 @@
                 "background": "#FFFFFF",
                 "alignment": "center",
                 "spacing": 12,
-                "is_scrollable": false,
+                "is_scrollable": false
             },
             "children": [
                 {

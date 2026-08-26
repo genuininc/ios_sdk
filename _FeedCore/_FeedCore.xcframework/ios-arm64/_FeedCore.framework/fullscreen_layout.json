@@ -277,6 +277,10 @@
                                             "type": "fs_like_button"
                                         },
                                         {
+                                          "id": "fs_comment_button",
+                                          "type": "fs_comment_button"
+                                        },
+                                        {
                                             "id": "fs_share_button",
                                             "type": "fs_share_button"
                                         }

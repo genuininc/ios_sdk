@@ -2531,7 +2531,6 @@
                 "is_dynamic": false,
                 "direction": "vertical",
                 "span": 2,
-                "max_items": 4,
                 "spacing": 8,
                 "scroll_insets": {
                   "leading": 16,

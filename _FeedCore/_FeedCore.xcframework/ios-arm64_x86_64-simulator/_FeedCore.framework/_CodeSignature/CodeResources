@@ -14,31 +14,35 @@
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		fAp2mpGjYXhYhx+l5rHmza6Gkkk=
+		Lt2/pKZmvphTdCHtFSPdSdNmNwg=
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		wGVB5tNWprDSwto8wjvUPLq3q94=
+		q+4Q6cZ7CXmZVpMdU6Py9P21C3Q=
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		fAp2mpGjYXhYhx+l5rHmza6Gkkk=
+		Lt2/pKZmvphTdCHtFSPdSdNmNwg=
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		jON3ShTyqjEaLmwXFpXQmIpzBAM=
+		amHDq1kDvNhRYVWPJjf2X58szjo=
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		hG/EMBXEQ6bOFMpuesx6mdfl6Y4=
+		D/8TE6P2s27Hr85i4aNlde6F81A=
 		</data>
 		<key>Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		jON3ShTyqjEaLmwXFpXQmIpzBAM=
+		amHDq1kDvNhRYVWPJjf2X58szjo=
 		</data>
 		<key>Package.resolved</key>
 		<data>
 		jXdi1mRB/oLNYT1Z6k7C11K/j1A=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		IH7i4rvb/8SUKqT0hr0KCIeyXiA=
 		</data>
 		<key>community_pill_pager_item.json</key>
 		<data>
@@ -48,10 +52,6 @@
 		<data>
 		KAqeVV2CLDc61keyFDnK30bSCWg=
 		</data>
-		<key>default.metallib</key>
-		<data>
-		AWZuDQRo23RUHm869fHtgU4EOEU=
-		</data>
 		<key>embed_config.json</key>
 		<data>
 		P7xNRZRtMnA9IZ+fIg/HaPCtIwE=
@@ -60,18 +60,18 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SHCxRtMRRnEnD32Yg/8ZTfNnrPc=
+			y54v6Rw+3r8yLcsUAhC67wyneqA=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>explore_page.json</key>
 		<data>
-		zGOiP5Z1l+Pmwg3ih2KqH79dNTg=
+		gudz960YTAOiuXFQI2wzDhzswI0=
 		</data>
 		<key>fullscreen_layout.json</key>
 		<data>
-		CMp+cN7XkQrrz4cHLroL3A87KaM=
+		7G7vIbuo9AwA14kYkGq6ffZGFok=
 		</data>
 		<key>group_pill_pager_item.json</key>
 		<data>
@@ -83,11 +83,11 @@
 		</data>
 		<key>ios_without_login.json</key>
 		<data>
-		bJKxur0LD04a/aCADl0Qd8sybzg=
+		j1Ll4aoGuuvWdPu+jG/PBFaP3ig=
 		</data>
 		<key>ios_without_login_qa.json</key>
 		<data>
-		2HQhtzK23/VKoUeVq3KkSkbzmfo=
+		/inyBhAKq2uX7XtKEWOXHfRO5go=
 		</data>
 		<key>placement_config.json</key>
 		<data>
@@ -99,7 +99,7 @@
 		</data>
 		<key>xcschememanagement.plist</key>
 		<data>
-		B5NfCEvoP14Nu9lAL/neu281VKQ=
+		8iXckrCwG3SxpKNwon7rTz+G5EU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -115,42 +115,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6hdWzvchgIW40TFle7eyRuutWwxNJsfScCJOqIKPJi8=
+			9w8ruvdNdSD+mauWxScVol6zaJHxAjoeq7OguGg0d+Q=
 			</data>
 		</dict>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Hijr1Bz9M5VvFTIxQKwL6s8gJWQ+Z5VdEtx9xUmyjIk=
+			IFWdRpxcZwHK3mMQXlkbVNIfDetN9F85Th9ZrxTy0LQ=
 			</data>
 		</dict>
 		<key>Modules/_FeedCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6hdWzvchgIW40TFle7eyRuutWwxNJsfScCJOqIKPJi8=
+			9w8ruvdNdSD+mauWxScVol6zaJHxAjoeq7OguGg0d+Q=
 			</data>
 		</dict>
 		<key>Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/yVrRVJYel7s1jHzoNY9SvrQeBA8fW2jxuPEEE8ljjA=
+			5p/jXwpWPHT2ftqTETGKuJkF/811QMMAyTHGBwrwLcw=
 			</data>
 		</dict>
 		<key>Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7l+dKLlp2TF2axRmrIOhKOGh6JCJQj2/JM/YWCV8sTE=
+			fASgz3fG5eBDMRs5jrZt0mz0Lwtdetum7fKB+Dd/86w=
 			</data>
 		</dict>
 		<key>Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/yVrRVJYel7s1jHzoNY9SvrQeBA8fW2jxuPEEE8ljjA=
+			5p/jXwpWPHT2ftqTETGKuJkF/811QMMAyTHGBwrwLcw=
 			</data>
 		</dict>
 		<key>Package.resolved</key>
@@ -158,6 +158,13 @@
 			<key>hash2</key>
 			<data>
 			pDxPGJcmOSaWyRSDn9rIThQhsPgDI2QxZCTxF4iruCY=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3TfXOEGdujJpTmOed9h+LoRz6n7/PZK5Nb0F5OuW/q0=
 			</data>
 		</dict>
 		<key>community_pill_pager_item.json</key>
@@ -174,13 +181,6 @@
 			bpBEq08TwkffXjeq0s5hGOagXuh6j9pj7+qLJcrjetA=
 			</data>
 		</dict>
-		<key>default.metallib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			7Hs7EQftKkffw1YBp7GarvcJgsEkx+/nwy/0hNd6Zac=
-			</data>
-		</dict>
 		<key>embed_config.json</key>
 		<dict>
 			<key>hash2</key>
@@ -192,7 +192,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VcOR84n3a5Dq8NQc6qJDqh/7x4Fm+FDTph1/D4OuMrQ=
+			RZWqpIEgGkk3/WzLpjZ8qiq5iWohugc0PO4PQFGP0D4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -201,14 +201,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vjc5iOT/cH9ACBnE14W4amV9xl9GyOJCncgD++hYzpE=
+			k9ZCEt2h6JpTzBv8q3pLhA2JmSNTr+grAJqfHzpXqjY=
 			</data>
 		</dict>
 		<key>fullscreen_layout.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VBWwUxkMpZuZX9HXFAJfJ3PH5BZJVh0B+TR+cwHo3ds=
+			gRMYI09Sy+WAeQiZmVmJiLlJOOawGHTYfxs9d97skwc=
 			</data>
 		</dict>
 		<key>group_pill_pager_item.json</key>
@@ -229,14 +229,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Stw6oDEHCWB9KO3Fk79vkVfO11TpIfnERq/bS+f3Zis=
+			W8uQvzfnyUrDHwIwEJYFrAyKCX6BI5/uWsuORT4iF88=
 			</data>
 		</dict>
 		<key>ios_without_login_qa.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Az5iOKcaKJoiaoEjki2128/rZgLZgcAWqL6bJd90tgw=
+			czCwGREAX+eaOKwf+fb3tYobxZhIQ0cPSzELR1kBUqA=
 			</data>
 		</dict>
 		<key>placement_config.json</key>
@@ -257,7 +257,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3+0Soib958ixtKiTLDDTkwgJMjZoAEqAOcv2sKbG3bQ=
+			hk59P4JWZaIz0s0Sx9rpcY4VxH7wWExOXROV0Fr7e24=
 			</data>
 		</dict>
 	</dict>

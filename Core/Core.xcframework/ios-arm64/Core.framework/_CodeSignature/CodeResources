@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		000f4+MmFcXyPoEHGZGnMXohjW8=
+		J3X1oFIkQUyvfvEfHkqX0Ed8nbI=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -14,19 +14,23 @@
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		MVC4q1JYbj5nP/MqoYLbJy61L9Y=
+		tsQzM3NDrwTCiI3nHxU4DUpRG6M=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		GcCuxyXnMSIJMG50d8bzhLUo7/4=
+		kOrg4txzpnsp93RuTePiaUZmUCU=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		MVC4q1JYbj5nP/MqoYLbJy61L9Y=
+		tsQzM3NDrwTCiI3nHxU4DUpRG6M=
 		</data>
 		<key>Package.resolved</key>
 		<data>
 		jXdi1mRB/oLNYT1Z6k7C11K/j1A=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		fKB20YNF0hvGQYRo6JyqJ/k10/E=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -39,7 +43,7 @@
 		</dict>
 		<key>xcschememanagement.plist</key>
 		<data>
-		8TkxBgp1UJsYpIgVW/8bpVVYO9I=
+		FjAAp2/D3KmkHuPsft7nroB4x0M=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -48,28 +52,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8IZafocR2imrQC+hHJgDzf3BVBsDgYTs/FS8VjOoNyM=
+			ysjzD2mgJxJlxOUkvYwpIG7zXwoolhLBZ+zDCZidQ4w=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0a9VfhORlgmOyo8Lm/YV5wbGkjO1yDMGsYHiHD3kJB0=
+			VsYuGh8xrklgNViALa/g4qpX7iwXgHuFe+7DjAavuK0=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cYcLuUoy9mHnAtlXQMoC2z/82kd5dNIaoPKLcIzzrro=
+			uEYjib2K+3tibOjr5BywMQHwHteulf9GGKkzpwqHDn8=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0a9VfhORlgmOyo8Lm/YV5wbGkjO1yDMGsYHiHD3kJB0=
+			VsYuGh8xrklgNViALa/g4qpX7iwXgHuFe+7DjAavuK0=
 			</data>
 		</dict>
 		<key>Package.resolved</key>
@@ -77,6 +81,13 @@
 			<key>hash2</key>
 			<data>
 			pDxPGJcmOSaWyRSDn9rIThQhsPgDI2QxZCTxF4iruCY=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			pO1Xsos7W5bmzzNRpVhcOwATLro+N6Bly9XZWV8ysw8=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
@@ -92,7 +103,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nU/m9KG7QQ2SHUaY54QaUyRKm/ONI/lUzVbV1n7xZPc=
+			UjuC3yDfn26O46YLGkCQBeZ8xBaYdRkd67U3Zv7/JeU=
 			</data>
 		</dict>
 	</dict>
