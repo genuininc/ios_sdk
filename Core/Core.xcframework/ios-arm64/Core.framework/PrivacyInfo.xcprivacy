@@ -10,9 +10,8 @@
       Core.framework. Their required-reason APIs and collected data types are
       re-declared here, together with Core's own usage, so the framework ships
       a single manifest at its bundle root (resolves ITMS-91061 / ITMS-91065):
-        - Kingfisher      (github.com/onevcat/Kingfisher)       — FileTimestamp
         - RudderStack     (github.com/rudderlabs/rudder-sdk-swift) — SystemBootTime, UserDefaults, analytics data
-        - Core            (this framework)                       — UserDefaults, FileTimestamp
+        - Core            (this framework)                       — UserDefaults, FileTimestamp (image + language caches)
     -->
     <key>NSPrivacyTracking</key>
     <false/>
@@ -20,7 +19,7 @@
     <array/>
     <key>NSPrivacyAccessedAPITypes</key>
     <array>
-        <!-- Kingfisher disk cache + Core language cache read/write file timestamps -->
+        <!-- Core image disk cache and language cache read/write file timestamps -->
         <dict>
             <key>NSPrivacyAccessedAPIType</key>
             <string>NSPrivacyAccessedAPICategoryFileTimestamp</string>

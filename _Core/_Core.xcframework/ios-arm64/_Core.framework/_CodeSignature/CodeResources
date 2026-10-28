@@ -8,51 +8,40 @@
 		<data>
 		b49g2lEfWkLdCENlvL8/ZTpcBo4=
 		</data>
-		<key>Modules/_Core.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
-		<data>
-		SDXq+10KywftWP54CKoESLQylUg=
-		</data>
 		<key>Modules/_Core.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		BP3WpT/Zj67hd1UYUNmTP8pH6cg=
+		s6qU3vF7Z+IU2gaGHyw7vYA1Rgc=
 		</data>
 		<key>Modules/_Core.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		SDXq+10KywftWP54CKoESLQylUg=
+		0ZW660ModE3TfHX9wv4Va2xUQP0=
 		</data>
 		<key>xcschememanagement.plist</key>
 		<data>
-		B2BXlHBJVIkWZF/5r5krVQMj23s=
+		sL9qZr6tFH+N5hSjvCh+/RQ9h5I=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Modules/_Core.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			0qhT+VPMqrlUjSZb4pGwTO9YHoAzU+DK6g5J/4ur9wU=
-			</data>
-		</dict>
 		<key>Modules/_Core.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WhNN3kPj1yaKChFVFHIXXgFZNna2e/nlNfFPcMSsZr4=
+			vUnPi94RXovbIUERfsxgv6iTjdw8BWA7tyIIVmqwuCo=
 			</data>
 		</dict>
 		<key>Modules/_Core.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0qhT+VPMqrlUjSZb4pGwTO9YHoAzU+DK6g5J/4ur9wU=
+			zwDQ3sVXavMWysiAGuBP4h2GOfIqYgqDGUaUU/LEPjo=
 			</data>
 		</dict>
 		<key>xcschememanagement.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SzLAMPC+tHcgcKS4KC9vv+/ORmn7mkbfY6JgmK9rJHk=
+			dUnnOs7Ta3JQCOs/clhVB2xQchJ1fnIWDvLNZCQ/P9Y=
 			</data>
 		</dict>
 	</dict>

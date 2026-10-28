@@ -8,32 +8,21 @@
 		<data>
 		G+1dLwRdMoZMq0wZAhyuAQtbjpQ=
 		</data>
-		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
-		<data>
-		4xGaAfmpiO5yAr32Xrp9A5+0rrg=
-		</data>
 		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
 		B9CKqRRZvfpiWICa6EUrLIlrgy8=
 		</data>
 		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		4xGaAfmpiO5yAr32Xrp9A5+0rrg=
+		szwwdLb6q/v2z4HV8qcVmQJbWHc=
 		</data>
 		<key>xcschememanagement.plist</key>
 		<data>
-		vST5LGsK+Cm11S4IQLDF+IX06e4=
+		vWAs7aV7Xlnbi00xnVq7TBtiEz0=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			s+yC24DoenOSQMn73nU7ZDF8vQJWe0sXeCGAHZJTFd4=
-			</data>
-		</dict>
 		<key>Modules/GenuinInStreamAds.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
@@ -45,14 +34,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s+yC24DoenOSQMn73nU7ZDF8vQJWe0sXeCGAHZJTFd4=
+			HHSZdA+1v7p8ViHzS07LSG+eKsM04MKMTyewFT3XdpY=
 			</data>
 		</dict>
 		<key>xcschememanagement.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m1y91BTLMxoYOhfkEqJYD1krpvDucvCWQaACkp9oTUM=
+			1OMEbV2t/3Ndv/WG/h7aNJRJs7vjn/oPmG/507w8wKg=
 			</data>
 		</dict>
 	</dict>

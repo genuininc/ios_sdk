@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!--
+      GenuinMetaAds itself neither tracks nor collects: it starts the Meta Audience
+      Network SDK and hands it a placement id. Meta's own tracking, collected data
+      types and accessed-API reasons are declared in the PrivacyInfo.xcprivacy
+      shipped with the FBAudienceNetwork xcframework, which Xcode aggregates into
+      the host app's privacy report alongside this one.
+    -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array/>
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+</dict>
+</plist>
