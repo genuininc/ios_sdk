@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!--
+      GenuinPangleAds itself neither tracks nor collects: it reads the ATT status
+      (never prompts) and hands a slot id to the Pangle SDK. Pangle's own tracking,
+      collected data types and accessed-API reasons are declared in the
+      PrivacyInfo.xcprivacy inside PAGAdSDK.xcframework, which Xcode aggregates into
+      the host app's privacy report alongside this one.
+    -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array/>
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+</dict>
+</plist>

@@ -1,0 +1,200 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -Osize -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GenuinFeed
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+import Combine
+import Core
+import DeveloperToolsSupport
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public class BGFeedContainerProvider : Core.IFeedContainerProvider {
+  final public let feedVisibilityConfiguration: Core.BGFeedVisibilityConfiguration
+  public init(feedVisibilityConfiguration: Core.BGFeedVisibilityConfiguration = BGFeedVisibilityConfiguration(
+             
+            feedRules: [.cardChrome: .activePlayerOnly, .sectionDetail: .onInactivePlayer],
+            fullscreenRules: [:]
+        ))
+  public var fullscreenTapBehavior: Core.BGFeedFullscreenTapBehavior {
+    get
+  }
+  @_Concurrency.MainActor public func getContainer(_ context: Core.BGFeedContainerContext) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor public func getFSContainer(_ context: Core.BGFeedContainerContext) -> some SwiftUICore.View
+  
+  public typealias Container = @_opaqueReturnTypeOf("$s10GenuinFeed23BGFeedContainerProviderC03getD0yQr4Core0cD7ContextVF", 0) __
+  public typealias FSContainer = @_opaqueReturnTypeOf("$s10GenuinFeed23BGFeedContainerProviderC14getFSContaineryQr4Core0cD7ContextVF", 0) __
+  @objc deinit
+}
+public struct BGEmbedAttributes : Core.BGFeedAttributes {
+  public let embedId: Swift.String
+  public var uniqueId: Swift.String?
+  public var ssoToken: Swift.String?
+  public var params: [Swift.String : Any]?
+  public var contextualParams: [Swift.String : Any]?
+  public var containerConfiguration: Core.BGContainerConfiguration
+  public var navigationMode: Core.BGFullScreenMode
+  public var cardSize: Core.BGLayoutSize?
+  public var configuration: Core.BGEmbedConfiguration?
+  public init(embedId: Swift.String, uniqueId: Swift.String? = nil)
+}
+public struct BGPlacementAttributes : Core.BGFeedAttributes {
+  public let placementId: Swift.String
+  public let styleId: Swift.String
+  public var uniqueId: Swift.String?
+  public var ssoToken: Swift.String?
+  public var params: [Swift.String : Any]?
+  public var contextualParams: [Swift.String : Any]?
+  public var containerConfiguration: Core.BGContainerConfiguration
+  public var navigationMode: Core.BGFullScreenMode
+  public var cardSize: Core.BGLayoutSize?
+  public var configuration: Core.BGPlacementConfiguration?
+  public init(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String? = nil)
+}
+extension Core.BGPagerItem {
+  @_Concurrency.MainActor public static func feed(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String = "", title: Swift.String? = nil, icon: Swift.String? = nil, fspConfig: Core.BGFSPConfig? = nil, cardConfig: Core.BGCardConfig? = nil, videoPresentation: Core.BGVideoPresentation = .default, positionStore: Core.BGWallPositionStore? = nil) -> Core.BGPagerItem
+  @_Concurrency.MainActor public static func custom(id: Swift.String, title: Swift.String? = nil, icon: Swift.String? = nil, iconImage: SwiftUICore.Image? = nil, onActivate: (() -> Swift.Void)? = nil, onDeactivate: (() -> Swift.Void)? = nil, @SwiftUICore.ViewBuilder view: @escaping () -> some View) -> Core.BGPagerItem
+}
+@_Concurrency.MainActor @preconcurrency public struct BGSidePanelView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init()
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s10GenuinFeed15BGSidePanelViewV4bodyQrvp", 0) __
+}
+public enum BGSidePanelAction : Swift.String, Swift.CaseIterable, Swift.Identifiable {
+  case profile
+  case manage
+  case settings
+  case inviteFriend
+  case logout
+  public var id: Swift.String {
+    get
+  }
+  public var title: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [GenuinFeed.BGSidePanelAction]
+  public typealias ID = Swift.String
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [GenuinFeed.BGSidePanelAction] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgSidePanelAction: Core.BGEnvironmentAction<GenuinFeed.BGSidePanelAction>? {
+    get
+    set
+  }
+}
+@_Concurrency.MainActor @preconcurrency public struct BGStandardWallView<Provider> : SwiftUICore.View where Provider : Core.IFeedContainerProvider {
+  @_Concurrency.MainActor public init(mainPages: [Core.BGPagerItem] = [], leftOverlayPages: [Core.BGPagerItem] = [], rightOverlayPages: [Core.BGPagerItem] = [], navBarStyle: Core.BGWallNavBarStyle = .init(), feedContainerProvider: Provider)
+  @_Concurrency.MainActor public init(viewModel: Core.BGPagerViewModel, navBarStyle: Core.BGWallNavBarStyle = .init(), feedContainerProvider: Provider)
+  @_Concurrency.MainActor public init(attributes: GenuinFeed.BGPlacementAttributes, leftOverlayPages: [Core.BGPagerItem] = [], rightOverlayPages: [Core.BGPagerItem] = [], navBarStyle: Core.BGWallNavBarStyle = .init(), feedContainerProvider: Provider)
+  @_Concurrency.MainActor public init(attributes: GenuinFeed.BGEmbedAttributes, leftOverlayPages: [Core.BGPagerItem] = [], rightOverlayPages: [Core.BGPagerItem] = [], navBarStyle: Core.BGWallNavBarStyle = .init(), feedContainerProvider: Provider)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s10GenuinFeed18BGStandardWallViewV4bodyQrvp", 0) __<Provider>
+}
+extension GenuinFeed.BGStandardWallView {
+  @_Concurrency.MainActor @preconcurrency public func onSearchTapped(_ action: @escaping () -> Swift.Void) -> GenuinFeed.BGStandardWallView<Provider>
+  @_Concurrency.MainActor @preconcurrency public func onAccountAction(_ action: @escaping (GenuinFeed.BGSidePanelAction) -> Swift.Void) -> GenuinFeed.BGStandardWallView<Provider>
+}
+extension GenuinFeed.BGStandardWallView where Provider == GenuinFeed.BGFeedContainerProvider {
+  @_Concurrency.MainActor public init(mainPages: [Core.BGPagerItem] = [], leftOverlayPages: [Core.BGPagerItem] = [], rightOverlayPages: [Core.BGPagerItem] = [], navBarStyle: Core.BGWallNavBarStyle = .init())
+  @_Concurrency.MainActor public init(viewModel: Core.BGPagerViewModel, navBarStyle: Core.BGWallNavBarStyle = .init())
+  @_Concurrency.MainActor public init(attributes: GenuinFeed.BGPlacementAttributes, leftOverlayPages: [Core.BGPagerItem] = [], rightOverlayPages: [Core.BGPagerItem] = [], navBarStyle: Core.BGWallNavBarStyle = .init())
+  @_Concurrency.MainActor public init(attributes: GenuinFeed.BGEmbedAttributes, leftOverlayPages: [Core.BGPagerItem] = [], rightOverlayPages: [Core.BGPagerItem] = [], navBarStyle: Core.BGWallNavBarStyle = .init())
+}
+public struct BGWallMenuItemInfo : Swift.Identifiable {
+  public let id: Swift.String
+  public let title: Swift.String
+  public let icon: Swift.String?
+  public typealias ID = Swift.String
+}
+@_Concurrency.MainActor final public class BGWallMenuModel : Combine.ObservableObject {
+  @Combine.Published<[GenuinFeed.BGWallMenuItemInfo]> @_projectedValueProperty($items) @_Concurrency.MainActor final public var items: [GenuinFeed.BGWallMenuItemInfo] {
+    get
+  }
+  @_Concurrency.MainActor final public var $items: Combine.Published<[GenuinFeed.BGWallMenuItemInfo]>.Publisher {
+    get
+  }
+  @Combine.Published<Swift.String> @_projectedValueProperty($activeItemId) @_Concurrency.MainActor final public var activeItemId: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor final public var $activeItemId: Combine.Published<Swift.String>.Publisher {
+    get
+  }
+  @_Concurrency.MainActor public init()
+  @_Concurrency.MainActor final public func selectItem(id: Swift.String)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_Concurrency.MainActor @preconcurrency public struct BGEmbedView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(embedId: Swift.String, uniqueId: Swift.String? = nil)
+  @_Concurrency.MainActor @preconcurrency public func setConfig(params: [Swift.String : Any]? = nil, contextualParams: [Swift.String : Any]? = nil, isShowProfile: Swift.Bool? = nil, showNavigationBar: Swift.Bool? = nil, isDirectDeepLinkEnabled: Swift.Bool? = nil, isDirectDeepLinkWithLoginEnabled: Swift.Bool? = nil) -> GenuinFeed.BGEmbedView
+  @_Concurrency.MainActor @preconcurrency public func setSSOConfig(ssoToken: Swift.String) -> GenuinFeed.BGEmbedView
+  @_Concurrency.MainActor @preconcurrency public func setNavigationConfig(navConfig: Core.BGFullScreenMode) -> GenuinFeed.BGEmbedView
+  @_Concurrency.MainActor @preconcurrency public func setSize(width: CoreFoundation.CGFloat? = nil, height: CoreFoundation.CGFloat? = nil) -> GenuinFeed.BGEmbedView
+  @_Concurrency.MainActor @preconcurrency public func setConfiguration(_ configuration: Core.BGEmbedConfiguration) -> GenuinFeed.BGEmbedView
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s10GenuinFeed11BGEmbedViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGExploreView<Provider> : SwiftUICore.View where Provider : Core.IFeedContainerProvider {
+  @_Concurrency.MainActor @preconcurrency public init(feedContainerProvider: Provider)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s10GenuinFeed13BGExploreViewV4bodyQrvp", 0) __<Provider>
+}
+extension GenuinFeed.BGExploreView where Provider == GenuinFeed.BGFeedContainerProvider {
+  @_Concurrency.MainActor @preconcurrency public init()
+}
+@_Concurrency.MainActor @preconcurrency public struct BGPlacementView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(placementId: Swift.String, styleId: Swift.String, uniqueId: Swift.String? = nil)
+  @_Concurrency.MainActor @preconcurrency public func setConfig(params: [Swift.String : Any]? = nil, contextualParams: [Swift.String : Any]? = nil, isShowProfile: Swift.Bool? = nil, showNavigationBar: Swift.Bool? = nil, isDirectDeepLinkEnabled: Swift.Bool? = nil, isDirectDeepLinkWithLoginEnabled: Swift.Bool? = nil) -> GenuinFeed.BGPlacementView
+  @_Concurrency.MainActor @preconcurrency public func setSSOConfig(ssoToken: Swift.String) -> GenuinFeed.BGPlacementView
+  @_Concurrency.MainActor @preconcurrency public func setNavigationConfig(navConfig: Core.BGFullScreenMode) -> GenuinFeed.BGPlacementView
+  @_Concurrency.MainActor @preconcurrency public func setSize(width: CoreFoundation.CGFloat? = nil, height: CoreFoundation.CGFloat? = nil) -> GenuinFeed.BGPlacementView
+  @_Concurrency.MainActor @preconcurrency public func setConfiguration(_ configuration: Core.BGPlacementConfiguration) -> GenuinFeed.BGPlacementView
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s10GenuinFeed15BGPlacementViewV4bodyQrvp", 0) __
+}
+public enum BGFeed {
+  public static var module: any Any.Type {
+    get
+  }
+}
+public enum BGFeedAssets {
+  public enum Icons {
+    public static let explore: SwiftUICore.Image
+    public static let sidePanel: SwiftUICore.Image
+    public static let manage: SwiftUICore.Image
+    public static let settings: SwiftUICore.Image
+    public static let inviteFriend: SwiftUICore.Image
+    public static let logout: SwiftUICore.Image
+    public static let profilePlaceholder: SwiftUICore.Image
+  }
+}
+extension GenuinFeed.BGSidePanelView : Swift.Sendable {}
+extension GenuinFeed.BGSidePanelAction : Swift.Equatable {}
+extension GenuinFeed.BGSidePanelAction : Swift.Hashable {}
+extension GenuinFeed.BGSidePanelAction : Swift.RawRepresentable {}
+extension GenuinFeed.BGStandardWallView : Swift.Sendable {}
+extension GenuinFeed.BGWallMenuModel : Swift.Sendable {}
+extension GenuinFeed.BGEmbedView : Swift.Sendable {}
+extension GenuinFeed.BGExploreView : Swift.Sendable {}
+extension GenuinFeed.BGPlacementView : Swift.Sendable {}

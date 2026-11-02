@@ -1,0 +1,97 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -Osize -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GenuinComments
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+import AVFoundation
+import Accelerate
+import Combine
+import Core
+import CoreData
+import CoreGraphics
+import DeveloperToolsSupport
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_Concurrency.MainActor @preconcurrency public struct BGCommentFloatingSheet : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s14GenuinComments22BGCommentFloatingSheetV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BGCommentSheetOverlay : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(conversationId: Swift.String, chatId: Swift.String? = nil, isPresented: SwiftUICore.Binding<Swift.Bool>, countText: Swift.String = "0")
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s14GenuinComments21BGCommentSheetOverlayV4bodyQrvp", 0) __
+}
+
+public enum BGComment {
+  public static var module: any Any.Type {
+    get
+  }
+}
+public typealias BGPendingCommentCoreDataClassSet = Foundation.NSSet
+@_inheritsConvenienceInitializers @objc(BGPendingComment) nonisolated public class BGPendingComment : CoreData.NSManagedObject {
+  @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+public typealias BGPendingCommentCoreDataPropertiesSet = Foundation.NSSet
+extension GenuinComments.BGPendingComment {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<GenuinComments.BGPendingComment>
+  @objc @NSManaged nonisolated dynamic public var chatId: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var commentText: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var conversationId: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var createdAt: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var duration: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var localId: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var localMediaPath: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var parentCommentId: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var sendState: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var thumbnailPath: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged nonisolated dynamic public var type: Swift.String? {
+    @objc get
+    @objc set
+  }
+}
+extension GenuinComments.BGPendingComment : Swift.Identifiable {
+  public typealias ID = Swift.ObjectIdentifier
+}
+public typealias BGCommentOutboxFoundationFrameworkSet = Foundation.NSSet
+public typealias BGCommentOutboxCoreDataFrameworkManagedObject = CoreData.NSManagedObject
+extension GenuinComments.BGCommentFloatingSheet : Swift.Sendable {}
+extension GenuinComments.BGCommentSheetOverlay : Swift.Sendable {}

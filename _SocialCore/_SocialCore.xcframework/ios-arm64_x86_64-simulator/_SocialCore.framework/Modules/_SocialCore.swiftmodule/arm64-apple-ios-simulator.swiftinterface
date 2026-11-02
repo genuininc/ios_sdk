@@ -1,0 +1,124 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -Osize -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name _SocialCore
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+import AVFoundation
+import Combine
+import Core
+import CoreGraphics
+import DeveloperToolsSupport
+import Foundation
+import GenuinFeed
+import Photos
+import PhotosUI
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _PhotosUI_SwiftUI
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_Concurrency.MainActor @preconcurrency public struct BGSocialCoreCreatePostRow : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(id: Swift.String, action: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s11_SocialCore08BGSocialB13CreatePostRowV4bodyQrvp", 0) __
+}
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgOpenGroup(id groupId: Swift.String?) -> some SwiftUICore.View
+  
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgSocialCorePinnedTopInset: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  public var bgSocialCorePageViewportHeight: CoreFoundation.CGFloat {
+    get
+    set
+  }
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgPagerTabHeaderResizeAnimation: SwiftUICore.Animation? {
+    get
+    set
+  }
+}
+@available(iOS 17.0, *)
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgPagerTabItem(tab: some Hashable) -> some SwiftUICore.View
+  
+}
+extension SwiftUICore.EnvironmentValues {
+  public var bgPagerTabPageProgress: CoreFoundation.CGFloat? {
+    get
+    set
+  }
+}
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgSocialCoreAvatarPreview(url: Foundation.URL?) -> some SwiftUICore.View
+  
+}
+@_Concurrency.MainActor @preconcurrency public struct BGSocialCoreConfirmationSheet : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(title: Swift.String, message: Swift.String, actionTitle: Swift.String, isLoading: Swift.Bool, onConfirm: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s11_SocialCore08BGSocialB17ConfirmationSheetV4bodyQrvp", 0) __
+}
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func bgSocialCoreReplacementTransition() -> some SwiftUICore.View
+  
+}
+public enum BGSocialCoreAssets {
+  public enum Images {
+    public static let communities: SwiftUICore.Image
+    public static let joinGroup: SwiftUICore.Image
+    public static let block: SwiftUICore.Image
+    public static let instagram: SwiftUICore.Image
+    public static let linkedIn: SwiftUICore.Image
+    public static let discord: SwiftUICore.Image
+    public static let reddit: SwiftUICore.Image
+    public static let lock: SwiftUICore.Image
+    public static let `private`: SwiftUICore.Image
+    public static let `public`: SwiftUICore.Image
+    public static let tikTok: SwiftUICore.Image
+    public static let twitter: SwiftUICore.Image
+    public static let verifyTick: SwiftUICore.Image
+    public static let threeDotHorizontal: SwiftUICore.Image
+    public static let youtube: SwiftUICore.Image
+    public static let play: SwiftUICore.Image
+    public static let playSocial: SwiftUICore.Image
+    public static let add: SwiftUICore.Image
+    public static let keypad: SwiftUICore.Image
+    public static let mailInvite: SwiftUICore.Image
+    public static let linkInvite: SwiftUICore.Image
+    public static let plus: SwiftUICore.Image
+    public static let minus: SwiftUICore.Image
+    public static let more: SwiftUICore.Image
+    public static let bannerImage: SwiftUICore.Image
+    public static let delete: SwiftUICore.Image
+    public static let camera: SwiftUICore.Image
+    public static let rightSettings: SwiftUICore.Image
+    public static let profile: SwiftUICore.Image
+    public static let report: SwiftUICore.Image
+    public static let brand: SwiftUICore.Image
+    public static let create: SwiftUICore.Image
+    public static let user: SwiftUICore.Image
+    public static let avatarPlaceholder: SwiftUICore.Image
+    public static let search: SwiftUICore.Image
+    public static let selected: SwiftUICore.Image
+    public static let success: SwiftUICore.Image
+    public static let failure: SwiftUICore.Image
+    public static let refresh: SwiftUICore.Image
+    public static let copy: SwiftUICore.Image
+    public static let down: SwiftUICore.Image
+    public static let bellRing: SwiftUICore.Image
+    public static let approve: SwiftUICore.Image
+    public static let reject: SwiftUICore.Image
+    public static let createPost: SwiftUICore.Image
+  }
+}
+extension _SocialCore.BGSocialCoreCreatePostRow : Swift.Sendable {}
+extension _SocialCore.BGSocialCoreConfirmationSheet : Swift.Sendable {}

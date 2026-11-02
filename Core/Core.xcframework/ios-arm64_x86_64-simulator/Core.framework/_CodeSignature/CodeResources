@@ -6,56 +6,52 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		J3X1oFIkQUyvfvEfHkqX0Ed8nbI=
+		DYfLW16TLmfKGGvGxvWrhAKmAnk=
 		</data>
 		<key>Info.plist</key>
 		<data>
 		Z3fg24yfN6sI0QaRUt7qou7bJMQ=
 		</data>
-		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
-		<data>
-		k4m+vqKO0uCA1+h5hjhYEVq6RbA=
-		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		o9JRSort+j58yZ0T0wvdBAhrGRc=
+		hnNu+OhspMhUXOnBwdh4A/0iiWU=
 		</data>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		k4m+vqKO0uCA1+h5hjhYEVq6RbA=
-		</data>
-		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
-		<data>
-		l8pXeHCRL/6ysS/H5XCNXIE5Enc=
+		XKZ+r0J6pnUHFuh4acGq5pNIUr0=
 		</data>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		olLIT8deBurU3e+ltjaLhhke0As=
+		rY/w8lifsU1YvHdaAmSTWkSYteM=
 		</data>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		l8pXeHCRL/6ysS/H5XCNXIE5Enc=
+		knphl2SscpwrIa5kSI/iub10aI4=
 		</data>
 		<key>Package.resolved</key>
 		<data>
-		jXdi1mRB/oLNYT1Z6k7C11K/j1A=
+		Ni6mE0VQ9O4HromXkoTxrJPecIg=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
-		fKB20YNF0hvGQYRo6JyqJ/k10/E=
+		AInGSUdNCqnITdLcs/E7F8IoDTM=
+		</data>
+		<key>countries.json</key>
+		<data>
+		KmBxnXgiqbb5E/SVM1Z1P6EHNgI=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9nDE+RqHAnLgwdTCTyHgesUIaqI=
+			g+RcnuDH+6DNkFNEhR8QFB5gVZI=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>xcschememanagement.plist</key>
 		<data>
-		eAQucEt9ewXDXIaKObgfZzR3Bfc=
+		jt06F9TFicCUJCo52p9BLb9jmHI=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -64,70 +60,63 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ysjzD2mgJxJlxOUkvYwpIG7zXwoolhLBZ+zDCZidQ4w=
-			</data>
-		</dict>
-		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			LE1NWOD4WQceTz3bVuGD1bZAEhGCECFsChS42J/7boA=
+			0SGARlKew+uoEiXDlHvuedd3uhYs7mVkexXbA2n5zFU=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mwzpRGwYkILC5hBLI4hWDf3a2Gk8+hGuJc2qI5GbCEw=
+			AQjLaTeU766GwHN+4o2trMdscdQLPhZ3m0NIdC8WGVA=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LE1NWOD4WQceTz3bVuGD1bZAEhGCECFsChS42J/7boA=
-			</data>
-		</dict>
-		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			6P5JzyN+z14f+DH/NwoRS6YRJ44iasqxJsegTD9glDA=
+			Nr97luFuFE8KBt8TKjKyK7VkgyTA8rF3D2yYl4XtFMg=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			If7KNdqpTBA8/KSSCpNaoFK64Tl48QpMghNrMfd8Mc8=
+			vRH7Z9n56EQjfNnlat6DJB5+8nf2cytul2XWCmKAZHo=
 			</data>
 		</dict>
 		<key>Modules/Core.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6P5JzyN+z14f+DH/NwoRS6YRJ44iasqxJsegTD9glDA=
+			ALziqpEmRGXJ4kNaD/X/yHJHKnUjciXmRQY+/0hW9js=
 			</data>
 		</dict>
 		<key>Package.resolved</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pDxPGJcmOSaWyRSDn9rIThQhsPgDI2QxZCTxF4iruCY=
+			MXqlpYUjJViKF4AXqrxx0fQnWF1JahGf0TfEPg05AcQ=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pO1Xsos7W5bmzzNRpVhcOwATLro+N6Bly9XZWV8ysw8=
+			dSCBFr9SKI9WIpHKDMQ2uM03IoRgl9b6YVExS8AJ4pM=
+			</data>
+		</dict>
+		<key>countries.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ePBtUT2K2ci40JvrzGKVDnHWIwl0RTO/lYwbSLpikyE=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			C9WsiPZNp5VZEsJWEcQDbnZxqy5f7uAP0sMNo5akNsM=
+			2YLANwziG1IsCzLWenAR9isjNN9Vb6bwJ0fhkoEBy4g=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -136,7 +125,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			i/8HdiLHIluL3h3Z33AwePKmRuczoILiUlDHme/VouE=
+			wmSeRtWjXxUadj62X3tgATxzBFNVqr3xcGlM8gZJlXE=
 			</data>
 		</dict>
 	</dict>
