@@ -519,6 +519,9 @@ extension _FeedCore.BGFeedModel {
   public var hasAudioAd: Swift.Bool {
     get
   }
+  @_Concurrency.MainActor public var isWaterfallFirstAdItem: Swift.Bool {
+    get
+  }
   @_Concurrency.MainActor public var isEmptyAdItem: Swift.Bool {
     get
   }

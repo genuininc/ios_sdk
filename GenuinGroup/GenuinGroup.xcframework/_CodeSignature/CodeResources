@@ -10,7 +10,7 @@
 		</data>
 		<key>ios-arm64/GenuinGroup.framework/GenuinGroup</key>
 		<data>
-		DSOqkgWPmu6oHux9KQwbcKRGV24=
+		lG0LDYM93vC8D/nvr/wVv2JqKP4=
 		</data>
 		<key>ios-arm64/GenuinGroup.framework/Info.plist</key>
 		<data>
@@ -47,7 +47,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/GenuinGroup.framework/GenuinGroup</key>
 		<data>
-		ha/ZZzlu6Idl8PcfDW5g5l08Xmg=
+		On7SRBSArzNF+4cKJPQCwh14Fzw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/GenuinGroup.framework/Info.plist</key>
 		<data>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KVPi+DrZuZT8+L1qy3NOTC3zQiNdj1sZqG7ff5OzYV8=
+			g+TrbJ7xyPEnETWOkpX0XvUUDPqNCyn1nMhcnZDSkLE=
 			</data>
 		</dict>
 		<key>ios-arm64/GenuinGroup.framework/Info.plist</key>
@@ -158,7 +158,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dEILH5mMXkUnvRO3hD2Awh0hvtm4nE0aGzvj/0xgODc=
+			p79VTjXcxfT8anRCidZ8gsdIBW2KHYOcTIFHwAzGy0w=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/GenuinGroup.framework/Info.plist</key>

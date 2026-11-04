@@ -10,7 +10,7 @@
 		</data>
 		<key>ios-arm64/Core.framework/Core</key>
 		<data>
-		zHQ4pbFp2gBGV1F4GPMGr4ZREjs=
+		S6nRCNEvDONB2GgSAVW77SJlKaA=
 		</data>
 		<key>ios-arm64/Core.framework/Info.plist</key>
 		<data>
@@ -59,7 +59,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Core.framework/Core</key>
 		<data>
-		n8UMqein1fFDFPRAEzYhnA8fXwI=
+		at5rf14n+mI7laHBPv9j9vCAbfI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Core.framework/Info.plist</key>
 		<data>
@@ -124,7 +124,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+Wporhu6eH+Vb+2kjkCphfnpIR66YvzccyJmDSiOJGc=
+			VMmSqxA/yD6eRBjz7STfSk7HPmi12masVJcJL7sEsNo=
 			</data>
 		</dict>
 		<key>ios-arm64/Core.framework/Info.plist</key>
@@ -203,7 +203,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WEV1aYhlGir6cKU/9uk/ms2lt64GENmT/FCC7TNRAog=
+			rvfvII+rxyxa92zJ35DDRq7OElWQQlJJun6hBKBsE64=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Core.framework/Info.plist</key>

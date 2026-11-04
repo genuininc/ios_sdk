@@ -10,7 +10,7 @@
 		</data>
 		<key>ios-arm64/GenuinCommunity.framework/GenuinCommunity</key>
 		<data>
-		WRA/5etwI6k4k9s3dzJ8y9CJ8wo=
+		0wuxiNiLJP3cdX7m8n1NTdY1gv8=
 		</data>
 		<key>ios-arm64/GenuinCommunity.framework/Info.plist</key>
 		<data>
@@ -47,7 +47,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/GenuinCommunity.framework/GenuinCommunity</key>
 		<data>
-		0oXsUXflg0j+OzWCZTVBTWh6XRM=
+		IZy/o2pZfRdHKnkxd6ysosvFRLs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/GenuinCommunity.framework/Info.plist</key>
 		<data>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			g2obLqzaqIKNJCmSRf9AVmBBAAODx0mQBl6lXVE3FP0=
+			HZvp45rVxOAXZei4Cj8EcACfVfHn45PHeBz5HSe0bss=
 			</data>
 		</dict>
 		<key>ios-arm64/GenuinCommunity.framework/Info.plist</key>
@@ -158,7 +158,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vTnOYdWLrZ75K5u33WMZBX2zs29lyTUXNL70M1eJag4=
+			/sWKi5gOaGFNWtZdVAYmqDJLrIOFYMlT/q834dFG6NU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/GenuinCommunity.framework/Info.plist</key>

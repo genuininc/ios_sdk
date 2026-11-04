@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/GenuinMetaAds.framework/GenuinMetaAds</key>
 		<data>
-		rXfuf6BMoGaeMW+ydmEXb4eKZu0=
+		mNG9Qud2sVcb8iR1aV3wrEyPb9w=
 		</data>
 		<key>ios-arm64/GenuinMetaAds.framework/Info.plist</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/GenuinMetaAds.framework/GenuinMetaAds</key>
 		<data>
-		YdLlT5Y2ngC+OfjwK80TzOhEsbk=
+		IfypkFT43nro2KiBvvuGlIoJrfM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/GenuinMetaAds.framework/Info.plist</key>
 		<data>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6WyDIIwuTeSDQzUazNIYqECMOmmzWS36gfvg+UeuzwE=
+			afwzuj4pudqNayLaes5+m6m/QtSTH8qOpSaEiBsCYNI=
 			</data>
 		</dict>
 		<key>ios-arm64/GenuinMetaAds.framework/Info.plist</key>
@@ -109,7 +109,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NFzmVZpZ+EgmGSEMSeb+y2NBDgcyiM52AFgI+bTgAmg=
+			eE9dYffQYILBnGWvgJEtDfKH/5rU0KE99OUzmoAnZ4k=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/GenuinMetaAds.framework/Info.plist</key>

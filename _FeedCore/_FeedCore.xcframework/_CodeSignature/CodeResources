@@ -14,11 +14,11 @@
 		</data>
 		<key>ios-arm64/_FeedCore.framework/Modules/_FeedCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		4Z/bZQhqi3DfUDKwr+Q8O7VmhRk=
+		a9WFj9kncO1qmJANz2Ph6OL17cE=
 		</data>
 		<key>ios-arm64/_FeedCore.framework/Modules/_FeedCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		UVjWTSCdcXpkpNqgA10I5/euqJU=
+		sxtMRSARqwIL+8QXpgqMeU2m8jY=
 		</data>
 		<key>ios-arm64/_FeedCore.framework/Package.resolved</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>ios-arm64/_FeedCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		92nCz+ImcCdNhl8Scr35IFr8/jA=
+		3aejXquG2Gmr50QqcQZuWCXtq9o=
 		</data>
 		<key>ios-arm64/_FeedCore.framework/_FeedCore</key>
 		<data>
-		WiiETBXOluOKGjbY9XJrgm9TFZ8=
+		5yEycgjWXl8q1wwqL3zCigvZ078=
 		</data>
 		<key>ios-arm64/_FeedCore.framework/en.lproj/Localizable.strings</key>
 		<dict>
@@ -63,19 +63,19 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Modules/_FeedCore.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		5ccyNfJg+BQl0ZfJ+9dmKbgF/Ro=
+		aDKncbyoonUAas953CFlpQO6EQI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Modules/_FeedCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		3cTTzZB1Ybv58lYfhiXC/BG5Bog=
+		GvC5GkUUQeJlad0ONXleBegGolM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		Xgb+5CDBc6CyBCRboKuWeOQbPrk=
+		aXINp9gTXJmMXn8tTwouDdnQ/X4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		tebGH2FHILjJc9uOOx49cul/82k=
+		BYGyFxo0+sABRGHgvCHKJ822PrI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Package.resolved</key>
 		<data>
@@ -87,11 +87,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		qo3kIuRNPwM1vy1ZDqyrS+tZ34k=
+		kKio50Jhv6HaWev7a1BuPeqrIyc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/_FeedCore</key>
 		<data>
-		qlk8bMgrdf+f/6vQaUBXadMlK6s=
+		u78rRobNeJeTYuiyiVPkZ/BvQxg=
 		</data>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/en.lproj/Localizable.strings</key>
 		<dict>
@@ -131,14 +131,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KtoT42dKtUCQvsswGIHO5AVYOlaBWG1+d/kI65G0knk=
+			yC0+nSbzo5g0AdijgNtyhUMZPTxoccFuQvd1AfscL4M=
 			</data>
 		</dict>
 		<key>ios-arm64/_FeedCore.framework/Modules/_FeedCore.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dOEKrqQ3Pfo1yecVJYRTaxFOkipEI2nPicY30Stncis=
+			Eip0WnMWsMu9FE7Uc0KSlWQ+soffbBjEoXwOc5ATLm0=
 			</data>
 		</dict>
 		<key>ios-arm64/_FeedCore.framework/Package.resolved</key>
@@ -159,14 +159,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6no6kzBVdaM5w9nhhpVbqPJ5CpW+mdf/VqfUKwvv8uo=
+			7utdNK9XCSKaLSznqjRFX0ZMN/mtZEnjZvKosJ0Lp+o=
 			</data>
 		</dict>
 		<key>ios-arm64/_FeedCore.framework/_FeedCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vXd8gSVccW+aAukQ9ET42Db/TDKAWJriz47qGZyLHhg=
+			pddTKfHIKr09SScxkjwCoaFW/dbGNLYZlfWLkynso8I=
 			</data>
 		</dict>
 		<key>ios-arm64/_FeedCore.framework/en.lproj/Localizable.strings</key>
@@ -210,28 +210,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JdSbCtHjjlp7QlVAlTlcwzO2FXfzUHOK7bKDooY1vzs=
+			E1ySsvI0UTDhfggCn4eqySOeBL7+9vcn5cf+RoVnnP0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Modules/_FeedCore.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AK0N2CJvbhI4wQJLipzNd48LKT/yJC0q5FKkroNPhV8=
+			sHKoeAHZiV6ITlsisPK8xCj74d1J3ow158wIVDM8CDE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iKEmqjiHWzqZzuMMqflc48y0+YObaBG9jlLWnKwNFsM=
+			uVl8WM8GJsi/OZanyWAX2DiHGDyIvSwyndXprOdyaPo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Modules/_FeedCore.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nWRBVzidZYURx0CMyLCGHWCivlbcYG2x8p6WkSBR9nk=
+			ru3CW9//u/9ZzvK87iBMWxcRNi9gt71j2McV2W9rMww=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/Package.resolved</key>
@@ -252,14 +252,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aweRdqwy/4BnLcxI315reERTVRmvezq5QrWcH96Qvz8=
+			PPEf6sFr7Dhf3Ar1k/CVCrxucSKzYxCXXeG51KvmI8E=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/_FeedCore</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2z/DHjEz3Q02uU828R6I3F4fpnV4cvpC3HjRF1GOPV8=
+			j0UzD2/lOXbTNNLi7neoIjT2VsmXA9L+tCE0kRR1yew=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/_FeedCore.framework/en.lproj/Localizable.strings</key>

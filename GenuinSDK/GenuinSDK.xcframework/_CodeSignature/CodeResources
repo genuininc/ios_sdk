@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/GenuinSDK.framework/GenuinSDK</key>
 		<data>
-		iz+sQxQeP0HowYzysurXfx8iBmQ=
+		tP/yLDq/yvfDBt2T5LsnHr3aBUg=
 		</data>
 		<key>ios-arm64/GenuinSDK.framework/Info.plist</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/GenuinSDK.framework/GenuinSDK</key>
 		<data>
-		uG2oCvUmWSfQrlbAhFaHucII+yY=
+		LtiJD1GKx7Wk65HxEybRQL+xbhw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/GenuinSDK.framework/Info.plist</key>
 		<data>
@@ -75,7 +75,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mcD03oU3+KqzJhPd+YG1M/sgXqQ5Rq6CCBiYehGj0bU=
+			76pjR5Ql1vpkBZCSRxgZ7+CE6g2JE7X4J5zC+WUqFoI=
 			</data>
 		</dict>
 		<key>ios-arm64/GenuinSDK.framework/Info.plist</key>
@@ -124,7 +124,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oLIGpD9kybBWBfo0YiWyM99y/SiMXEvZBdMIgEb4hJM=
+			7+YeRc8YSEcZGXwLWcvB4MKcepUK5b1QtqpHAzGsLCk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/GenuinSDK.framework/Info.plist</key>
